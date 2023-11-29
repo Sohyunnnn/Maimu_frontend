@@ -1,8 +1,39 @@
-.MainPage{
+.MainPage {
     color: black;
-    /*max-width: 480px;*/
-    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
-}
+  }
+  
+  .Main {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 390px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+  
+  .overlappingImage {
+    position: absolute;
+  }
+  
+  .molding {
+    background-color: #633208;
+    width: 390px;
+    height: 20px;
+    margin-top: 370px;
+  }
+  
+  .floor { 
+    background: linear-gradient(180deg, #F0C47A 0%, rgba(240, 196, 122, 0.45) 46.35%, rgba(240, 196, 122, 0.44) 67.19%, rgba(240, 196, 122, 0.00) 100%);
+    width: 390px;
+    height: 454px;
+  }
+  

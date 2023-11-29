@@ -1,0 +1,8 @@
+.MainPage{
+    color: black;
+    /*max-width: 480px;*/
+    height: 100%;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+}

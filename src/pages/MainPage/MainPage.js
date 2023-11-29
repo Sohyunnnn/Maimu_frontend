@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import "./MainPage.css";
 
-function MainPage() {
+const MainPage= () => {
   return (
-    <div>MainPage</div>
+    <div className='MainPage'>
+        <h3>hello</h3>
+    </div>
   )
 }
 

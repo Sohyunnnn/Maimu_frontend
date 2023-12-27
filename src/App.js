@@ -1,10 +1,10 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainPage from './pages/MainPage/MainPage';
-import { useEffect } from 'react';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage/MainPage";
+import Login from "./pages/MainPage/MainPage";
+import { useEffect } from "react";
 
 const App = () => {
-
   function setScreenSize() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
@@ -14,7 +14,6 @@ const App = () => {
   });
 
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/" exact element={<MainPage />} />
@@ -22,6 +21,5 @@ const App = () => {
     </BrowserRouter>
   );
 };
-
 
 export default App;

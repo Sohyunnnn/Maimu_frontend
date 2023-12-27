@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StartPage from "./pages/StartPage/StartPage";
 import MainPage from "./pages/MainPage/MainPage";
-import Login from "./pages/MainPage/MainPage";
 import { useEffect } from "react";
 
 const App = () => {
@@ -16,7 +16,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" exact element={<MainPage />} />
+        <Route path="/" exact element={<StartPage />} />
+        <Route path="/MainPage" element={<MainPage />}></Route>
       </Routes>
     </BrowserRouter>
   );

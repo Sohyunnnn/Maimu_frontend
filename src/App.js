@@ -14,12 +14,16 @@ const App = () => {
   });
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={<StartPage />} />
-        <Route path="/MainPage" element={<MainPage />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <div className="WebAppFrame">
+      <div className="Frame">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" exact element={<StartPage />} />
+            <Route path="/MainPage" element={<MainPage />}></Route>
+          </Routes>
+        </BrowserRouter>
+        </div>
+    </div>
   );
 };
 

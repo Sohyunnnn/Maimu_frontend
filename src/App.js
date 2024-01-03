@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartPage from "./pages/StartPage/StartPage";
 import MainPage from "./pages/MainPage/MainPage";
+import MyPage from "./pages/MyPage/MyPage";
 import { useEffect } from "react";
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
           <Routes>
             <Route path="/" exact element={<StartPage />} />
             <Route path="/MainPage" element={<MainPage />}></Route>
+            <Route path="/MyPage" element={<MyPage />}></Route>
           </Routes>
         </BrowserRouter>
         </div>

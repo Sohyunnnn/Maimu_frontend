@@ -47,3 +47,7 @@
     font-weight: 700;
     margin-right: 24px;
 }
+
+.clicked{
+    background-color: #EA4DA4;
+}

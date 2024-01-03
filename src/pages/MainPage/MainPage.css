@@ -1,0 +1,49 @@
+.MainPage{
+    width: 100%;
+}
+
+.Locker {
+    display: grid;
+    grid-template-columns: 117px 117px 117px;
+	grid-template-rows: 174px 174px 174px;
+    gap: 3px;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.Header{
+    display: flex;
+    flex-direction: row;
+    margin-top: 58px;
+    margin-bottom: 40px;
+}
+
+.Profile{
+    margin-left: 27px;
+}
+
+.SmallLogo{
+    margin-left: 23px;
+
+}
+
+.EditGroup{
+    display: flex;
+    flex-direction: row;
+    margin-left: 58px;
+    margin-top: 24px;
+}
+
+
+.EditButton{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #FDC1D5;
+    border: none;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    margin-right: 24px;
+}

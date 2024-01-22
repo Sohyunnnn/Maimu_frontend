@@ -16,6 +16,8 @@ const App = () => {
   });
 
   return (
+    <div className="WebAppFrame">
+      <div className="Frame">
     <BrowserRouter>
       <Routes>
         <Route path="/" exact element={<MainPage />} />
@@ -23,7 +25,9 @@ const App = () => {
         <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
       </Routes>
     </BrowserRouter>
-  );
+    </div>
+    </div>
+);
 };
 
 export default App;

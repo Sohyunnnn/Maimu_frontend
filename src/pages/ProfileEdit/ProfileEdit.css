@@ -1,0 +1,76 @@
+.ProfileEdit{
+    width: 100%;
+    background: #000;
+}
+
+.SpeechBubble{
+    margin: 247px 0 0 78px;
+}
+
+.NextButton{
+    border-radius: 5px;
+    background: #FFF;
+    width: 100px;
+    height: 43px;
+    border: none;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.Pomegranate{
+    position: absolute;
+    top: 377px;
+    left: 41px;
+}
+
+.PomegranateIcon{
+    position: absolute;
+    top: 375px;
+    left: 156px;
+}
+
+.Plum{
+    position: absolute;
+    top: 375px;
+    left: 271px;
+
+}
+
+.Arrow{
+    margin-left: 10px;
+}
+
+.NextButton{
+    position: absolute;
+    top: 564px;
+    left: 144px;
+}
+
+.IconName{
+    color: #FFF;
+    text-align: center;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.PomegranateTwinkle{
+    position: absolute;
+    top: 336px;
+    left: 25px;
+
+}
+.CitronTwinkle{
+    position: absolute;
+    top: 336px;
+    left: 143px;
+
+}
+.PlumTwinkle{
+    position: absolute;
+    top: 336px;
+    left: 262px;
+
+}

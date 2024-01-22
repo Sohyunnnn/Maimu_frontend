@@ -19,8 +19,7 @@ const App = () => {
       <div className="Frame">
         <BrowserRouter>
           <Routes>
-            {/* <Route path="/" exact element={<StartPage />} /> */}
-            <Route path="/" exact element={<MainPage />} />
+            <Route path="/" exact element={<StartPage />} />
             <Route path="/MainPage" element={<MainPage />}></Route>
             {/* <Route path="/MyPage" element={<MyPage />}></Route> */}
           </Routes>

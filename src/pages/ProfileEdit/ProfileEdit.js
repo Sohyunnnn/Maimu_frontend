@@ -8,7 +8,8 @@ import Arrow from '../../images/NextArrow.svg';
 import PomegranateBubble from '../../images/PomegranateBubble.svg';
 import CitronBubble from '../../images/CitronBubble.svg';
 import PlumBubble from '../../images/PlumBubble.svg';
-import Twinkle from '../../images/Twinkle.svg';
+import Twinkle from '../../../src/Twinkle';
+import TwinkleImg from '../../images/Twinkle.svg';
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
@@ -26,6 +27,9 @@ const ProfileEdit = () => {
   return (
     <div className='ProfileEdit'>
       <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
+      {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+      {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+      {iconName === '매실' && <img className='PlumTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
       <img
         className='Pomegranate'
         src={Pomegranate}

@@ -1,12 +1,14 @@
 import React from 'react'
 import "./Locker.css";
+import LockerIcon from '../../images/Locker.svg';
 
-function Locker() {
+const Locker = (text) => {
+
   return (
-    <div className='locker'>
-      <h1 className='groupName'></h1> 
-    </div>
-  )
-}
+    <img className='LockerIcon' src={LockerIcon} alt='LockerIcon'></img>
 
-export default Locker
+  );
+};
+
+
+export default Locker;

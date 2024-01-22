@@ -8,7 +8,6 @@ import Arrow from '../../images/NextArrow.svg';
 import PomegranateBubble from '../../images/PomegranateBubble.svg';
 import CitronBubble from '../../images/CitronBubble.svg';
 import PlumBubble from '../../images/PlumBubble.svg';
-import Twinkle from '../../../src/Twinkle';
 import TwinkleImg from '../../images/Twinkle.svg';
 
 const ProfileEdit = () => {

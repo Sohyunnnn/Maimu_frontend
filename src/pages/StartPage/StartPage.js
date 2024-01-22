@@ -10,7 +10,7 @@ const StartPage = () => {
   const navigate = useNavigate();
  
   const MoveToMainPage = () => {
-    navigate("MainPage");
+    navigate("/MainPage");
   };
 
   return (

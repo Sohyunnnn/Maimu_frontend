@@ -4,45 +4,127 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+
   background-color: rgba(0, 0, 0, 0.36);
-  z-index: 500;
 }
 
 .LoginToggleBG {
   position: absolute;
   top: 45.6%;
   left: 50%;
+  width: 334px;
+  height: 395px;
+
+  background-color: white;
+  border-radius: 10px;
   transform: translate(-50%, -50%);
-  z-index: 1050;
 }
 
 .LoginXbtn {
   position: absolute;
   top: 4%;
   right: 5%;
-  z-index: 1500;
+}
+
+.Login_T {
+  position: absolute;
+  top: 34px;
+  left: 114px;
+  width: 106px;
+  height: 35px;
+
+  justify-content: center;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0px;
 }
 
 .KakaoLogin {
   position: absolute;
-  top: 30%;
-  left: 30%;
+  top: 108px;
+  left: 26px;
+  width: 282px;
+  height: 45px;
+
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.KakaoLoginImg {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  width: 27px;
+  height: 27px;
 }
 
 .NaverLogin {
   position: absolute;
-  top: 45%;
-  left: 30%;
+  top: 163px;
+  left: 26px;
+  width: 282px;
+  height: 45px;
+
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .GoogleLogin {
   position: absolute;
-  top: 60%;
-  left: 30%;
+  top: 218px;
+  left: 26px;
+  width: 282px;
+  height: 45px;
+
+  border-radius: 5px;
+  border: 1px solid #6f6f6f;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.GoogleLoginImg {
+  position: absolute;
+  top: 3px;
+  left: 15px;
+  width: 38px;
+  height: 38px;
 }
 
 .TermsOfUse {
   position: absolute;
-  top: 70%;
-  left: 30%;
+  bottom: 62px;
+  left: 24px;
+  width: 287px;
+  height: 39px;
+
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.TermsOfUse_C {
+  color: #00f;
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
 }

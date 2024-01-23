@@ -16,7 +16,7 @@
 
 .swiper-button-prev {
   position: absolute;
-  top: 250px;
+  top: 195px;
   left: 1px;
   width: 10px;
   height: 20px;
@@ -24,7 +24,7 @@
 
 .swiper-button-next {
   position: absolute;
-  top: 250px;
+  top: 195px;
   right: 1px;
   width: 10px;
   height: 20px;

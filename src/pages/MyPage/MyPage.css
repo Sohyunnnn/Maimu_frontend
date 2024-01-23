@@ -1,3 +1,76 @@
 .MyPage{
     width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+.Edit{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.SmallLogoImg{
+    margin: 72px 0 0 0;
+    width: 131.241px;
+    height: 32.165px;
+}
+
+
+.ProfileBackground{
+    width: 150px;
+    height: 150px;
+    background-color: #FBC0A6;
+    border-radius: 100%;
+    margin-top: 90.83px;
+}
+
+.EditButton{
+    width: 37px;
+    height: 37px;
+    position: absolute;
+    top: 202px;
+    left: 234px;
+}
+
+.Nickname{
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+.NicknameInput{
+    width: 213px;
+    height: 56px;
+    border-radius: 10px;
+    background: #EDECEC;
+    margin-top: 16px;
+    border: none;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+input:focus{
+	outline: 1px solid #EA4DA4;
+}
+
+.Birth{
+    margin-top: 19px;
+
+}
+
+.MyPage button{
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100px;
+    height: 43px;
+    background: #EA4DA4;
+    border: none;
+    margin-top: 95px;
+
 }

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import './ProfileEdit.css';
-import SpeechBubble from '../../images/SpeechBubble.svg';
-import Pomegranate from '../../images/Pomegranate.svg';
-import Plum from '../../images/Plum.svg';
-import PomegranateIcon from '../../images/Pomegranate.png';
-import Arrow from '../../images/NextArrow.svg';
-import PomegranateBubble from '../../images/PomegranateBubble.svg';
-import CitronBubble from '../../images/CitronBubble.svg';
-import PlumBubble from '../../images/PlumBubble.svg';
-import TwinkleImg from '../../images/Twinkle.svg';
+import SpeechBubble from '../../images/ProfileEdit/SpeechBubble.svg';
+import Pomegranate from '../../images/ProfileEdit/Pomegranate.svg';
+import Plum from '../../images/ProfileEdit/Plum.svg';
+import PomegranateIcon from '../../images/ProfileEdit/Pomegranate.png';
+import Arrow from '../../images/ProfileEdit/NextArrow.svg';
+import PomegranateBubble from '../../images/ProfileEdit/PomegranateBubble.svg';
+import CitronBubble from '../../images/ProfileEdit/CitronBubble.svg';
+import PlumBubble from '../../images/ProfileEdit/PlumBubble.svg';
+import TwinkleImg from '../../images/ProfileEdit/Twinkle.svg';
+
+import '../../App.css'
 
 const ProfileEdit = () => {
   const [name, setName] = useState('');
@@ -24,6 +26,7 @@ const ProfileEdit = () => {
   };
 
   return (
+
     <div className='ProfileEdit'>
       <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
       {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}

@@ -1,0 +1,48 @@
+.LoginToggleOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.36);
+  z-index: 500;
+}
+
+.LoginToggleBG {
+  position: absolute;
+  top: 45.6%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050;
+}
+
+.LoginXbtn {
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  z-index: 1500;
+}
+
+.KakaoLogin {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+
+.NaverLogin {
+  position: absolute;
+  top: 45%;
+  left: 30%;
+}
+
+.GoogleLogin {
+  position: absolute;
+  top: 60%;
+  left: 30%;
+}
+
+.TermsOfUse {
+  position: absolute;
+  top: 70%;
+  left: 30%;
+}

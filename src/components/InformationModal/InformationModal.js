@@ -1,10 +1,12 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import './InformationModal.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import "./InformationModal.css";
 import InformationToggle from "../../images/StartPage/InformationToggle.svg";
+import InformationXButton from "../../images/StartPage/InformationXButton.svg";
 
 function InformationModal({
   isInformationOpen,
@@ -20,20 +22,26 @@ function InformationModal({
       <div className="InformationToggleOut"></div>
       <div className="InformationToggle">
         <img src={InformationToggle} alt="InformationToggle" />
+        <div className="InformationXbtn" onClick={closeInformationModal}>
+          <img src={InformationXButton} alt="InformationXButton" />
+        </div>
       </div>
+
       <Swiper
         slidesPerView={1}
         centeredSlides={false}
         spaceBetween={30}
+        pagination={{ el: ".swiper-pagination", clickable: true }}
         navigation={{
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        modules={[Navigation]}
+        modules={[Navigation, Pagination]}
+        className="swiper-pagination"
         style={{
           position: "absolute",
-          top: 130,
-          left: 0,
+          top: 146,
+          left: -1,
           right: 0,
           bottom: 0,
           width: "300px",
@@ -91,8 +99,10 @@ function InformationModal({
           <div className="Date">2023. 11. 29</div>
           <div className="MadeBy">수감자들</div>
         </SwiperSlide>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </Swiper>
-      <div>{children}</div>
     </div>
   );
 }

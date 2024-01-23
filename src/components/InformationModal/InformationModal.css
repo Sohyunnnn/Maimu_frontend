@@ -8,7 +8,7 @@
   /* z-index: 500; */
 }
 
-.InformationToggleBG {
+.InformationToggle {
   position: absolute;
   top: 44%;
   left: 50%;
@@ -38,7 +38,6 @@
   width: 300px; 305px;
   height: 490px; 495px;
   transform: translate(-50%, -50%);
-  z-index: 0;
   box-sizing: border-box;  inline으로 
   background: #fff;
 } */
@@ -241,23 +240,54 @@
   height: 40px;
 } */
 
-.swiper-slide .swiper-slide-active{
+.swiper-slide .swiper-slide-active {
   width: 310px;
   height: 490px;
 }
 
-.Swiper{
+.Swiper {
   width: 310px;
   height: 490px;
 }
 
-.Swiper{
+.Swiper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-Swiper{
+Swiper {
+  position: absolute;
+  top: 130px;
+  left: 40px;
+  right: 0;
+  bottom: 0;
+}
+
+/* 소현 */
+
+/* .SwiperSlide{
+  width: 40px;
+  height: 40px;
+} */
+
+.swiper-slide .swiper-slide-active {
+  width: 310px;
+  height: 490px;
+}
+
+.Swiper {
+  width: 310px;
+  height: 490px;
+}
+
+.Swiper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+Swiper {
   position: absolute;
   top: 130px;
   left: 40px;

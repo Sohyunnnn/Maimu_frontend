@@ -1,9 +1,9 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import './InformationModal.css';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import "./InformationModal.css";
 import InformationToggle from "../../images/InformationToggle.svg";
 
 function InformationModal({
@@ -18,7 +18,7 @@ function InformationModal({
       }}
     >
       <div className="InformationToggleOut"></div>
-      <div className="InformationToggleBG">
+      <div className="InformationToggle">
         <img src={InformationToggle} alt="InformationToggle" />
       </div>
       <Swiper
@@ -26,13 +26,21 @@ function InformationModal({
         centeredSlides={false}
         spaceBetween={30}
         navigation={{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         }}
         modules={[Navigation]}
-        style={{ position: 'absolute', top: 130, left: 0, right: 0, bottom: 0 , width: '300px', height: '490px'}}
+        style={{
+          position: "absolute",
+          top: 130,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: "300px",
+          height: "490px",
+        }}
       >
-        <SwiperSlide className='Swiper'>
+        <SwiperSlide className="Swiper">
           <div className="Friend_T">나랑 친구하자!</div>
           <div className="Friend_C">
             MAIMU는 3월 4일부터 3월 31일까지 <br /> 새학기 친구들이 마이무와

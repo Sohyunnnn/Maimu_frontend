@@ -29,7 +29,7 @@ const App = () => {
         </BrowserRouter>
       </div>
     </div>
-);
+  );
 };
 
 export default App;

@@ -1,7 +1,7 @@
 import "./LoginModal.css";
 
-import LoginToggle from "../../images/LoginToggle.svg";
-import LoginXButton from "../../images/LoginXButton.svg";
+import LoginToggle from "../../images/StartPage/LoginToggle.svg";
+import LoginXButton from "../../images/StartPage/LoginXButton.svg";
 
 function LoginModal({ isLoginOpen, children, closeLoginModal }) {
   return (

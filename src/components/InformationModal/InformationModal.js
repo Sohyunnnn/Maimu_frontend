@@ -1,10 +1,10 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
-import "./InformationModal.css";
-import InformationToggle from "../../images/InformationToggle.svg";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+import './InformationModal.css';
+import InformationToggle from "../../images/StartPage/InformationToggle.svg";
 
 function InformationModal({
   isInformationOpen,

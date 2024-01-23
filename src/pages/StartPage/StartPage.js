@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./StartPage.css";
 
-import WallPaper from "../../images/WallPaper.svg";
-import LoginButton from "../../images/LoginButton.svg";
-import InformationButton from "../../images/InformationButton.svg";
+import WallPaper from "../../images/StartPage/WallPaper.svg";
+import LoginButton from "../../images/StartPage/LoginButton.svg";
+import InformationButton from "../../images/StartPage/InformationButton.svg";
 import LoginModal from "../../components/LoginModal/LoginModal.js";
 import InformationModal from "../../components/InformationModal/InformationModal.js";
 

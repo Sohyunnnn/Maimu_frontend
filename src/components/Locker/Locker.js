@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Locker.css";
-import LockerIcon from '../../images/Locker.svg';
+import LockerIcon from '../../images/MainPage/Locker.svg';
 
 const Locker = (text) => {
 

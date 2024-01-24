@@ -1,6 +1,6 @@
 .MainPage{
     width: 100%;
-    background: linear-gradient(180deg, #FFE9EE 0%, rgba(255, 255, 255, 0.00) 23.06%);
+    background: linear-gradient(180deg, #FFE6EC 0%, rgba(255, 255, 255, 0.00) 23.06%);
 }
 
 .Locker {
@@ -25,7 +25,7 @@
 }
 
 .SmallLogo{
-    margin-left: 23px;
+    margin-left: 53px;
 
 }
 

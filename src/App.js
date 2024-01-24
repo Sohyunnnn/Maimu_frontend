@@ -6,6 +6,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import { useEffect } from "react";
 import MyPage from "./pages/MyPage/MyPage";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
+import Withdrawal from "./pages/Withdrawal/Withdrawal";
 
 const App = () => {
   function setScreenSize() {
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/MainPage" element={<MainPage />}></Route>
             <Route path="/MyPage" element={<MyPage />}></Route>
             <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
+            <Route path="/Withdrawal" element={<Withdrawal />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

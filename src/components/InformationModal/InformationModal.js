@@ -8,11 +8,7 @@ import "./InformationModal.css";
 import InformationToggle from "../../images/StartPage/InformationToggle.svg";
 import InformationXButton from "../../images/StartPage/InformationXButton.svg";
 
-function InformationModal({
-  isInformationOpen,
-  children,
-  closeInformationModal,
-}) {
+function InformationModal({ isInformationOpen, closeInformationModal }) {
   return (
     <div
       style={{
@@ -22,7 +18,7 @@ function InformationModal({
       <div className="InformationToggleOut"></div>
       <div className="InformationToggle">
         <img src={InformationToggle} alt="InformationToggle" />
-        <div className="InformationXbtn" onClick={closeInformationModal}>
+        <div className="InformationXBtn" onClick={closeInformationModal}>
           <img src={InformationXButton} alt="InformationXButton" />
         </div>
       </div>

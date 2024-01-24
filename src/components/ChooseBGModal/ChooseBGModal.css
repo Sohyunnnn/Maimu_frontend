@@ -1,0 +1,56 @@
+.ChooseBGToggleOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.36);
+}
+
+.ChooseBGToggleBG {
+  position: absolute;
+  top: 310px;
+  left: 0px;
+  width: 390px;
+  height: 536px;
+
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.ChooseBGBarBtn {
+  position: absolute;
+  top: -8px;
+  left: 181px;
+  width: 27px;
+  height: 2px;
+}
+
+.ChooseBG_T {
+  position: absolute;
+  top: 8px;
+  left: 146px;
+  width: 99px;
+  height: 18px;
+
+  color: #232323;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.ChooseBG_C {
+  position: absolute;
+  top: 92px;
+  left: 44px;
+  display: grid;
+  grid-template-columns: 93px 93px 93px;
+  grid-template-rows: 93px 93px 93px;
+  gap: 11px;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,9 @@
+.MyBG {
+  width: 93px;
+  height: 93px;
+}
+
+.MyBG.choseBG {
+  display: block; /* 클릭 시 체크 아이콘 표시 */
+  border-color: 2px solid block;
+}

@@ -2,9 +2,10 @@ import "./LoginModal.css";
 
 import LoginXButton from "../../images/StartPage/LoginXButton.svg";
 import KakaoLogin from "../../images/StartPage/KakaoLogin.svg";
+import NaverLogin from "../../images/StartPage/NaverLogin.svg";
 import GoogleLogin from "../../images/StartPage/GoogleLogin.svg";
 
-function LoginModal({ isLoginOpen, children, closeLoginModal }) {
+function LoginModal({ isLoginOpen, closeLoginModal }) {
   return (
     <div
       style={{
@@ -13,7 +14,7 @@ function LoginModal({ isLoginOpen, children, closeLoginModal }) {
     >
       <div className="LoginToggleOut"></div>
       <div className="LoginToggleBG">
-        <div className="LoginXbtn" onClick={closeLoginModal}>
+        <div className="LoginXBtn" onClick={closeLoginModal}>
           <img src={LoginXButton} alt="LoginXButton" />
         </div>
         <h3 className="Login_T">로그인</h3>
@@ -25,6 +26,9 @@ function LoginModal({ isLoginOpen, children, closeLoginModal }) {
         </div>
         <div className="NaverLogin">
           네이버로 로그인하기
+          <div className="NaverLoginImg">
+            <img src={NaverLogin} alt="NaverLogin" />
+          </div>
           <div>
             <img />
           </div>

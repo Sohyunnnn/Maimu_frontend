@@ -18,7 +18,7 @@ const MyPage = () => {
       <div className='Edit'>
         <img className='SmallLogoImg' src={SmallLogoImg} alt='SmallLogo'/>
         <div className='ProfileBackground'></div>
-        <img className='EditButton' src={EditButton} alt='EditButton'/>
+        <img className='ProfileEditButon' src={EditButton} alt='ProfileEditButon'/>
         <div className='Nickname'>
           닉네임
           <input className='NicknameInput' />
@@ -27,7 +27,7 @@ const MyPage = () => {
           생일
           <BirthSelect />
         </div>
-        <button onClick={handleConfirmClick}>확인</button>
+        <button className='Confirmation' onClick={handleConfirmClick}>확인</button>
       </div>
       
     </div>

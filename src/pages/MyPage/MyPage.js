@@ -15,7 +15,7 @@ const MyPage = () => {
 
   return (
     <div className='MyPage'>
-      <div className='Edit'>
+      <div className='AlignCenter'>
         <img className='SmallLogoImg' src={SmallLogoImg} alt='SmallLogo'/>
         <div className='ProfileBackground'></div>
         <img className='ProfileEditButon' src={EditButton} alt='ProfileEditButon'/>

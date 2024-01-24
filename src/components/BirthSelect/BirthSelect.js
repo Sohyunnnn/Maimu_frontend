@@ -1,22 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './BirthSelect.css';
 import arrowIcon from '../../images/MyPage/SelectorArrow.svg'; 
 
-const Dropdown = ({ options, value, onChange, placeholder }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Dropdown = ({ options, value, onChange, placeholder, isOpen, onToggle }) => {
+  const dropdownRef = useRef(null);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        onToggle(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener('click', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isOpen, onToggle]);
 
   const handleOptionClick = (option) => {
     onChange(option);
-    setIsOpen(false);
+    onToggle(false);
+  };
+
+  const handleDropdownClick = (event) => {
+    event.stopPropagation(); // 이벤트 전파 중지
+    onToggle(!isOpen);
   };
 
   return (
-    <div className={`Dropdown ${isOpen ? 'clicked' : ''}`}>
-      <div className='DropdownHeader' onClick={handleToggle}>
+    <div className={`Dropdown ${isOpen ? 'clicked' : ''}`} ref={dropdownRef} onClick={handleDropdownClick}>
+      <div className='DropdownHeader'>
         <div className='SelectedOption'>{value ? value.label : placeholder}</div>
         <img src={arrowIcon} alt='DropdownIndicator' style={{ width: '8px', height: '4px', marginRight: '20px' }} />
       </div>
@@ -46,6 +63,31 @@ const BirthSelect = () => {
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selectedDay, setSelectedDay] = useState(null);
 
+  const [isYearOpen, setIsYearOpen] = useState(false);
+  const [isMonthOpen, setIsMonthOpen] = useState(false);
+  const [isDayOpen, setIsDayOpen] = useState(false);
+
+  const closeDropdowns = (currentDropdown) => {
+    switch (currentDropdown) {
+      case 'year':
+        setIsMonthOpen(false);
+        setIsDayOpen(false);
+        break;
+      case 'month':
+        setIsYearOpen(false);
+        setIsDayOpen(false);
+        break;
+      case 'day':
+        setIsYearOpen(false);
+        setIsMonthOpen(false);
+        break;
+      default:
+        setIsYearOpen(false);
+        setIsMonthOpen(false);
+        setIsDayOpen(false);
+    }
+  };
+
   return (
     <div className='DropdownContainer'>
       <Dropdown
@@ -53,6 +95,8 @@ const BirthSelect = () => {
         value={selectedYear}
         onChange={setSelectedYear}
         placeholder='년'
+        isOpen={isYearOpen}
+        onToggle={(value) => { setIsYearOpen(value); closeDropdowns('year'); }}
       />
 
       <Dropdown
@@ -60,6 +104,8 @@ const BirthSelect = () => {
         value={selectedMonth}
         onChange={setSelectedMonth}
         placeholder='월'
+        isOpen={isMonthOpen}
+        onToggle={(value) => { setIsMonthOpen(value); closeDropdowns('month'); }}
       />
 
       <Dropdown
@@ -67,6 +113,8 @@ const BirthSelect = () => {
         value={selectedDay}
         onChange={setSelectedDay}
         placeholder='일'
+        isOpen={isDayOpen}
+        onToggle={(value) => { setIsDayOpen(value); closeDropdowns('day'); }}
       />
     </div>
   );

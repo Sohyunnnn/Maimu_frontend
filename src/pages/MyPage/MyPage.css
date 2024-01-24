@@ -46,10 +46,14 @@
     border-radius: 10px;
     background: #EDECEC;
     margin-top: 16px;
-    padding-left: 10px;
+    padding-left: 16px;
     border: none;
     border: 1px solid transparent;
     box-sizing: border-box;
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
 }
 
 input:focus{

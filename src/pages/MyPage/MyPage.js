@@ -1,4 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './MyPage.css';
 import SmallLogoImg from '../../images/SmallLogo.svg';
 import EditButton from '../../images/MyPage/EditButton.svg';
@@ -6,15 +7,10 @@ import BirthSelect from '../../components/BirthSelect/BirthSelect';
 
 const MyPage = () => {
 
-  const birthSelectRef = useRef(null);
-  const nicknameInputRef = useRef(null);
+  const navigate = useNavigate();
 
-  const handleBirthSelectClick = () => {
-    birthSelectRef.current.focus();
-  };
-
-  const handleNicknameClick = () => {
-    nicknameInputRef.current.focus();
+  const handleConfirmClick = () => {
+    navigate('/MainPage');
   };
 
   return (
@@ -25,13 +21,13 @@ const MyPage = () => {
         <img className='EditButton' src={EditButton} alt='EditButton'/>
         <div className='Nickname'>
           닉네임
-          <input className='NicknameInput' ref={nicknameInputRef} />
+          <input className='NicknameInput' />
         </div>
         <div className='Birth'>
           생일
-          <BirthSelect ref={birthSelectRef} />
+          <BirthSelect />
         </div>
-        <button>확인</button>
+        <button onClick={handleConfirmClick}>확인</button>
       </div>
       
     </div>

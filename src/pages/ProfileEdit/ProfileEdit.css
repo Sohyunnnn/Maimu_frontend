@@ -3,6 +3,7 @@
 .ProfileEdit{
     width: 100%;
     background: #000;
+    /* background-color: #FFF; */
 }
 
 .SpeechBubble{
@@ -27,10 +28,10 @@
     left: 41px;
 }
 
-.PomegranateIcon{
+.Citron{
     position: absolute;
-    top: 375px;
-    left: 156px;
+    top: 378px;
+    left: 157px;
 }
 
 .Plum{

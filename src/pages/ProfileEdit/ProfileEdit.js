@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProfileEdit.css';
 import SpeechBubble from '../../images/ProfileEdit/SpeechBubble.svg';
 import Pomegranate from '../../images/ProfileEdit/Pomegranate.svg';
 import Plum from '../../images/ProfileEdit/Plum.svg';
-import PomegranateIcon from '../../images/ProfileEdit/Pomegranate.png';
 import Arrow from '../../images/ProfileEdit/NextArrow.svg';
 import PomegranateBubble from '../../images/ProfileEdit/PomegranateBubble.svg';
 import CitronBubble from '../../images/ProfileEdit/CitronBubble.svg';
 import PlumBubble from '../../images/ProfileEdit/PlumBubble.svg';
 import TwinkleImg from '../../images/ProfileEdit/Twinkle.svg';
+import Citron from '../../images/ProfileEdit/Citron.svg';
 
 import '../../App.css'
 
@@ -18,11 +19,18 @@ const ProfileEdit = () => {
   const [iconPosition, setIconPosition] = useState({ top: 0, left: 0 });
   const [bubbleImage, setBubbleImage] = useState(SpeechBubble);
 
+  const navigate = useNavigate();
+
   const handleIconClick = (iconName, position, bubbleImage) => {
     setName(iconName);
     setIconName(iconName);
     setIconPosition(position);
     setBubbleImage(bubbleImage);
+  };
+
+  const handleNextButtonClick = () => {
+    // 석류, 매실, 유자 중 어떤 아이콘이 포커스되어 있는지 정보를 같이 전달
+    navigate('/MyPage', { state: { focusedIcon: iconName } });
   };
 
   return (
@@ -41,9 +49,9 @@ const ProfileEdit = () => {
         }
       />
       <img
-        className='PomegranateIcon'
-        src={PomegranateIcon}
-        alt='Pomegranate'
+        className='Citron'
+        src={Citron}
+        alt='Citron'
         onClick={() =>
           handleIconClick('유자', { top: 487, left: 179 }, CitronBubble)
         }
@@ -66,9 +74,11 @@ const ProfileEdit = () => {
         </div>
       )}
 
-      <button className='NextButton'>
-        다음 <img className='Arrow' src={Arrow} alt='Arrow' />{' '}
-      </button>
+{iconName && (
+        <button className='NextButton' onClick={handleNextButtonClick}>
+          다음 <img className='Arrow' src={Arrow} alt='Arrow' />
+        </button>
+      )}
     </div>
   );
 };

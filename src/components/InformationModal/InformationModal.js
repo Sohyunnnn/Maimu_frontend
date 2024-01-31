@@ -1,9 +1,11 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Navigation, Pagination } from "swiper/modules";
+
 import "./InformationModal.css";
 import InformationToggle from "../../images/StartPage/InformationToggle.svg";
 import InformationXButton from "../../images/StartPage/InformationXButton.svg";
@@ -55,12 +57,11 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
             <ul>
               <li>가입하고 내 프로필 설정해요</li>
               <li>
-                사물함 별로 그룹을 만들고 친구들에게 링크를 <br />
-                공유해요
+                사물함 별로 그룹을 만들고 친구들에게 <br /> 링크를 공유해요
               </li>
               <li>
-                사물함 안에는 친구들이 남겨준 내 첫인상이 적<br />힌 마이무가
-                들어있어요
+                사물함 안에는 친구들이 남겨준 내 첫인상이
+                <br /> 적힌 마이무가 들어있어요
               </li>
               <li>31일 전까지는 마이무를 확인할 수 없어요</li>
               <li>3월 4일 이후부터 마이무를 건넬 수 있습니다</li>
@@ -78,22 +79,28 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
             </ul>
           </div>
           <div className="WhoMade_T1">누가 만든 서비스인가요?</div>
-          <div className="WhoMade_T2">@maimu.official</div>
+          <div
+            className="WhoMade_T2"
+            onClick={() =>
+              window.open(
+                "https://www.instagram.com/maimu.official/?igsh=cm1lYWhuNTB4eTY2&utm_source=qr"
+              )
+            }
+          >
+            @maimu.official
+          </div>
           <div className="WhoMade_C">
             <ul>
               <li>
                 MAIMU는 홍익대, 이화여대, 고려대, 세종대,
-                <br /> 서울여대 학생 7명으로 구성된 대학생팀 ‘수감
+                <br /> 서울여대 학생 7명으로 구성된 대학생팀
                 <br />
-                자들(Wednesday’s Potatoes)’이 만든 서비
-                <br />
-                스예요
+                ‘수감자들(Wednesday’s Potatoes)’이
+                <br /> 만든 서비스입니다.
               </li>
-              <li>IT 연합동아리 ‘코테이토’에서 탄생한 팀이에요</li>
+              <li>IT 연합동아리 ‘코테이토’에서 탄생한 팀입니다.</li>
             </ul>
           </div>
-          <div className="Date">2023. 11. 29</div>
-          <div className="MadeBy">수감자들</div>
         </SwiperSlide>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>

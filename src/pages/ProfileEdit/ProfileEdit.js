@@ -74,9 +74,11 @@ const ProfileEdit = () => {
         </div>
       )}
 
-      <button className='NextButton' onClick={handleNextButtonClick}>
-        다음 <img className='Arrow' src={Arrow} alt='Arrow' />
-      </button>
+{iconName && (
+        <button className='NextButton' onClick={handleNextButtonClick}>
+          다음 <img className='Arrow' src={Arrow} alt='Arrow' />
+        </button>
+      )}
     </div>
   );
 };

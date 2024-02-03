@@ -1,0 +1,53 @@
+.DetailPage {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #ffe0e0 0%,
+    rgba(249, 229, 195, 0.5) 34.84%,
+    rgba(255, 255, 255, 0.56) 76%
+  );
+}
+
+.DetailMaimu {
+  display: grid;
+  grid-template-columns: 94px 94px 94px;
+  grid-template-rows: 58px 58px 58px 58px 58px 58px;
+  gap: 27px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.DetailPage .Header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 64px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.DetailPage .SmallLogo {
+  justify-content: center;
+  margin-left: 130px;
+}
+
+.PasteLink {
+  margin-left: 42px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+}
+
+.GroupName {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  margin-top: -37px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0);
+
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

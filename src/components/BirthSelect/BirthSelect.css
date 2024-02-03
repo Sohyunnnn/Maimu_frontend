@@ -4,7 +4,7 @@
     margin-top: 17px;
 }
 
-.DropdownHeader{
+.BirthSelect .DropdownHeader{
     display: flex;
     flex-direction: row;
     width: 67px;
@@ -32,13 +32,13 @@
     margin-right: 6px;
 }
 
-.DropdownOption {
+.BirthSelect .DropdownOption {
     border-bottom: 1px solid #ccc; 
     padding: 4px 0 4px 15px;
     box-sizing: border-box;
 }
 
-.DropdownOptions {
+.BirthSelect .DropdownOptions {
     width: 120px;
     height: 225px;
     text-align: start;

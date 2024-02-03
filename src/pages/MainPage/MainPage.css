@@ -13,10 +13,10 @@
     
 }
 
-.Header{
+.MainPage .Header{
     display: flex;
     flex-direction: row;
-    margin-top: 58px;
+    margin-top: 68px;
     margin-bottom: 40px;
 }
 

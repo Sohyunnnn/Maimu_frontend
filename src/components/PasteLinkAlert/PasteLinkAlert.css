@@ -10,9 +10,19 @@
   height: 56px;
   text-align: center;
   margin-left: 15px;
-  opacity: 0;
 }
 
-.PasteLink_alert.active {
-  opacity: 1;
+.fade-out {
+  opacity: 0;
+  animation: fadeOut ease-in-out 1.5s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

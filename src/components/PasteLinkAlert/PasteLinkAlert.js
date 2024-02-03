@@ -6,7 +6,7 @@ function PasteLinkAlert(props) {
     props.setPasteState(true);
     let timer = setTimeout(() => {
       props.setPasteState(false);
-    }, 2000);
+    }, 1500);
 
     return () => {
       clearTimeout(timer);
@@ -14,7 +14,7 @@ function PasteLinkAlert(props) {
   }, [props.setPasteState]);
 
   return (
-    <div className="PasteLink_alert active">
+    <div className={`PasteLink_alert ${props.pasteState ? '' : 'fade-out'}`}>
       <p>링크 복사가 완료되었습니다.</p>
     </div>
   );

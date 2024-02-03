@@ -39,13 +39,14 @@
 }
 
 .DropdownOptions {
-    width: 137px;
-    height: 286px;
+    width: 120px;
+    height: 225px;
     text-align: start;
     overflow-y: auto;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.70);
     box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(4px);
+    margin-top: 10px;
 }
 

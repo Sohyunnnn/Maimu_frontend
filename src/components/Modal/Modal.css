@@ -55,7 +55,7 @@
     margin-right: 20px;
 }
 
-.GroupName{
+.ModalContainer .GroupName{
     width: 272px;
     height: 45px;
     border-radius: 10px;
@@ -105,7 +105,7 @@ h1 {
 .ModalTitle,
 .GroupText,
 .CloseButton,
-.GroupName,
+.ModalContainer .GroupName,
 h1,
 .SaveButton,
 .ButtonContainer {

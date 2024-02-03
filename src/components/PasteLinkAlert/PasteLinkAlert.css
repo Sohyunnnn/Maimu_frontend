@@ -1,0 +1,18 @@
+.PasteLink_alert {
+  background: white;
+  border-radius: 15px;
+  border: 1px solid #959595;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  position: absolute;
+  bottom: 42px;
+  width: 360px;
+  height: 56px;
+  text-align: center;
+  margin-left: 15px;
+  opacity: 0;
+}
+
+.PasteLink_alert.active {
+  opacity: 1;
+}

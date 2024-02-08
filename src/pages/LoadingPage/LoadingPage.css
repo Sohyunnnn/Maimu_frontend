@@ -1,0 +1,49 @@
+.LoadingPage {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #fee4de 3.37%,
+    #fcedde 18.57%,
+    #fcfcfc 42.08%
+  );
+}
+
+.LoadingPage .Header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 64px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.LoadingPage .SmallLogo {
+  justify-content: center;
+  margin-left: 130px;
+}
+
+.LoadingMaimu_Wrapper {
+  margin-top: 123px;
+  display: block;
+  text-align: center;
+}
+
+.LoadingPage .GreyMaimu {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin-left: 148px;
+  margin-top: 16px;
+}
+
+.CheckTaste_C {
+  color: #202020;
+
+  text-align: center;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-top: 26px;
+}

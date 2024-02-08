@@ -1,22 +1,34 @@
 import React, { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import "./PasteLinkAlert.css";
 
 function PasteLinkAlert(props) {
+  const controls = useAnimation();
+
   useEffect(() => {
-    props.setPasteState(true);
-    let timer = setTimeout(() => {
+    const show = async () => {
+      await controls.start({ opacity: 1 });
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+      await controls.start({ opacity: 0 });
       props.setPasteState(false);
-    }, 2000);
+    };
+
+    show();
 
     return () => {
-      clearTimeout(timer);
+      controls.stop();
     };
-  }, [props.setPasteState]);
+  }, [controls, props.setPasteState]);
 
   return (
-    <div className="PasteLink_alert active">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={controls}
+      transition={{ duration: 0.4 }}
+      className="PasteLink_alert"
+    >
       <p>링크 복사가 완료되었습니다.</p>
-    </div>
+    </motion.div>
   );
 }
 

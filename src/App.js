@@ -4,6 +4,7 @@ import "./App.css";
 import StartPage from "./pages/StartPage/StartPage";
 import MainPage from "./pages/MainPage/MainPage";
 import DetailPage from "./pages/DetailPage/DetailPage";
+import LoadingPage from "./pages/LoadingPage/LoadingPage";
 import MyPage from "./pages/MyPage/MyPage";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import Withdrawal from "./pages/Withdrawal/Withdrawal";
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/" exact element={<StartPage />} />
             <Route path="/MainPage" element={<MainPage />}></Route>
             <Route path="/DetailPage" element={<DetailPage />}></Route>
+            <Route path="/LoadingPage" element={<LoadingPage />}></Route>
             <Route path="/MyPage" element={<MyPage />}></Route>
             <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
             <Route path="/Withdrawal" element={<Withdrawal />}></Route>

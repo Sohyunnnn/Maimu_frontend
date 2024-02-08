@@ -7,6 +7,16 @@ import GreyMaimu from "../../images/DetailPage/GreyMaimu.svg";
 import ThreeBubbles from "../../images/LoadingPage/ThreeBubbles.svg";
 
 const LoadingPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate("/CheckTaste"); // CheckTaste 페이지로 이동
+    }, 2000); // 2초 후에 이동
+
+    return () => clearTimeout(timer); // 타이머 해제
+  }, [navigate]);
+
   return (
     <div className="LoadingPage">
       <div className="Header">

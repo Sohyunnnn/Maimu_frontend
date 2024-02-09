@@ -1,0 +1,194 @@
+.CheckNote {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #ffeaef 0%,
+    rgba(255, 255, 255, 0) 29.61%,
+    rgba(252, 252, 252, 0.36) 84.5%
+  );
+  align-items: center;
+  text-align: center;
+}
+
+.CheckNote .Header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  margin-top: 80px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.CheckNote .SmallLogo {
+  justify-content: center;
+  margin: auto;
+}
+
+.CheckNote_Box {
+  margin: auto;
+  margin-top: 107px;
+
+  width: 326px;
+  height: 436px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  border: 1px solid #a3a3a3;
+  background: #fff;
+  box-shadow: 4px 4px 4px 2px rgba(0, 0, 0, 0.07),
+    -4px -4px 4px 2px rgba(0, 0, 0, 0.07);
+}
+
+.CheckNote_T {
+  margin-top: 32px;
+  margin-bottom: 34px;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 129.412% */
+  letter-spacing: -0.408px;
+}
+
+.Note_T_Wrapper {
+  margin: auto;
+  margin-bottom: 11px;
+  width: 272px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #a2a2a2;
+  background: linear-gradient(180deg, #fdebeb 0%, rgba(255, 255, 255, 0.9) 100%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%), #f1f1f1;
+  word-break: keep-all; /* 너무 길어져서 줄을 바꿔야할 때 단어 쪼개지지 않게 함. */
+  overflow-wrap: break-word;
+}
+
+.Note_T_Wrapper p {
+  text-align: left;
+  margin: 0;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 28px;
+  padding-right: 28px;
+
+  color: #000;
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  letter-spacing: -0.408px;
+}
+
+.Note_C_Wrapper {
+  margin: auto;
+  display: flex;
+  width: 272px;
+  height: 204px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #a7a7a7;
+  background: linear-gradient(180deg, #fdeded 0%, #fff 52.45%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%), #f1f1f1;
+  word-break: keep-all; /* 너무 길어져서 줄을 바꿔야할 때 단어 쪼개지지 않게 함. */
+  overflow-wrap: break-word;
+}
+
+.Note_C_Wrapper p {
+  margin: 0;
+  text-align: left;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  padding-left: 28px;
+  padding-right: 28px;
+
+  color: #000;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: -0.408px;
+}
+
+.Note_Date {
+  margin-top: 5px;
+  margin-left: 18px;
+  display: flex;
+  width: 153px;
+  height: 15px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+
+  color: #9c9c9c;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 220% */
+  letter-spacing: -0.408px;
+}
+
+.Note_NickName_Wrapper {
+  margin: auto;
+  margin-left: 179px;
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border-radius: 10px;
+  border: 1px solid #adadad;
+  background: linear-gradient(180deg, #fef0f0 0%, #fff 100%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%),
+    linear-gradient(0deg, #f1f1f1 0%, #f1f1f1 100%), #f1f1f1;
+  word-break: keep-all; /* 너무 길어져서 줄을 바꿔야할 때 단어 쪼개지지 않게 함. */
+  overflow-wrap: break-word;
+}
+
+.Note_NickName_Wrapper p {
+  margin: 0;
+  text-align: left;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 28px;
+  padding-right: 28px;
+
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: -0.408px;
+}
+
+.CheckNote_Button {
+  width: 170px;
+  height: 50px;
+  margin-top: 49px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 0;
+  background: #ea4da4;
+
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fcfcfc;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 137.5% */
+  letter-spacing: -0.408px;
+}

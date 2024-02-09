@@ -3,10 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import "./CheckNote.css";
 import SmallLogoImg from "../../images/SmallLogo.svg";
-import SixBubbles_P from "../../images/CheckTaste/SixBubbles_P.svg";
-import Pomegranate from "../../images/ProfileEdit/Pomegranate.svg";
-import SpeechBubble from "../../images/CheckTaste/SpeechBubble.svg";
-import Progressbar_P from "../../images/CheckTaste/Progressbar_P.svg";
 
 const CheckNote = () => {
   const navigate = useNavigate();

@@ -1,25 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
 import SmallLogoImg from "../../images/SmallLogo.svg";
 import ProfileImg from "../../images/Profile.svg";
-import { useState } from "react";
+import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
-import Modal from "../../components/Modal/Modal"
-
 
 const MainPage = () => {
-
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
-  
+  const [lockers, setLockers] = useState([
+    { groupName: 'Group 1', groupColor: '초록' },
+    { groupName: 'Group 2', groupColor: '핑크' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+    { groupName: '', groupColor: '' },
+  ]);
   const navigate = useNavigate();
 
+  const findEmptyLockerIndex = () => {
+    return lockers.findIndex(locker => locker.groupName === '' && locker.groupColor === '');
+  };
 
   const addButtonClick = () => {
+    const emptyLockerIndex = findEmptyLockerIndex();
+    if (emptyLockerIndex === -1) {
+      alert('모든 그룹이 채워져 있습니다.');
+      return;
+    }
+    setClickedButton(emptyLockerIndex);
     setClickedButton('add');
     setModalOpen(true);
   };
+  
   
   const editButtonClick = () => {
     setClickedButton('edit');
@@ -31,10 +48,20 @@ const MainPage = () => {
     setModalOpen(true);
   };
 
+  const onSave = (groupName, groupColor) => {
+    const emptyLockerIndex = findEmptyLockerIndex();
+    if (emptyLockerIndex !== -1) {
+      const updatedLockers = [...lockers];
+      updatedLockers[emptyLockerIndex] = { groupName, groupColor };
+      setLockers(updatedLockers);
+    }
+    setModalOpen(false);
+    setClickedButton(null);
+  };
 
-const MoveToMyPage =() => {
-  navigate("/MyPage");
-};
+  const MoveToMyPage =() => {
+    navigate("/MyPage");
+  };
 
   return (
     <div className="MainPage">
@@ -44,18 +71,13 @@ const MoveToMyPage =() => {
       </div>
       
       <div className="Locker">
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        <Locker />
-        </div>
+        {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
+        {lockers.map((locker, index) => (
+          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} />
+        ))}
+      </div>
 
-        <div className="EditGroup">
+      <div className="EditGroup">
         <button className={`EditButton ${clickedButton === 'add' ? 'clicked' : ''}`} onClick={addButtonClick}>
           추가
         </button>
@@ -68,9 +90,13 @@ const MoveToMyPage =() => {
 
         {modalOpen && (
           <Modal
-            isOpen={modalOpen} // isOpen 속성을 modalOpen 상태로 전달
+            isOpen={modalOpen}
             clickedButton={clickedButton}
-            onClose={() => setModalOpen(false)}
+            onSave={onSave}
+            onClose={() => {
+              setModalOpen(false);
+              setClickedButton(null);
+            }}
           />
         )}
       </div>
@@ -78,6 +104,5 @@ const MoveToMyPage =() => {
     </div>
   );
 };
-
 
 export default MainPage;

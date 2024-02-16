@@ -1,8 +1,8 @@
-.LockerIcon{
+.LockerContainer .LockerIcon{
     width: 115px;
     height: 175px;
 }
-.groupName{
+.LockerContainer .groupName{
     color: #000;
     display: flex;
     width: 47px;
@@ -11,6 +11,26 @@
     /* flex-direction: column;
     justify-content: center;     */
     
+}
+
+.LockerContainer p{
+    padding: 0;
+    margin: 0;
+}
+
+.LockerContainer .GroupName{
+    width: 65px;
+    height: 52px;
+    color: #000;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;;
+    top: -154px;
+    right: -25px;
 }
 
 

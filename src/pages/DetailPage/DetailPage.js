@@ -14,24 +14,24 @@ const DetailPage = () => {
   return (
     <div className="DetailPage">
       <div className="DetailPageContent">
-      <div className="Header">
-        <img className="SmallLogo" alt="" src={SmallLogoImg} />
-        <img
-          className="PasteLink"
-          alt="PasteLink"
-          src={PasteLink}
-          onClick={() => setPasteState(true)}
-        />
+        <div className="Header">
+          <img className="SmallLogo" alt="" src={SmallLogoImg} />
+          <img
+            className="PasteLink"
+            alt="PasteLink"
+            src={PasteLink}
+            onClick={() => setPasteState(true)}
+          />
+        </div>
+        <div className="GroupName">그룹 이름</div>
+        <div className="DetailMaimu">
+          <DetailMaimu />
+          <DetailMaimu />
+          <DetailMaimu />
+          <DetailMaimu />
+        </div>
+        {pasteState && <PasteLinkAlert setPasteState={setPasteState} />}
       </div>
-      <div className="GroupName">그룹 이름</div>
-      <div className="DetailMaimu">
-        <DetailMaimu />
-        <DetailMaimu />
-        <DetailMaimu />
-        <DetailMaimu />
-      </div>
-      {pasteState && <PasteLinkAlert setPasteState={setPasteState} />}
-    </div>
     </div>
   );
 };

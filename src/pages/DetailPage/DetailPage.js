@@ -13,6 +13,7 @@ const DetailPage = () => {
 
   return (
     <div className="DetailPage">
+      <div className="DetailPageContent">
       <div className="Header">
         <img className="SmallLogo" alt="" src={SmallLogoImg} />
         <img
@@ -30,6 +31,7 @@ const DetailPage = () => {
         <DetailMaimu />
       </div>
       {pasteState && <PasteLinkAlert setPasteState={setPasteState} />}
+    </div>
     </div>
   );
 };

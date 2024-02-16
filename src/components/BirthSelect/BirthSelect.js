@@ -32,6 +32,7 @@ const Dropdown = ({ options, value, onChange, placeholder, isOpen, onToggle }) =
   };
 
   return (
+    <div className='BirthSelect'>
     <div className={`Dropdown ${isOpen ? 'clicked' : ''}`} ref={dropdownRef} onClick={handleDropdownClick}>
       <div className='DropdownHeader'>
         <div className='SelectedOption'>{value ? value.label : placeholder}</div>
@@ -50,6 +51,7 @@ const Dropdown = ({ options, value, onChange, placeholder, isOpen, onToggle }) =
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

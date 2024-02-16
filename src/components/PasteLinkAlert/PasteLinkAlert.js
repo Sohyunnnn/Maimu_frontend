@@ -11,9 +11,8 @@ function PasteLinkAlert(props) {
       await new Promise((resolve) => setTimeout(resolve, 1200));
       await controls.start({ opacity: 0 });
       props.setPasteState(false);
-    };
+    }, 1500);
 
-    show();
 
     return () => {
       controls.stop();
@@ -21,12 +20,16 @@ function PasteLinkAlert(props) {
   }, [controls, props.setPasteState]);
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={controls}
-      transition={{ duration: 0.4 }}
-      className="PasteLink_alert"
-    >
+
+    <div className={`PasteLink_alert ${props.pasteState ? '' : 'fade-out'}`}>
+
+//     <motion.div
+//       initial={{ opacity: 0 }}
+//       animate={controls}
+//       transition={{ duration: 0.4 }}
+//       className="PasteLink_alert"
+//     >
+
       <p>링크 복사가 완료되었습니다.</p>
     </motion.div>
   );

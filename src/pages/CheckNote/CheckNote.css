@@ -99,7 +99,8 @@
   overflow-wrap: break-word;
 }
 
-.Note_C_Wrapper p {
+.Note_C {
+  overflow: auto;
   margin: 0;
   text-align: left;
   padding-top: 17px;
@@ -114,6 +115,23 @@
   font-weight: 600;
   line-height: 22px;
   letter-spacing: -0.408px;
+}
+
+.Note_C::-webkit-scrollbar {
+  width: 10px;
+}
+
+.Note_C::-webkit-scrollbar-thumb {
+  background-color: rgba(217, 217, 217, 0.85);
+  border-radius: 20px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 50px;
+}
+
+.Note_C::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 20px;
 }
 
 .Note_Date {

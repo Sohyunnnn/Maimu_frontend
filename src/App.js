@@ -10,6 +10,7 @@ import CheckNote from "./pages/CheckNote/CheckNote";
 import MyPage from "./pages/MyPage/MyPage";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import Withdrawal from "./pages/Withdrawal/Withdrawal";
+import WriteNote from "./pages/WriteNote/WriteNote";
 
 const App = () => {
   function setScreenSize() {
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/MyPage" element={<MyPage />}></Route>
             <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
             <Route path="/Withdrawal" element={<Withdrawal />}></Route>
+            <Route path="/WriteNote" element={<WriteNote />}></Route>
           </Routes>
         </BrowserRouter>
       </div>

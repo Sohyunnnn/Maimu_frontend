@@ -5,10 +5,14 @@ import SmallLogoImg from "../../images/SmallLogo.svg";
 import ProfileImg from "../../images/Profile.svg";
 import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
+import HelpIcon from "../../images/MainPage/HelpIcon.svg";
+import InformationModal from "../../components/InformationModal/InformationModal";
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
+  const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
+
   const [lockers, setLockers] = useState([
     { groupName: 'Group 1', groupColor: '초록' },
     { groupName: 'Group 2', groupColor: '핑크' },
@@ -63,11 +67,16 @@ const MainPage = () => {
     navigate("/MyPage");
   };
 
+  const openInformationModal = () => setIsInformationModalOpen(true);
+  const closeInformationModal = () => setIsInformationModalOpen(false);
+
+
   return (
     <div className="MainPage">
       <div className="Header">
-        <img className="Profile" alt="ProfileButton" src={ProfileImg} onClick={MoveToMyPage}/>
+        <img className="HelpIcon" alt="HelpIcon" src={HelpIcon} onClick={openInformationModal}/>
         <img className="SmallLogo" alt="" src={SmallLogoImg}/>
+        <img className="Profile" alt="ProfileButton" src={ProfileImg} onClick={MoveToMyPage}/>
       </div>
       
       <div className="Locker">
@@ -100,6 +109,10 @@ const MainPage = () => {
           />
         )}
       </div>
+      <InformationModal
+          isInformationOpen={isInformationModalOpen}
+          closeInformationModal={closeInformationModal}
+        />
         
     </div>
   );

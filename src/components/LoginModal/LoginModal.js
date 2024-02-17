@@ -5,6 +5,14 @@ import KakaoLogin from "../../images/StartPage/KakaoLogin.svg";
 import NaverLogin from "../../images/StartPage/NaverLogin.svg";
 import GoogleLogin from "../../images/StartPage/GoogleLogin.svg";
 
+const onNaverLogin = () => {
+  window.location.href = "http://localhost:8080/oauth2/authorization/naver";
+};
+
+const onGoogleLogin = () => {
+  window.location.href = "http://localhost:8080/oauth2/authorization/google";
+};
+
 function LoginModal({ isLoginOpen, closeLoginModal }) {
   return (
     <div
@@ -24,16 +32,13 @@ function LoginModal({ isLoginOpen, closeLoginModal }) {
             <img src={KakaoLogin} alt="KakaoLogin" />
           </div>
         </div>
-        <div className="NaverLogin">
+        <div className="NaverLogin" onClick={onNaverLogin}>
           네이버로 로그인하기
           <div className="NaverLoginImg">
             <img src={NaverLogin} alt="NaverLogin" />
           </div>
-          <div>
-            <img />
-          </div>
         </div>
-        <div className="GoogleLogin">
+        <div className="GoogleLogin" onClick={onGoogleLogin}>
           구글로 로그인하기
           <div className="GoogleLoginImg">
             <img src={GoogleLogin} alt="GoogleLogin" />

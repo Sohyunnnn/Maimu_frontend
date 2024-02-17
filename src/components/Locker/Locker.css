@@ -1,8 +1,8 @@
-.LockerContainer .LockerIcon{
+.Locker .LockerIcon{
     width: 115px;
     height: 175px;
 }
-.LockerContainer .groupName{
+.Locker .groupName{
     color: #000;
     display: flex;
     width: 47px;
@@ -13,12 +13,12 @@
     
 }
 
-.LockerContainer p{
+.Locker p{
     padding: 0;
     margin: 0;
 }
 
-.LockerContainer .GroupName{
+.Locker .GroupName{
     width: 65px;
     height: 52px;
     color: #000;

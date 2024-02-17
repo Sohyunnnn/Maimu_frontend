@@ -1,3 +1,4 @@
+// MainPage.js
 import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
@@ -12,6 +13,7 @@ const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
   const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false); // 편집 상태를 추가
 
   const [lockers, setLockers] = useState([
     { groupName: 'Group 1', groupColor: '초록' },
@@ -44,12 +46,14 @@ const MainPage = () => {
   
   const editButtonClick = () => {
     setClickedButton('edit');
-    setModalOpen(true);
+    // setModalOpen(true);
+    setIsEditing(true); // 편집 버튼 클릭 시 편집 상태를 활성화
   };
   
   const delButtonClick = () => {
     setClickedButton('delete');
     setModalOpen(true);
+
   };
 
   const onSave = (groupName, groupColor) => {
@@ -61,6 +65,7 @@ const MainPage = () => {
     }
     setModalOpen(false);
     setClickedButton(null);
+    setIsEditing(false); // 모달이 닫힐 때 편집 상태를 비활성화
   };
 
   const MoveToMyPage =() => {
@@ -70,7 +75,6 @@ const MainPage = () => {
   const openInformationModal = () => setIsInformationModalOpen(true);
   const closeInformationModal = () => setIsInformationModalOpen(false);
 
-
   return (
     <div className="MainPage">
       <div className="Header">
@@ -79,10 +83,10 @@ const MainPage = () => {
         <img className="Profile" alt="ProfileButton" src={ProfileImg} onClick={MoveToMyPage}/>
       </div>
       
-      <div className="Locker">
+      <div className="LockerContainer">
         {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
-          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} />
+          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} isEditing={isEditing} />
         ))}
       </div>
 

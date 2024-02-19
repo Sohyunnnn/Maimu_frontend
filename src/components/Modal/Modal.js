@@ -4,7 +4,7 @@ import ColorDropdown from '../ColorDropdown/ColorDropdown';
 
 const Modal = ({ isOpen, onClose, clickedButton, onSave }) => {
   const [groupName, setGroupName] = useState('');
-  const [groupColor, setGroupColor] = useState('노랑');
+  const [groupColor, setGroupColor] = useState('핑크');
 
   const handleSave = () => {
     if (!groupName.trim()) {

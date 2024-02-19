@@ -34,7 +34,7 @@ const WarningModal = ({ onClose, onDelete, isDeleting, lockers, index, onConfrim
         )}
 
         {lockers[index].groupName == '' && (
-        <button className="ConfirmButton" onClick={onConfrim}>
+        <button className="ConfirmButton" onClick={onClose}>
         확인
       </button>)}
       </div>

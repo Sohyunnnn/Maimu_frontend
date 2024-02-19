@@ -29,7 +29,7 @@ const Locker = ({ GroupName, groupColor, isEditing, isDeleting }) => {
     <div className='Locker'>
       <img className='LockerIcon' src={lockerIcon} alt='LockerIcon' />
       <div className='GroupName'>{GroupName}</div>
-      {GroupName && isEditing||isDeleting ? <div className='CheckCircle'></div> : null}
+      {GroupName && (isEditing||isDeleting) ? <div className='CheckCircle'></div> : null}
       {GroupName && isDeleting ? <div className='delICon'></div> : null}
     </div>
   );

@@ -39,15 +39,15 @@ const TasteDropdown = ({ isOpen, onClose }) => {
         <div className="DropdownOptions">
           <div
             className="DropdownOption"
-            onClick={() => handleColorChange("노랑")}
-          >
-            노랑
-          </div>
-          <div
-            className="DropdownOption"
             onClick={() => handleColorChange("핑크")}
           >
             핑크
+          </div>
+          <div
+            className="DropdownOption"
+            onClick={() => handleColorChange("노랑")}
+          >
+            노랑
           </div>
           <div
             className="DropdownOption"

@@ -41,6 +41,11 @@
     -4px -4px 4px 2px rgba(0, 0, 0, 0.07);
 }
 
+.WriteNote .Note_T_Wrapper {
+  display: flex;
+  position: relative;
+}
+
 .WriteNote_T {
   margin-top: 32px;
   margin-bottom: 34px;
@@ -87,6 +92,23 @@
   letter-spacing: -0.408px;
 }
 
+.WriteNote .Count_Note_T {
+  position: absolute;
+  right: 46px;
+  bottom: 6px;
+  color: #a7a7a7;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.WriteNote .Note_C_Wrapper {
+  display: flex;
+  position: relative;
+}
+
 .WriteNote .Note_C::placeholder {
   color: #a0a0a0;
 }
@@ -105,7 +127,6 @@
   overflow-wrap: break-word;
 
   overflow: auto;
-  margin: 0;
   text-align: left;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -138,8 +159,24 @@
   border-radius: 20px;
 }
 
+.WriteNote .Count_Note_C {
+  position: absolute;
+  right: 41px;
+  bottom: -3px;
+  color: #a7a7a7;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .WriteNote .Note_Info_Wrapper {
   display: flex;
+  position: relative;
+}
+
+.WriteNote .NickName_Wrapper {
   position: relative;
 }
 
@@ -160,6 +197,7 @@
   word-break: keep-all; /* 너무 길어져서 줄을 바꿔야할 때 단어 쪼개지지 않게 함. */
   overflow-wrap: break-word;
 
+  overflow: hidden;
   text-align: left;
   padding-top: 17px;
   padding-bottom: 21px;
@@ -173,6 +211,20 @@
   font-weight: 600;
   line-height: 22px;
   letter-spacing: -0.408px;
+}
+
+.WriteNote .Count_NickName {
+  display: inline-block;
+
+  position: absolute;
+  right: 15px;
+  bottom: 17px;
+  color: #a7a7a7;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .WriteNote .WriteNote_Button {
@@ -194,8 +246,8 @@
   font-weight: 600;
   line-height: normal;
 
-  position: absolute; /* 절대 위치로 설정 */
-  bottom: 20px; /* 아래쪽 여백 조정 */
-  left: 50%; /* 가운데 정렬을 위해 왼쪽 여백 조정 */
-  transform: translateX(-50%); /* 가운데 정렬 */
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }

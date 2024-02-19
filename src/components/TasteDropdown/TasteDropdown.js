@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import "./TasteDropdown.css";
 import Arrow from "../../images/MyPage/SelectorArrow.svg";
 
-const TasteDropdown = ({ isOpen, onClose }) => {
+const TasteDropdown = ({ isOpen, onClose, onTasteSelected }) => {
   const [selectedColor, setSelectedColor] = useState("맛선택");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
     closeDropdown();
+    // 부모 컴포넌트에게 알림
+    onTasteSelected(true);
   };
 
   const handleDropdownToggle = () => {
@@ -39,15 +41,15 @@ const TasteDropdown = ({ isOpen, onClose }) => {
         <div className="DropdownOptions">
           <div
             className="DropdownOption"
-            onClick={() => handleColorChange("노랑")}
-          >
-            노랑
-          </div>
-          <div
-            className="DropdownOption"
             onClick={() => handleColorChange("핑크")}
           >
             핑크
+          </div>
+          <div
+            className="DropdownOption"
+            onClick={() => handleColorChange("노랑")}
+          >
+            노랑
           </div>
           <div
             className="DropdownOption"

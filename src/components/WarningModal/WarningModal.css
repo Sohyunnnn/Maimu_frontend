@@ -1,0 +1,86 @@
+.WarningModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .WarningModal .ModalContent {
+    background-color: white;
+    width: 337px;
+    height: 313px;
+    border-radius: 20px;
+    border: 1px solid #000;
+  }
+
+  .WarningModal p{
+    margin: 0;
+  }
+  
+  .WarningModal .ModalTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .WarningModal .ModalMessage {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 57px;
+    box-sizing: border-box;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+  }
+  
+  .WarningModal .ModalButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .WarningModal .CloseButton,
+  .WarningModal .DeleteButton {
+    border: none;
+    cursor: pointer;
+
+  }
+  
+  .WarningModal .CloseButton {
+    width: 103px;
+    height: 44px;
+    border-radius: 10px;
+    border: 2px solid #949494;
+    background: #FFF;
+    color: #3A3A3A;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+    margin-right: 4px;
+  }
+  
+ .WarningModal .DeleteButton {
+    background-color: #ea4da4;
+    color: white;
+    width: 103px;
+    height: 44px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
+  }

@@ -8,6 +8,7 @@ import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
 import InformationModal from "../../components/InformationModal/InformationModal";
+import WarningModal from "../../components/WarningModal/WarningModal";
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,6 +16,8 @@ const MainPage = () => {
   const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false); 
   const [isDeleting, setIsDeleting] = useState(false);
+  const [selectedLocker, setSelectedLocker] = useState(null);
+  const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
     { groupName: 'Group 1', groupColor: '초록' },
@@ -42,6 +45,8 @@ const MainPage = () => {
     setClickedButton(emptyLockerIndex);
     setClickedButton('add');
     setModalOpen(true);
+    setIsEditing(false);
+    setIsDeleting(false);
   };
   
   
@@ -73,6 +78,27 @@ const MainPage = () => {
     setIsDeleting(false);
   };
 
+  const handleLockerClick = (index) => {
+    if (isDeleting && lockers[index].groupName !== '') {
+      setSelectedLocker(index);
+      setWarningModalOpen(true); // WarningModal을 열도록 상태 업데이트
+    }
+  };
+
+  const handleWarningModalClose = () => {
+    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+  };
+
+  const handleDelete = () => {
+    // 삭제가 확인되면 해당 사물함을 비웁니다.
+    const updatedLockers = [...lockers];
+    updatedLockers[selectedLocker].groupName = '';
+    updatedLockers[selectedLocker].groupColor = '';
+    setLockers(updatedLockers);
+    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+    setIsDeleting(false)
+  };
+
   const MoveToMyPage =() => {
     navigate("/MyPage");
   };
@@ -88,10 +114,17 @@ const MainPage = () => {
         <img className="Profile" alt="ProfileButton" src={ProfileImg} onClick={MoveToMyPage}/>
       </div>
       
-      <div className="LockerContainer">
+      <div className="LockerContainer" >
         {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
-          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} isEditing={isEditing} isDeleting={isDeleting}/>
+          <Locker 
+            key={index} 
+            GroupName={locker.groupName} 
+            groupColor={locker.groupColor} 
+            isEditing={isEditing} 
+            isDeleting={isDeleting}
+            onClick={() => handleLockerClick(index)} // 사물함을 클릭했을 때의 핸들러 추가
+          />
         ))}
       </div>
 
@@ -122,6 +155,14 @@ const MainPage = () => {
           isInformationOpen={isInformationModalOpen}
           closeInformationModal={closeInformationModal}
         />
+
+        {/* 삭제를 확인하는 경우에만 WarningModal을 표시합니다. */}
+      {warningModalOpen && (
+        <WarningModal 
+          onClose={handleWarningModalClose} 
+          onDelete={handleDelete} 
+        />
+      )}
         
     </div>
   );

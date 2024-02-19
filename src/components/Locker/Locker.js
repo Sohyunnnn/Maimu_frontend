@@ -5,7 +5,7 @@ import GreenLockerIcon from '../../images/MainPage/GreenLocker.svg';
 import PinkLockerIcon from '../../images/MainPage/PinkLocker.svg';
 import YellowLockerIcon from '../../images/MainPage/YellowLocker.svg';
 
-const Locker = ({ GroupName, groupColor, isEditing, isDeleting }) => {
+const Locker = ({ GroupName, groupColor, isEditing, isDeleting, onClick }) => {
 
   let lockerIcon;
 
@@ -26,8 +26,8 @@ const Locker = ({ GroupName, groupColor, isEditing, isDeleting }) => {
   }
 
   return (
-    <div className='Locker'>
-      <img className='LockerIcon' src={lockerIcon} alt='LockerIcon' />
+    <div className='Locker' onClick={onClick}>
+      <img className='LockerIcon' src={lockerIcon} alt='LockerIcon' onClick={onClick}/>
       <div className='GroupName'>{GroupName}</div>
       {GroupName && (isEditing||isDeleting) ? <div className='CheckCircle'></div> : null}
       {GroupName && isDeleting ? <div className='delICon'></div> : null}

@@ -90,10 +90,17 @@ const MainPage = () => {
   };
 
   const handleDelete = () => {
-    // 삭제가 확인되면 해당 사물함을 비웁니다.
+    // 사물함 삭제
     const updatedLockers = [...lockers];
     updatedLockers[selectedLocker].groupName = '';
     updatedLockers[selectedLocker].groupColor = '';
+  
+    // 삭제된 사물함 이후의 모든 사물함을 한 칸씩 앞으로 이동
+  for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
+    updatedLockers[i - 1] = updatedLockers[i];
+  }
+
+  
     setLockers(updatedLockers);
     setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
     setIsDeleting(false)

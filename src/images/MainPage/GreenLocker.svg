@@ -1,14 +1,14 @@
 <svg width="115" height="175" viewBox="0 0 115 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1284_3537)">
+<g clip-path="url(#clip0_1358_1525)">
 <path d="M110 169.911H4.83887V175H110V169.911Z" fill="#9BDDAC"/>
 <path d="M110 0H4.83887V5.08877H110V0Z" fill="#9BDDAC"/>
 <path d="M4.83871 5.08887H0V169.965H4.83871V5.08887Z" fill="#9BDDAC"/>
 <path d="M115.054 5.08887H110V169.965H115.054V5.08887Z" fill="#9BDDAC"/>
 <path d="M110 10H9V170H110V10Z" fill="#E3FFD1"/>
-<rect x="10" y="64" width="11" height="44" fill="#E6A556"/>
+<rect x="10" y="64" width="11" height="44" fill="#C1F0AB"/>
 <rect x="103" y="10" width="7" height="160" fill="#A4E6B5"/>
 <rect x="9" y="163" width="101" height="7" fill="#A4E6B5"/>
-<rect x="10" y="64" width="11" height="18" fill="#C97E24"/>
+<path d="M10 64H21V82H10V64Z" fill="#9BDDAC"/>
 <rect x="26" y="24" width="62" height="54" fill="white"/>
 <rect x="26" y="22" width="62" height="4" fill="#A9ECBA"/>
 <rect x="26" y="78" width="62" height="4" fill="#C1F0AB"/>
@@ -24,17 +24,17 @@
 <rect x="98" y="118" width="5" height="5" fill="#C1F0AB"/>
 <rect x="93" y="123" width="5" height="5" fill="#C1F0AB"/>
 <rect x="98" y="128" width="5" height="5" fill="#C1F0AB"/>
-<mask id="mask0_1284_3537" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="27" y="141" width="59" height="15">
+<mask id="mask0_1358_1525" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="27" y="141" width="59" height="15">
 <path d="M32.8656 143.933H29.9328V141.056H27V155.726H29.9328V146.869H32.8656V143.936V143.933ZM32.8656 149.857H35.7984V146.924H32.8656V149.857ZM38.7343 143.933H35.8015V146.866H38.7343V155.723H41.6672V141.053H38.7343V143.93V143.933ZM46.8267 141.056H43.8939V155.726H46.8267V149.802H49.7595V155.726H52.6923V141.056H46.8236H46.8267ZM49.7595 146.869H46.8267V143.992H49.7595V146.869ZM55.0274 155.67H57.9602V141H55.0274V155.67ZM66.2415 143.88H63.3086V141.003H60.3758V155.673H63.3086V146.816H66.2415V143.883V143.88ZM66.2415 149.805H69.1743V146.872H66.2415V149.805ZM72.1102 143.88H69.1774V146.813H72.1102V155.67H75.043V141H72.1102V143.877V143.88ZM83.0641 141.056V152.79H80.1313V141.056H77.1985V155.726H86V141.056H83.0672H83.0641Z" fill="white"/>
 </mask>
-<g mask="url(#mask0_1284_3537)">
+<g mask="url(#mask0_1358_1525)">
 <rect x="26.9287" y="140.979" width="59.0898" height="14.791" fill="#9BDDAC"/>
 </g>
 <rect x="5" y="4.72852" width="4" height="164" fill="white"/>
 <rect x="10" y="4.72852" width="101" height="5" fill="white"/>
 </g>
 <defs>
-<clipPath id="clip0_1284_3537">
+<clipPath id="clip0_1358_1525">
 <rect width="115" height="175" fill="white"/>
 </clipPath>
 </defs>

@@ -13,7 +13,8 @@ const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
   const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); // 편집 상태를 추가
+  const [isEditing, setIsEditing] = useState(false); 
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const [lockers, setLockers] = useState([
     { groupName: 'Group 1', groupColor: '초록' },
@@ -52,7 +53,7 @@ const MainPage = () => {
   
   const delButtonClick = () => {
     setClickedButton('delete');
-    setModalOpen(true);
+    setIsDeleting(true);
 
   };
 
@@ -65,7 +66,8 @@ const MainPage = () => {
     }
     setModalOpen(false);
     setClickedButton(null);
-    setIsEditing(false); // 모달이 닫힐 때 편집 상태를 비활성화
+    setIsEditing(false);
+    setIsDeleting(false);
   };
 
   const MoveToMyPage =() => {
@@ -86,7 +88,7 @@ const MainPage = () => {
       <div className="LockerContainer">
         {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
-          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} isEditing={isEditing} />
+          <Locker key={index} GroupName={locker.groupName} groupColor={locker.groupColor} isEditing={isEditing} isDeleting={isDeleting}/>
         ))}
       </div>
 

@@ -45,4 +45,13 @@
     background-color: white;
 }
 
+.delICon{
+    position: relative;
+    width: 13px;
+    height: 3px;
+    background-color: #F33AA0;
+    top: -239px;
+    right: -92px;
+}
+
 

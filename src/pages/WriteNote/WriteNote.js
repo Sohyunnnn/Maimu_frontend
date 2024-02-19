@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./WriteNote.css";
@@ -6,14 +6,31 @@ import SmallLogoImg from "../../images/SmallLogo.svg";
 import TasteDropdown from "../../components/TasteDropdown/TasteDropdown";
 
 const WriteNote = () => {
-  let [inputCountT, setInputCountT] = useState(0);
-  let [inputCountC, setInputCountC] = useState(0);
-  let [inputCountN, setInputCountN] = useState(0);
+  const Note_T_Ref = useRef();
+  const Note_C_Ref = useRef();
+  const Note_N_Ref = useRef();
+  const [inputCountT, setInputCountT] = useState(0);
+  const [inputCountC, setInputCountC] = useState(0);
+  const [inputCountN, setInputCountN] = useState(0);
+  const [tasteSelected, setTasteSelected] = useState(false);
+
   const navigate = useNavigate();
 
-  // const navigateToDetailPage = () => {
-  //   navigate("/DetailPage");
-  // }; 작성 완료 페이지로
+  const navigateToSendNote = () => {
+    if (inputCountT < 1) {
+      Note_T_Ref.current.focus(); // 빈칸 있으면 포커싱
+      return;
+    } else if (inputCountC < 1) {
+      Note_C_Ref.current.focus();
+      return;
+    } else if (inputCountN < 1) {
+      Note_N_Ref.current.focus();
+      return;
+    } else if (!tasteSelected) {
+      alert("맛을 선택해주세요!");
+      return;
+    } else navigate("/SendNote");
+  };
 
   const onInputHandler_Note_T = (e) => {
     setInputCountT(e.target.value.length);
@@ -44,6 +61,7 @@ const WriteNote = () => {
           <textarea
             className="Note_T"
             placeholder="제목 입력"
+            ref={Note_T_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_Note_T}
             maxLength="14"
@@ -56,6 +74,7 @@ const WriteNote = () => {
           <textarea
             className="Note_C"
             placeholder="내용을 입력하세요"
+            ref={Note_C_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_Note_C}
             maxLength="199"
@@ -66,11 +85,12 @@ const WriteNote = () => {
         </div>
       </div>
       <div className="Note_Info_Wrapper">
-        <TasteDropdown />
+        <TasteDropdown onTasteSelected={setTasteSelected} />
         <div className="NickName_Wrapper">
           <textarea
             className="Note_NickName"
             placeholder="닉네임"
+            ref={Note_N_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_NickName}
             maxLength="4"
@@ -80,7 +100,9 @@ const WriteNote = () => {
           </p>
         </div>
       </div>
-      <div className="WriteNote_Button">쪽지 보내기</div>
+      <div className="WriteNote_Button" onClick={navigateToSendNote}>
+        쪽지 보내기
+      </div>
     </div>
   );
 };

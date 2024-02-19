@@ -48,12 +48,15 @@ const MainPage = () => {
   const editButtonClick = () => {
     setClickedButton('edit');
     // setModalOpen(true);
-    setIsEditing(true); // 편집 버튼 클릭 시 편집 상태를 활성화
+    // setIsEditing(true);
+    setIsDeleting(false);
+    setIsEditing(prevEditing => !prevEditing);
   };
   
   const delButtonClick = () => {
     setClickedButton('delete');
-    setIsDeleting(true);
+    setIsDeleting(prevDeleting => !prevDeleting);
+    setIsEditing(false);
 
   };
 
@@ -96,10 +99,10 @@ const MainPage = () => {
         <button className={`EditButton ${clickedButton === 'add' ? 'clicked' : ''}`} onClick={addButtonClick}>
           추가
         </button>
-        <button className={`EditButton ${clickedButton === 'edit' ? 'clicked' : ''}`} onClick={editButtonClick}>
+        <button className={`EditButton ${clickedButton === 'edit' && isEditing ? 'clicked' : ''}`} onClick={editButtonClick}>
           편집
         </button>
-        <button className={`EditButton ${clickedButton === 'delete' ? 'clicked' : ''}`} onClick={delButtonClick}>
+        <button className={`EditButton ${clickedButton === 'delete' && isDeleting ? 'clicked' : ''}`} onClick={delButtonClick}>
           삭제
         </button>
 

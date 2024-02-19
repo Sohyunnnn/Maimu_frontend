@@ -78,12 +78,24 @@ const MainPage = () => {
     setIsDeleting(false);
   };
 
+  // const handleLockerClick = (index) => {
+  //   if (isDeleting && lockers[index].groupName !== '') {
+  //     setSelectedLocker(index);
+  //     setWarningModalOpen(true); // WarningModal을 열도록 상태 업데이트
+  //   }
+  // };
+
   const handleLockerClick = (index) => {
-    if (isDeleting && lockers[index].groupName !== '') {
-      setSelectedLocker(index);
-      setWarningModalOpen(true); // WarningModal을 열도록 상태 업데이트
-    }
+      if(lockers[index].groupName !== ''&&!isDeleting){
+        console.log("페이지 넘기기");
+      }
+      else{
+        setSelectedLocker(index);
+        setWarningModalOpen(true); 
+
+      }
   };
+
 
   const handleWarningModalClose = () => {
     setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
@@ -168,6 +180,9 @@ const MainPage = () => {
         <WarningModal 
           onClose={handleWarningModalClose} 
           onDelete={handleDelete} 
+          isDeleting={isDeleting}
+          lockers={lockers}
+          index={selectedLocker}
         />
       )}
         

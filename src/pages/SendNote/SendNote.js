@@ -12,6 +12,10 @@ const SendNote = () => {
     navigate("/");
   };
 
+  const navigateToDetailPage = () => {
+    navigate("/DetailPage");
+  };
+
   return (
     <div className="SendNote">
       <div className="Header">
@@ -25,7 +29,10 @@ const SendNote = () => {
         쪽지가 성공적으로 <br />
         전송되었습니다
       </p>
-      <div className="SendNote_Button" onClick={navigateToStartPage}>
+      <div className="SendNote_Button" onClick={navigateToDetailPage}>
+        확인
+      </div>
+      <div className="ToStartPage_Button" onClick={navigateToStartPage}>
         나도 마이무 받으러 가기
       </div>
     </div>

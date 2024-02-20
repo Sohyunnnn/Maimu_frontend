@@ -16,9 +16,10 @@ const WriteNote = () => {
 
   const navigate = useNavigate();
 
+  // 빈칸 있으면 포커싱, 맛선택 미완료 시 알림창
   const navigateToSendNote = () => {
     if (inputCountT < 1) {
-      Note_T_Ref.current.focus(); // 빈칸 있으면 포커싱
+      Note_T_Ref.current.focus();
       return;
     } else if (inputCountC < 1) {
       Note_C_Ref.current.focus();
@@ -32,16 +33,32 @@ const WriteNote = () => {
     } else navigate("/SendNote");
   };
 
+  // maxLength 설정
   const onInputHandler_Note_T = (e) => {
+    const value = e.target.value;
+    if (value.length > 15) {
+      e.target.value = value.slice(0, 15);
+    }
     setInputCountT(e.target.value.length);
   };
+
   const onInputHandler_Note_C = (e) => {
+    const value = e.target.value;
+    if (value.length > 200) {
+      e.target.value = value.slice(0, 200);
+    }
     setInputCountC(e.target.value.length);
   };
+
   const onInputHandler_NickName = (e) => {
+    const value = e.target.value;
+    if (value.length > 5) {
+      e.target.value = value.slice(0, 5);
+    }
     setInputCountN(e.target.value.length);
   };
 
+  // Note_T에서 enter키 막기
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault(); // 기본 동작 막기
@@ -64,7 +81,6 @@ const WriteNote = () => {
             ref={Note_T_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_Note_T}
-            maxLength="14"
           ></textarea>
           <p className="Count_Note_T">
             <span>{inputCountT}/15</span>
@@ -77,7 +93,6 @@ const WriteNote = () => {
             ref={Note_C_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_Note_C}
-            maxLength="199"
           ></textarea>
           <p className="Count_Note_C">
             <span>{inputCountC}/200</span>
@@ -93,7 +108,6 @@ const WriteNote = () => {
             ref={Note_N_Ref}
             onKeyDown={handleKeyDown}
             onChange={onInputHandler_NickName}
-            maxLength="4"
           ></textarea>
           <p className="Count_NickName">
             <span>{inputCountN}/5</span>

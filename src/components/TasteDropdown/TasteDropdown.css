@@ -44,7 +44,12 @@
   width: 86px;
   border-radius: 10px;
   margin-left: 38px;
-  background: rgba(237, 236, 236, 0.9);
+  /* background: rgba(255, 255, 255, 0.7); */
+  border-radius: 10px;
+  /* background: rgba(214, 214, 214, 0.7); */
+  background-color: #edecec;
+  box-shadow: 1px 4px 4px 2px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -60,7 +65,7 @@
 
 .TasteDropdown .DropdownOption:hover {
   cursor: pointer;
-  background: #e8e8e8;
+  background: #dbdbdb;
   border-radius: 10px;
 }
 

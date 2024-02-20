@@ -1,3 +1,5 @@
+
+
 .ModalContainer {
     display: flex;
     justify-content: center;
@@ -10,7 +12,7 @@
     background: rgba(0, 0, 0, 0.5);
   }
   
-  .ModalContent {
+  .ModalContainer .ModalContent {
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     width: 337px;
@@ -23,7 +25,7 @@
     
   }
 
-.ModalTitle{
+  .ModalContainer .ModalTitle{
     display: flex;
     width: 183px;
     height: 40px;
@@ -36,11 +38,11 @@
     margin-top: 29px;
 }
 
-.GroupText{
+.ModalContainer .GroupText{
   margin-top: 96px;
 }
   
-  .CloseButton {
+.ModalContainer  .CloseButton {
     cursor: pointer;
     width: 121px;
     height: 44px;
@@ -71,7 +73,7 @@
 
 
 
-h1 {
+.ModalContainer h1 {
     display: flex;
     width: 272px;
     flex-direction: column;
@@ -84,7 +86,7 @@ h1 {
     padding: 0;
 }
 
-.SaveButton{
+.ModalContainer .SaveButton{
   width: 122px;
   height: 44px;
   border-radius: 10px;
@@ -102,37 +104,36 @@ h1 {
   margin-top: 372px;
 }
 
-.ModalTitle,
-.GroupText,
-.CloseButton,
+.ModalContainer .ModalTitle,
+.ModalContainer .GroupText,
+.ModalContainer .CloseButton,
 .ModalContainer .GroupName,
-h1,
-.SaveButton,
-.ButtonContainer {
+.ModalContainer h1,
+.ModalContainer .SaveButton,
+.ModalContainer .ButtonContainer {
   position: fixed;
   /* 다른 스타일 속성들 */
 }
 
-.GroupNameText{
+.ModalContainer .GroupNameText{
   margin-top: 96px;
 }
 
-.GroupText{
+.ModalContainer .GroupText{
   margin-top: 216px;
 }
 
-.GroupColorDropdown{
+.ModalContainer .GroupColorDropdown{
   margin-top: 260px;
   z-index: 1000;
 }
 
-.CloseButton{
+.ModalContainer .CloseButton{
   margin: 372px 184px 37px 33px;
 }
 
-.SaveButton{
+.ModalContainer .SaveButton{
   margin: 372px 40px 37px 175px;
 
 }
-
 

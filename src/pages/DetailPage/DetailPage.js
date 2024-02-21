@@ -23,7 +23,7 @@ const DetailPage = () => {
             onClick={() => setPasteState(true)}
           />
         </div>
-        <div className="GroupName">그룹 이름</div>
+        <div className="GroupName">cotato</div>
         <div className="DetailMaimu">
           <DetailMaimu />
           <DetailMaimu />

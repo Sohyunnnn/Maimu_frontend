@@ -14,55 +14,55 @@ const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
   const [isInformationModalOpen, setIsInformationModalOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false); 
+  const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [selectedLocker, setSelectedLocker] = useState(null);
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
-    { groupName: 'Group 1', groupColor: '초록' },
-    { groupName: 'Group 2', groupColor: '핑크' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
-    { groupName: '', groupColor: '' },
+    { groupName: "Group 1", groupColor: "초록" },
+    { groupName: "Group 2", groupColor: "핑크" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
   ]);
   const navigate = useNavigate();
 
   const findEmptyLockerIndex = () => {
-    return lockers.findIndex(locker => locker.groupName === '' && locker.groupColor === '');
+    return lockers.findIndex(
+      (locker) => locker.groupName === "" && locker.groupColor === ""
+    );
   };
 
   const addButtonClick = () => {
     const emptyLockerIndex = findEmptyLockerIndex();
     if (emptyLockerIndex === -1) {
-      alert('모든 그룹이 채워져 있습니다.');
+      alert("모든 그룹이 채워져 있습니다.");
       return;
     }
     setClickedButton(emptyLockerIndex);
-    setClickedButton('add');
+    setClickedButton("add");
     setModalOpen(true);
     setIsEditing(false);
     setIsDeleting(false);
   };
-  
-  
+
   const editButtonClick = () => {
-    setClickedButton('edit');
+    setClickedButton("edit");
     // setModalOpen(true);
     // setIsEditing(true);
     setIsDeleting(false);
-    setIsEditing(prevEditing => !prevEditing);
+    setIsEditing((prevEditing) => !prevEditing);
   };
-  
-  const delButtonClick = () => {
-    setClickedButton('delete');
-    setIsDeleting(prevDeleting => !prevDeleting);
-    setIsEditing(false);
 
+  const delButtonClick = () => {
+    setClickedButton("delete");
+    setIsDeleting((prevDeleting) => !prevDeleting);
+    setIsEditing(false);
   };
 
   const onSave = (groupName, groupColor) => {
@@ -86,16 +86,13 @@ const MainPage = () => {
   // };
 
   const handleLockerClick = (index) => {
-      if(lockers[index].groupName !== ''&&!isDeleting){
-        console.log("페이지 넘기기");
-      }
-      else{
-        setSelectedLocker(index);
-        setWarningModalOpen(true); 
-
-      }
+    if (lockers[index].groupName !== "" && !isDeleting) {
+      console.log("페이지 넘기기");
+    } else {
+      setSelectedLocker(index);
+      setWarningModalOpen(true);
+    }
   };
-
 
   const handleWarningModalClose = () => {
     setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
@@ -104,22 +101,25 @@ const MainPage = () => {
   const handleDelete = () => {
     // 사물함 삭제
     const updatedLockers = [...lockers];
-    updatedLockers[selectedLocker].groupName = '';
-    updatedLockers[selectedLocker].groupColor = '';
-  
-    // 삭제된 사물함 이후의 모든 사물함을 한 칸씩 앞으로 이동
-  for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
-    updatedLockers[i - 1] = updatedLockers[i];
-  }
+    updatedLockers[selectedLocker].groupName = "";
+    updatedLockers[selectedLocker].groupColor = "";
 
-  
+    // 삭제된 사물함 이후의 모든 사물함을 한 칸씩 앞으로 이동
+    for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
+      updatedLockers[i - 1] = updatedLockers[i];
+    }
+
     setLockers(updatedLockers);
     setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
-    setIsDeleting(false)
+    setIsDeleting(false);
   };
 
-  const MoveToMyPage =() => {
+  const MoveToMyPage = () => {
     navigate("/MyPage");
+  };
+
+  const MoveToDetailPage = () => {
+    navigate("/DetailPage");
   };
 
   const openInformationModal = () => setIsInformationModalOpen(true);
@@ -128,33 +128,59 @@ const MainPage = () => {
   return (
     <div className="MainPage">
       <div className="Header">
-        <img className="HelpIcon" alt="HelpIcon" src={HelpIcon} onClick={openInformationModal}/>
-        <img className="SmallLogo" alt="" src={SmallLogoImg}/>
-        <img className="Profile" alt="ProfileButton" src={ProfileImg} onClick={MoveToMyPage}/>
+        <img
+          className="HelpIcon"
+          alt="HelpIcon"
+          src={HelpIcon}
+          onClick={openInformationModal}
+        />
+        <img className="SmallLogo" alt="" src={SmallLogoImg} />
+        <img
+          className="Profile"
+          alt="ProfileButton"
+          src={ProfileImg}
+          onClick={MoveToMyPage}
+        />
       </div>
-      
-      <div className="LockerContainer" >
+
+      <div className="LockerContainer">
         {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
-          <Locker 
-            key={index} 
-            GroupName={locker.groupName} 
-            groupColor={locker.groupColor} 
-            isEditing={isEditing} 
+          <Locker
+            key={index}
+            GroupName={locker.groupName}
+            groupColor={locker.groupColor}
+            isEditing={isEditing}
             isDeleting={isDeleting}
-            onClick={() => handleLockerClick(index)} // 사물함을 클릭했을 때의 핸들러 추가
+            onClick={() => {
+              handleLockerClick(index);
+              MoveToDetailPage();
+            }} // 사물함을 클릭했을 때의 핸들러 추가
           />
         ))}
       </div>
 
       <div className="EditGroup">
-        <button className={`EditButton ${clickedButton === 'add' ? 'clicked' : ''}`} onClick={addButtonClick}>
+        <button
+          className={`EditButton ${clickedButton === "add" ? "clicked" : ""}`}
+          onClick={addButtonClick}
+        >
           추가
         </button>
-        <button className={`EditButton ${clickedButton === 'edit' && isEditing ? 'clicked' : ''}`} onClick={editButtonClick}>
+        <button
+          className={`EditButton ${
+            clickedButton === "edit" && isEditing ? "clicked" : ""
+          }`}
+          onClick={editButtonClick}
+        >
           편집
         </button>
-        <button className={`EditButton ${clickedButton === 'delete' && isDeleting ? 'clicked' : ''}`} onClick={delButtonClick}>
+        <button
+          className={`EditButton ${
+            clickedButton === "delete" && isDeleting ? "clicked" : ""
+          }`}
+          onClick={delButtonClick}
+        >
           삭제
         </button>
 
@@ -171,21 +197,20 @@ const MainPage = () => {
         )}
       </div>
       <InformationModal
-          isInformationOpen={isInformationModalOpen}
-          closeInformationModal={closeInformationModal}
-        />
+        isInformationOpen={isInformationModalOpen}
+        closeInformationModal={closeInformationModal}
+      />
 
-        {/* 삭제를 확인하는 경우에만 WarningModal을 표시합니다. */}
+      {/* 삭제를 확인하는 경우에만 WarningModal을 표시합니다. */}
       {warningModalOpen && (
-        <WarningModal 
-          onClose={handleWarningModalClose} 
-          onDelete={handleDelete} 
+        <WarningModal
+          onClose={handleWarningModalClose}
+          onDelete={handleDelete}
           isDeleting={isDeleting}
           lockers={lockers}
           index={selectedLocker}
         />
       )}
-        
     </div>
   );
 };

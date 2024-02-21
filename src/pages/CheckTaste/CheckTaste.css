@@ -39,23 +39,11 @@
   font-weight: 700;
   line-height: 140%;
   margin-top: 173px;
-  margin-bottom: 96px;
+  margin-bottom: 0px;
 }
 
-.CheckTaste .Pomegranate {
-  position: absolute;
-  text-align: center;
-  margin-left: 118px;
-}
-
-.CheckTaste .SpeechBubble {
-  margin: 0 0 0 0;
-  margin-top: -140px;
-  margin-right: -180px;
-}
-
-.CheckTaste .Progressbar_P {
-  margin-top: 85px;
+.CheckTaste .Taste_Pink {
+  margin-top: 15px;
 }
 
 .CheckTaste .Percent {

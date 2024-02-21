@@ -102,9 +102,9 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
             </ul>
           </div>
         </SwiperSlide>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div>
       </Swiper>
     </div>
   );

@@ -34,7 +34,7 @@ const CheckNote = () => {
           </div>
         </div>
         <div className="Note_Date">
-          <p>2024년 1월 23일(화) 오전 11: 43</p>
+          <p>2024년 2월 20일(화) 오전 11: 43</p>
         </div>
         <div className="Note_NickName_Wrapper">
           <p>마이무</p>

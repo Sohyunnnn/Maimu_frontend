@@ -3,10 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./CheckTaste.css";
 import SmallLogoImg from "../../images/SmallLogo.svg";
-import SixBubbles_P from "../../images/CheckTaste/SixBubbles_P.svg";
-import Pomegranate from "../../images/ProfileEdit/Pomegranate.svg";
-import SpeechBubble from "../../images/CheckTaste/SpeechBubble.svg";
-import Progressbar_P from "../../images/CheckTaste/Progressbar_P.svg";
+import Taste_Pink from "../../images/CheckTaste/Taste_Pink.svg";
 
 const CheckTaste = () => {
   const navigate = useNavigate();
@@ -22,17 +19,8 @@ const CheckTaste = () => {
       </div>
       <div className="CheckTaste_Wrapper">
         <p className="Sugar_T">우리 사이 당도...</p>
-        <div className="SixBubbles_P">
-          <img src={SixBubbles_P} alt="SixBubbles_P" />
-          <div className="Pomegranate">
-            <img src={Pomegranate} alt="Pomegranate" />
-          </div>
-          <div className="SpeechBubble">
-            <img src={SpeechBubble} alt="SpeechBubble" />
-          </div>
-        </div>
-        <div className="Progressbar_P">
-          <img src={Progressbar_P} alt="Progressbar_P" />
+        <div className="Taste_Pink">
+          <img src={Taste_Pink} alt="Taste_Pink" />
         </div>
         <p className="Percent">32%</p>
         <button className="CheckTaste_Button" onClick={navigateToCheckNote}>

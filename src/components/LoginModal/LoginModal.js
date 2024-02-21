@@ -6,7 +6,8 @@ import NaverLogin from "../../images/StartPage/NaverLogin.svg";
 import GoogleLogin from "../../images/StartPage/GoogleLogin.svg";
 
 const onNaverLogin = () => {
-  // window.location.href = "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver";
+  window.location.href =
+    "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver";
 };
 
 const onGoogleLogin = () => {

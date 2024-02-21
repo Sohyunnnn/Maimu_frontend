@@ -88,6 +88,7 @@ const MainPage = () => {
   const handleLockerClick = (index) => {
     if (lockers[index].groupName !== "" && !isDeleting) {
       console.log("페이지 넘기기");
+      MoveToDetailPage();
     } else {
       setSelectedLocker(index);
       setWarningModalOpen(true);
@@ -154,7 +155,6 @@ const MainPage = () => {
             isDeleting={isDeleting}
             onClick={() => {
               handleLockerClick(index);
-              MoveToDetailPage();
             }} // 사물함을 클릭했을 때의 핸들러 추가
           />
         ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./MyPage.css";
 import SmallLogoImg from "../../images/SmallLogo.svg";
@@ -7,13 +7,36 @@ import BirthSelect from "../../components/BirthSelect/BirthSelect";
 import ProfileCitron from "../../images/ProfileCitron.svg";
 import ProfilePomegranate from "../../images/ProfilePomegranate.svg";
 import ProfilePlum from "../../images/ProfilePlum.svg";
+import axios from 'axios'; 
 
 const MyPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleConfirmClick = () => {
-    navigate("/MainPage");
+  const [nickname, setNickname] = useState('');
+  const [selectedYear, setSelectedYear] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(null);
+
+  const handleConfirmClick = async () => {
+    const profileData = {
+      maimuName: nickname,
+      year: selectedYear?.value,
+      month: selectedMonth?.value,
+      date: selectedDay?.value,
+      maimuProfile: location.state?.focusedIcon
+    };
+
+    try {
+      const response = await axios.post('http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/v1/api/join', profileData);
+      console.log('Backend response:', response.profileData);
+
+      // 성공적으로 백엔드에 데이터를 보낸 후 처리할 작업
+      navigate("/MainPage");
+    } catch (error) {
+      console.error('Error sending data to backend:', error);
+      // 오류 처리
+    }
   };
 
   const getProfileImage = (iconName) => {
@@ -40,11 +63,19 @@ const MyPage = () => {
         <img className="ProfileEditButon" src={EditButton} alt="ProfileEditButon" />
         <div className="Nickname">
           닉네임
-          <input className="NicknameInput" />
+          <input
+            className="NicknameInput"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+          />
         </div>
         <div className="Birth">
           생일
-          <BirthSelect />
+          <BirthSelect
+            onSelectYear={setSelectedYear}
+            onSelectMonth={setSelectedMonth}
+            onSelectDay={setSelectedDay}
+          />
         </div>
         <button className="Confirmation" onClick={handleConfirmClick}>
           확인

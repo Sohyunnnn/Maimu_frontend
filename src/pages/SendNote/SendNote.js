@@ -21,7 +21,7 @@ const SendNote = () => {
       <div className="Header">
         <img className="SmallLogo" alt="ShareButton" src={SmallLogoImg} />
       </div>
-      <div className="GroupName">그룹 이름</div>
+      <div className="GroupName">cotato</div>
       <div className="ShareButton_Wrapper">
         <img className="ShareButton" alt="ShareButton" src={ShareButton} />
       </div>

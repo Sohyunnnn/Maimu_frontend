@@ -1,59 +1,64 @@
-.MainPage{
-    width: 100%;
-    background: linear-gradient(180deg, #FFE6EC 0%, rgba(255, 255, 255, 0.00) 23.06%);
+.MainPage {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #ffe6ec 0%,
+    rgba(255, 255, 255, 0) 23.06%
+  );
 }
 
 .LockerContainer {
-    display: grid;
-    grid-template-columns: 117px 117px 117px;
-	grid-template-rows: 174px 174px 174px;
-    gap: 3px;
-    justify-content: center;
-    
+  display: grid;
+  grid-template-columns: 117px 117px 117px;
+  grid-template-rows: 174px 174px 174px;
+  gap: 3px;
+  justify-content: center;
+  margin: 37px 0 0 0;
 }
 
-.MainPage .Header{
-    display: flex;
-    flex-direction: row;
-    margin-top: 68px;
-    margin-bottom: 48px;
+.MainPage .Header {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
 }
 
-.HelpIcon{
-    margin-left: 32px;
+.HelpIcon {
+  margin: 70px 0 0 32px;
+  width: 42px;
+  height: 42px;
 }
 
-.Profile{
-    margin-left: 50px;
+.MainPage .SmallLogo {
+  margin: 78px 0 0 56.65px;
+  width: 128px;
+  height: 31.787px;
 }
 
-.MainPage .SmallLogo{
-    margin-left: 53px;
-    /* background-color: #EA4DA4; */
-
+.ProfilePomegranate {
+  margin: 65px 0 0 50px;
+  width: 55px;
+  height: 55px;
 }
 
-.EditGroup{
-    display: flex;
-    flex-direction: row;
-    margin-left: 58px;
-    margin-top: 24px;
+.EditGroup {
+  display: flex;
+  flex-direction: row;
+  margin-left: 58px;
+  margin-top: 35px;
 }
 
-
-.EditButton{
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    background-color: #FDC1D5;
-    border: none;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    margin-right: 24px;
+.EditButton {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #fdc1d5;
+  border: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  margin-right: 24px;
 }
 
-.clicked{
-    background-color: #EA4DA4;
+.clicked {
+  background-color: #ea4da4;
 }
-

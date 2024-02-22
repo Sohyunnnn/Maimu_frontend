@@ -46,7 +46,6 @@
 
 .InformationToggleOut {
   position: fixed;
-  /* position: absolute; */
   top: 0;
   left: 0;
   width: 100%;
@@ -56,10 +55,8 @@
 
 .InformationToggle {
   position: absolute;
-  /* top: 44%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
-  top: 48px;
+  /* top: 48px; */
+  top: 73px;
   left: 24px;
   width: 100%;
   text-align: center;

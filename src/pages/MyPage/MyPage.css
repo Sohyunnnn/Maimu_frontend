@@ -11,28 +11,34 @@
 }
 
 .SmallLogoImg {
-  margin: 72px 0 0 0;
-  width: 131.241px;
-  height: 32.165px;
+  margin: 78px 0 0 0;
 }
 
-.CitronBackground{
-  background: linear-gradient(180deg, #FFFAC8 0%, rgba(255, 255, 255, 0.00) 35.06%);
-
-
+.CitronBackground {
+  background: linear-gradient(
+    180deg,
+    #fffac8 0%,
+    rgba(255, 255, 255, 0) 35.06%
+  );
 }
 
-.PlumBackground{
-  background: linear-gradient(180deg, #EEFFBD 0%, rgba(255, 255, 255, 0.00) 35.06%);
-
+.PlumBackground {
+  background: linear-gradient(
+    180deg,
+    #eeffbd 0%,
+    rgba(255, 255, 255, 0) 35.06%
+  );
 }
 
-.PomegranateBackground{
-  background: linear-gradient(180deg, #FFECF1 0%, rgba(255, 255, 255, 0.00) 35.06%);
-
+.PomegranateBackground {
+  background: linear-gradient(
+    180deg,
+    #ffecf1 0%,
+    rgba(255, 255, 255, 0) 35.06%
+  );
 }
 
-.ProfileImage{
+.ProfileImage {
   margin-top: 90.83px;
 }
 
@@ -87,4 +93,3 @@ input:focus {
   border: none;
   margin-top: 95px;
 }
-

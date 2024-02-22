@@ -10,6 +10,7 @@ import CheckNote from "./pages/CheckNote/CheckNote";
 import MyPage from "./pages/MyPage/MyPage";
 import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import Withdrawal from "./pages/Withdrawal/Withdrawal";
+import WriteDetailPage from "./pages/WriteDetailPage/WriteDetailPage";
 import WriteNote from "./pages/WriteNote/WriteNote";
 import SendNote from "./pages/SendNote/SendNote";
 
@@ -36,6 +37,10 @@ const App = () => {
             <Route path="/MyPage" element={<MyPage />}></Route>
             <Route path="/ProfileEdit" element={<ProfileEdit />}></Route>
             <Route path="/Withdrawal" element={<Withdrawal />}></Route>
+            <Route
+              path="/WriteDetailPage"
+              element={<WriteDetailPage />}
+            ></Route>
             <Route path="/WriteNote" element={<WriteNote />}></Route>
             <Route path="/SendNote" element={<SendNote />}></Route>
           </Routes>

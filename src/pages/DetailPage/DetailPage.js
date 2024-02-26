@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { PasteLinkAlert } from "../../components/PasteLinkAlert/PasteLinkAlert";
 
 import "./DetailPage.css";
 import "../../components/PasteLinkAlert/PasteLinkAlert.css";
 import SmallLogoImg from "../../images/SmallLogo.svg";
 import PasteLink from "../../images/DetailPage/PasteLink.svg";
 import DetailMaimu from "../../components/DetailMaimu/DetailMaimu";
-import { PasteLinkAlert } from "../../components/PasteLinkAlert/PasteLinkAlert";
 
 const DetailPage = () => {
   const [pasteState, setPasteState] = useState(false);
+  const { groupName, groupColor } = useParams();
+
+  // URL 파라미터로 받아온 값을 디코딩
+  const decodedGroupName = decodeURI(groupName);
+  const decodedGroupColor = decodeURI(groupColor);
 
   return (
     <div className="DetailPage">
@@ -23,7 +28,8 @@ const DetailPage = () => {
             onClick={() => setPasteState(true)}
           />
         </div>
-        <div className="GroupName">cotato</div>
+        <div className="GroupName">{decodedGroupName}</div>
+        <div className="GroupName">{decodedGroupColor}</div>
         <div className="DetailMaimu">
           <DetailMaimu />
           <DetailMaimu />

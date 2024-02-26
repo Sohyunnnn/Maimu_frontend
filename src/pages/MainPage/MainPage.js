@@ -23,7 +23,7 @@ const MainPage = () => {
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
-    { groupName: "", groupColor: "" },
+    { groupName: "그룹1", groupColor: "핑크" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
@@ -103,16 +103,19 @@ const MainPage = () => {
 
   const handleLockerClick = (index) => {
     if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
-      MoveToDetailPage();
+      const encodedGroupName = encodeURI(lockers[index].groupName);
+      const encodedGroupColor = encodeURI(lockers[index].groupColor);
+      MoveToDetailPage(encodedGroupName, encodedGroupColor);
     } else if (lockers[index].groupName !== "" && isEditing) {
       setSelectedLocker(index);
       setModalOpen(true);
-      setSelectedLockerInfo(lockers[index]); // 선택된 사물함의 정보를 Modal 열기 전에 선택된 정보만 업데이트
+      setSelectedLockerInfo(lockers[index]);
     } else {
       setSelectedLocker(index);
       setWarningModalOpen(true);
     }
   };
+  
 
   const handleWarningModalClose = () => {
     setWarningModalOpen(false);
@@ -136,9 +139,12 @@ const MainPage = () => {
     navigate("/MyPage");
   };
 
-  const MoveToDetailPage = () => {
-    navigate("/DetailPage");
+  const MoveToDetailPage = (groupName, groupColor) => {
+    const encodedGroupName = encodeURI(groupName);
+    const encodedGroupColor = encodeURI(groupColor);
+    navigate(`/DetailPage/${encodedGroupName}/${encodedGroupColor}`);
   };
+
 
   const openInformationModal = () => setIsInformationModalOpen(true);
   const closeInformationModal = () => setIsInformationModalOpen(false);

@@ -1,4 +1,3 @@
-// MainPage.js
 import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
@@ -10,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
 import InformationModal from "../../components/InformationModal/InformationModal";
 import WarningModal from "../../components/WarningModal/WarningModal";
+import { ToastContainer, toast } from "react-toastify"; // toast 불러오기
+import "react-toastify/dist/ReactToastify.css"; // toast 스타일 추가
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -18,6 +19,7 @@ const MainPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [selectedLocker, setSelectedLocker] = useState(null);
+  const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태 추가
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
@@ -39,12 +41,22 @@ const MainPage = () => {
     );
   };
 
-  const addButtonClick = () => {
+  const checkDuplicateGroupName = (name) => {
+    return lockers.some((locker) => locker.groupName === name);
+  };
+
+  const addButtonClick = (groupName) => {
     const emptyLockerIndex = findEmptyLockerIndex();
     if (emptyLockerIndex === -1) {
       alert("모든 그룹이 채워져 있습니다.");
       return;
     }
+
+    if (checkDuplicateGroupName(groupName)) {
+      toast.error("이미 존재하는 그룹명입니다.");
+      return;
+    }
+
     setClickedButton(emptyLockerIndex);
     setClickedButton("add");
     setModalOpen(true);
@@ -54,8 +66,6 @@ const MainPage = () => {
 
   const editButtonClick = () => {
     setClickedButton("edit");
-    // setModalOpen(true);
-    // setIsEditing(true);
     setIsDeleting(false);
     setIsEditing((prevEditing) => !prevEditing);
   };
@@ -67,29 +77,37 @@ const MainPage = () => {
   };
 
   const onSave = (groupName, groupColor) => {
-    const emptyLockerIndex = findEmptyLockerIndex();
-    if (emptyLockerIndex !== -1) {
-      const updatedLockers = [...lockers];
-      updatedLockers[emptyLockerIndex] = { groupName, groupColor };
-      setLockers(updatedLockers);
+    const updatedLockers = [...lockers];
+    if (clickedButton === "add") {
+      const emptyLockerIndex = findEmptyLockerIndex();
+      if (emptyLockerIndex !== -1) {
+        updatedLockers[emptyLockerIndex] = { groupName, groupColor };
+      }
+
+      if (checkDuplicateGroupName(groupName)) {
+        toast.error("이미 존재하는 그룹명입니다.");
+        return;
+      }
+    } else if (clickedButton === "edit" && selectedLocker !== null) {
+      updatedLockers[selectedLocker] = { groupName, groupColor };
     }
+
+    setLockers(updatedLockers);
     setModalOpen(false);
     setClickedButton(null);
     setIsEditing(false);
     setIsDeleting(false);
+    setSelectedLocker(null);
+    setSelectedLockerInfo(null);
   };
 
-  // const handleLockerClick = (index) => {
-  //   if (isDeleting && lockers[index].groupName !== '') {
-  //     setSelectedLocker(index);
-  //     setWarningModalOpen(true); // WarningModal을 열도록 상태 업데이트
-  //   }
-  // };
-
   const handleLockerClick = (index) => {
-    if (lockers[index].groupName !== "" && !isDeleting) {
-      console.log("페이지 넘기기");
+    if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
       MoveToDetailPage();
+    } else if (lockers[index].groupName !== "" && isEditing) {
+      setSelectedLocker(index);
+      setModalOpen(true);
+      setSelectedLockerInfo(lockers[index]); // 선택된 사물함의 정보를 Modal 열기 전에 선택된 정보만 업데이트
     } else {
       setSelectedLocker(index);
       setWarningModalOpen(true);
@@ -97,22 +115,20 @@ const MainPage = () => {
   };
 
   const handleWarningModalClose = () => {
-    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+    setWarningModalOpen(false);
   };
 
   const handleDelete = () => {
-    // 사물함 삭제
     const updatedLockers = [...lockers];
     updatedLockers[selectedLocker].groupName = "";
     updatedLockers[selectedLocker].groupColor = "";
 
-    // 삭제된 사물함 이후의 모든 사물함을 한 칸씩 앞으로 이동
     for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
       updatedLockers[i - 1] = updatedLockers[i];
     }
 
     setLockers(updatedLockers);
-    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+    setWarningModalOpen(false);
     setIsDeleting(false);
   };
 
@@ -129,6 +145,7 @@ const MainPage = () => {
 
   return (
     <div className="MainPage">
+      <ToastContainer />
       <div className="Header">
         <img
           className="HelpIcon"
@@ -146,7 +163,6 @@ const MainPage = () => {
       </div>
 
       <div className="LockerContainer">
-        {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
           <Locker
             key={index}
@@ -154,9 +170,7 @@ const MainPage = () => {
             groupColor={locker.groupColor}
             isEditing={isEditing}
             isDeleting={isDeleting}
-            onClick={() => {
-              handleLockerClick(index);
-            }} // 사물함을 클릭했을 때의 핸들러 추가
+            onClick={() => handleLockerClick(index)}
           />
         ))}
       </div>
@@ -192,8 +206,12 @@ const MainPage = () => {
             onSave={onSave}
             onClose={() => {
               setModalOpen(false);
+              setIsEditing(false);
               setClickedButton(null);
+              setSelectedLocker(null);
+              setSelectedLockerInfo(null);
             }}
+            locker={selectedLockerInfo}
           />
         )}
       </div>
@@ -202,7 +220,6 @@ const MainPage = () => {
         closeInformationModal={closeInformationModal}
       />
 
-      {/* 삭제를 확인하는 경우에만 WarningModal을 표시합니다. */}
       {warningModalOpen && (
         <WarningModal
           onClose={handleWarningModalClose}

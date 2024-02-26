@@ -1,25 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './BirthSelect.css';
-import arrowIcon from '../../images/MyPage/SelectorArrow.svg'; 
+import React, { useState } from "react";
+import "./BirthSelect.css";
+import arrowIcon from "../../images/MyPage/SelectorArrow.svg";
 
 const Dropdown = ({ options, value, onChange, placeholder, isOpen, onToggle }) => {
-  const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        onToggle(false);
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('click', handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [isOpen, onToggle]);
+  // Dropdown 컴포넌트 내용은 동일하게 유지
 
   const handleOptionClick = (option) => {
     onChange(option);
@@ -27,37 +11,44 @@ const Dropdown = ({ options, value, onChange, placeholder, isOpen, onToggle }) =
   };
 
   const handleDropdownClick = (event) => {
-    event.stopPropagation(); // 이벤트 전파 중지
+    event.stopPropagation();
     onToggle(!isOpen);
   };
 
   return (
-    <div className='BirthSelect'>
-    <div className={`Dropdown ${isOpen ? 'clicked' : ''}`} ref={dropdownRef} onClick={handleDropdownClick}>
-      <div className='DropdownHeader'>
-        <div className='SelectedOption'>{value ? value.label : placeholder}</div>
-        <img src={arrowIcon} alt='DropdownIndicator' style={{ width: '8px', height: '4px', marginRight: '20px' }} />
-      </div>
-      {isOpen && (
-        <div className='DropdownOptions'>
-          {options.map((option) => (
-            <div
-              key={option.value}
-              className='DropdownOption'
-              onClick={() => handleOptionClick(option)}
-            >
-              {option.label}
-            </div>
-          ))}
+    <div className="BirthSelect">
+      <div className={`Dropdown ${isOpen ? "clicked" : ""}`} onClick={handleDropdownClick}>
+        <div className="DropdownHeader">
+          <div className="SelectedOption">{value ? value.label : placeholder}</div>
+          <img
+            src={arrowIcon}
+            alt="DropdownIndicator"
+            style={{ width: "8px", height: "4px", marginRight: "20px" }}
+          />
         </div>
-      )}
-    </div>
+        {isOpen && (
+          <div className="DropdownOptions">
+            {options.map((option) => (
+              <div
+                key={option.value}
+                className="DropdownOption"
+                onClick={() => handleOptionClick(option)}
+              >
+                {option.label}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
-const BirthSelect = () => {
-  const years = Array.from({ length: 100 }, (_, index) => ({ value: 2024 - index, label: `${2024 - index}` }));
+const BirthSelect = ({ onSelectYear, onSelectMonth, onSelectDay }) => {
+  const years = Array.from({ length: 100 }, (_, index) => ({
+    value: 2024 - index,
+    label: `${2024 - index}`,
+  }));
   const months = Array.from({ length: 12 }, (_, index) => ({ value: index + 1, label: `${index + 1}` }));
   const days = Array.from({ length: 31 }, (_, index) => ({ value: index + 1, label: `${index + 1}` }));
 
@@ -71,15 +62,15 @@ const BirthSelect = () => {
 
   const closeDropdowns = (currentDropdown) => {
     switch (currentDropdown) {
-      case 'year':
+      case "year":
         setIsMonthOpen(false);
         setIsDayOpen(false);
         break;
-      case 'month':
+      case "month":
         setIsYearOpen(false);
         setIsDayOpen(false);
         break;
-      case 'day':
+      case "day":
         setIsYearOpen(false);
         setIsMonthOpen(false);
         break;
@@ -91,32 +82,50 @@ const BirthSelect = () => {
   };
 
   return (
-    <div className='DropdownContainer'>
+    <div className="DropdownContainer">
       <Dropdown
         options={years}
         value={selectedYear}
-        onChange={setSelectedYear}
-        placeholder='년'
+        onChange={(option) => {
+          setSelectedYear(option);
+          onSelectYear(option);
+        }}
+        placeholder="년"
         isOpen={isYearOpen}
-        onToggle={(value) => { setIsYearOpen(value); closeDropdowns('year'); }}
+        onToggle={(value) => {
+          setIsYearOpen(value);
+          closeDropdowns("year");
+        }}
       />
 
       <Dropdown
         options={months}
         value={selectedMonth}
-        onChange={setSelectedMonth}
-        placeholder='월'
+        onChange={(option) => {
+          setSelectedMonth(option);
+          onSelectMonth(option);
+        }}
+        placeholder="월"
         isOpen={isMonthOpen}
-        onToggle={(value) => { setIsMonthOpen(value); closeDropdowns('month'); }}
+        onToggle={(value) => {
+          setIsMonthOpen(value);
+          closeDropdowns("month");
+        }}
       />
 
       <Dropdown
         options={days}
         value={selectedDay}
-        onChange={setSelectedDay}
-        placeholder='일'
+        onChange={(option) => {
+          setSelectedDay(option);
+          onSelectDay(option);
+        }}
+        placeholder="일"
         isOpen={isDayOpen}
-        onToggle={(value) => { setIsDayOpen(value); closeDropdowns('day'); }}
+        onToggle={(value) => {
+          setIsDayOpen(value);
+          closeDropdowns("day");
+        }}
       />
     </div>
   );

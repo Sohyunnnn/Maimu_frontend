@@ -24,8 +24,8 @@ const MainPage = () => {
 
   const [lockers, setLockers] = useState([
     { groupName: "그룹1", groupColor: "핑크" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
+    { groupName: "그룹2", groupColor: "노랑" },
+    { groupName: "그룹3", groupColor: "초록" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },

@@ -16,8 +16,21 @@ const DetailPage = () => {
   const decodedGroupName = decodeURI(groupName);
   const decodedGroupColor = decodeURI(groupColor);
 
+  const getBackgroundColor = () => {
+    switch (decodedGroupColor) {
+      case "핑크":
+        return "linear-gradient(180deg, #FFE0E0 0%, rgba(249, 229, 195, 0.50) 34.84%, rgba(255, 255, 255, 0.56) 76%)";
+      case "노랑":
+        return "linear-gradient(180deg, #FFF9C3 0%, rgba(255, 255, 255, 0.97) 71.21%)";
+      case "초록":
+        return "linear-gradient(180deg, #DCFDAC 0%, rgba(255, 255, 255, 0.55) 58.77%)";
+      default:
+        return "linear-gradient(180deg, #FEE4DE 3.37%, #FCEDDE 18.57%, #FCFCFC 42.08%)"; // 기본 배경색
+    }
+  };
+
   return (
-    <div className="DetailPage">
+    <div className="DetailPage" style={{ background: getBackgroundColor() }}>
       <div className="DetailPageContent">
         <div className="Header">
           <img className="SmallLogo" alt="" src={SmallLogoImg} />
@@ -29,7 +42,6 @@ const DetailPage = () => {
           />
         </div>
         <div className="GroupName">{decodedGroupName}</div>
-        <div className="GroupName">{decodedGroupColor}</div>
         <div className="DetailMaimu">
           <DetailMaimu />
           <DetailMaimu />

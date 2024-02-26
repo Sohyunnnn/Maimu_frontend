@@ -1,4 +1,4 @@
-.DetailPage {
+.WriteDetailPage {
   width: 100%;
   background: linear-gradient(
     180deg,
@@ -8,7 +8,7 @@
   );
 }
 
-.DetailPageContent {
+.WriteDetailPageContent {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,25 +25,24 @@
   margin-top: 38px;
 }
 
-.DetailPage .Header {
+.WriteDetailPage .Header {
   display: flex;
   width: 100%;
   flex-direction: row;
 }
 
-.DetailPage .SmallLogo {
+.WriteDetailPage .SmallLogo {
   margin: 78px 0 0 131px;
   width: 128px;
   height: 31.787px;
 }
 
-.DetailPage .PasteLink {
-  margin-left: 42px;
+.WriteDetailPage .WriteHelpIcon {
+  margin-left: 39px;
   margin-top: 56px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 }
 
-.DetailPage .GroupName {
+.WriteDetailPage .GroupName {
   width: 100%;
   height: 30px;
   text-align: center;
@@ -55,4 +54,29 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.WriteDetailPage .WriteDetail_Button {
+  width: 336px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #fff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #242424;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  position: absolute;
+  bottom: 53px;
+  left: 50%;
+  transform: translateX(-50%);
 }

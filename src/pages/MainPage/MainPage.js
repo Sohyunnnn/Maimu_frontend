@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
 import SmallLogoImg from "../../images/SmallLogo.svg";
-import ProfileImg from "../../images/Profile.svg";
+// import ProfileImg from "../../images/Profile.svg";
+import ProfileImgPomegranate from "../../images/ProfilePomegranate.svg";
 import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
@@ -22,8 +23,8 @@ const MainPage = () => {
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
-    { groupName: "Group 1", groupColor: "초록" },
-    { groupName: "Group 2", groupColor: "핑크" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
@@ -154,9 +155,9 @@ const MainPage = () => {
         />
         <img className="SmallLogo" alt="" src={SmallLogoImg} />
         <img
-          className="Profile"
+          className="ProfilePomegranate"
           alt="ProfileButton"
-          src={ProfileImg}
+          src={ProfileImgPomegranate}
           onClick={MoveToMyPage}
         />
       </div>

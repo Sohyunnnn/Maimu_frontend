@@ -1,5 +1,3 @@
-// MainPage.js
-
 import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
@@ -65,38 +63,39 @@ const MainPage = () => {
     setIsEditing(false);
   };
 
-  const onSave = (groupName, groupColor) => {
-    const emptyLockerIndex = findEmptyLockerIndex();
-    if (emptyLockerIndex !== -1) {
-      const updatedLockers = [...lockers];
-      updatedLockers[emptyLockerIndex] = { groupName, groupColor };
+  const onSave = (groupName, groupColor, lockerToUpdate) => {
+    if (clickedButton === "add") {
+      const emptyLockerIndex = findEmptyLockerIndex();
+      if (emptyLockerIndex !== -1) {
+        const updatedLockers = [...lockers];
+        updatedLockers[emptyLockerIndex] = { groupName, groupColor };
+        setLockers(updatedLockers);
+      }
+    } else if (clickedButton === "edit" && lockerToUpdate) {
+      const updatedLockers = lockers.map((locker, index) => {
+        if (index === lockerToUpdate.index) {
+          return { groupName, groupColor };
+        }
+        return locker;
+      });
       setLockers(updatedLockers);
     }
+  
     setModalOpen(false);
     setClickedButton(null);
     setIsEditing(false);
     setIsDeleting(false);
+    setSelectedLocker(null);
+    setSelectedLockerInfo(null);
   };
-
-  // const handleLockerClick = (index) => {
-  //   if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
-  //     MoveToDetailPage();
-  //   } else if (lockers[index].groupName !== "" && isEditing) {
-  //     setSelectedLocker(index);
-  //     setSelectedLockerInfo(lockers[index]); // Modal 열기 전에 선택된 정보만 업데이트
-  //     setModalOpen(true);
-  //   } else {
-  //     setSelectedLocker(index);
-  //     setWarningModalOpen(true);
-  //   }
-  // };
 
   const handleLockerClick = (index) => {
     if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
       MoveToDetailPage();
     } else if (lockers[index].groupName !== "" && isEditing) {
-      setSelectedLockerInfo(lockers[index]);  // 수정
+      setSelectedLocker(index);
       setModalOpen(true);
+      setSelectedLockerInfo(lockers[index]); // 선택된 사물함의 정보를 Modal 열기 전에 선택된 정보만 업데이트
     } else {
       setSelectedLocker(index);
       setWarningModalOpen(true);
@@ -151,7 +150,7 @@ const MainPage = () => {
       </div>
 
       <div className="LockerContainer">
-        {/* {lockers.map((locker, index) => (
+        {lockers.map((locker, index) => (
           <Locker
             key={index}
             GroupName={locker.groupName}
@@ -159,20 +158,8 @@ const MainPage = () => {
             isEditing={isEditing}
             isDeleting={isDeleting}
             onClick={() => handleLockerClick(index)}
-            locker={selectedLockerInfo} // 선택된 사물함의 정보를 Locker 컴포넌트로 전달
           />
-        ))} */}
-
-          {lockers.map((locker, index) => (
-            <Locker
-              key={index}
-              GroupName={locker.groupName}
-              groupColor={locker.groupColor}
-              isEditing={isEditing}
-              isDeleting={isDeleting}
-              onClick={() => handleLockerClick(index)}
-            />
-          ))}
+        ))}
       </div>
 
       <div className="EditGroup">
@@ -208,6 +195,8 @@ const MainPage = () => {
               setModalOpen(false);
               setIsEditing(false);
               setClickedButton(null);
+              setSelectedLocker(null);
+              setSelectedLockerInfo(null);
             }}
             locker={selectedLockerInfo} // Modal에 선택된 사물함의 정보를 전달
           />

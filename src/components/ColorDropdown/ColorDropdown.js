@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ColorDropdown.css';
 import Arrow from '../../images/MyPage/SelectorArrow.svg';
 
 const ColorDropdown = ({ selectedColor, onSelectColor }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const [color, setColor] = useState(selectedColor || '핑크');
 
+  useEffect(() => {
+    setColor(selectedColor || '핑크');
+  }, [selectedColor]);
 
   const handleColorChange = (color) => {
-    setColor(color); // 선택한 색상을 상태로 설정합니다.
-    onSelectColor(color); // 선택한 색상을 부모 컴포넌트로 전달합니다.
+    setColor(color);
+    onSelectColor(color);
     closeDropdown();
   };
 
@@ -28,7 +30,7 @@ const ColorDropdown = ({ selectedColor, onSelectColor }) => {
         className={`DropdownToggle ${isDropdownOpen ? 'open' : ''}`}
         onClick={handleDropdownToggle}
       >
-        {color} {/* 상태를 직접 출력합니다. */}
+        {color}
         <img className='Arrow' src={Arrow} alt='arrow'/>
       </div>
       {isDropdownOpen && (

@@ -1,14 +1,11 @@
-// Modal.js
-
 import React, { useState, useEffect } from "react";
 import "./Modal.css";
 import ColorDropdown from "../ColorDropdown/ColorDropdown";
 
-const Modal = ({ isOpen, onClose, clickedButton, onSave, locker = {} }) => {
-  const [groupName, setGroupName] = useState(locker.groupName || "");  // 초기값 설정
-  const [groupColor, setGroupColor] = useState(locker.groupColor || "핑크");  // 초기값 설정
+const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
+  const [groupName, setGroupName] = useState("");
+  const [groupColor, setGroupColor] = useState("핑크");
 
-  // locker가 유효하면 groupName과 groupColor 값을 설정합니다.
   useEffect(() => {
     if (locker) {
       const { groupName: lockerGroupName, groupColor: lockerGroupColor } = locker;
@@ -55,12 +52,12 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker = {} }) => {
           className="GroupName"
           value={groupName}
           onChange={(e) => setGroupName(e.target.value)}
+          // placeholder={modalTitle === "그룹 추가하기" ? "그룹명을 입력하세요" : ""}
         />
         <h1 className="GroupText">그룹 색상</h1>
         <ColorDropdown
-          selectedColor={groupColor}
+          selectedColor={groupColor} // 이 부분 수정
           onSelectColor={(color) => setGroupColor(color)}
-          defaultValue={groupColor}
         />
         <button className="CloseButton" onClick={onClose}>
           취소

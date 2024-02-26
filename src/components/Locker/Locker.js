@@ -29,7 +29,7 @@ const Locker = ({ GroupName, groupColor, isEditing, isDeleting, onClick }) => {
     <div className='Locker' onClick={onClick}>
       <img className='LockerIcon' src={lockerIcon} alt='LockerIcon' onClick={onClick}/>
       <div className='GroupName'>{GroupName}</div>
-      {GroupName && (isEditing||isDeleting) ? <div className='CheckCircle'></div> : null}
+      {GroupName && isDeleting ? <div className='CheckCircle'></div> : null}
       {GroupName && isDeleting ? <div className='delICon'></div> : null}
       {GroupName && isEditing ? <img className='EditIcon'src={EditIcon} alt='EditIcon' /> : null}
     </div>

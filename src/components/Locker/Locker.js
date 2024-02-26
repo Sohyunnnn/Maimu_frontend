@@ -10,7 +10,6 @@ const Locker = ({ GroupName, groupColor, isEditing, isDeleting, onClick }) => {
 
   let lockerIcon;
 
-  // 그룹 색상에 따라 적절한 Locker 아이콘을 선택합니다.
   switch (groupColor) {
     case '초록':
       lockerIcon = GreenLockerIcon;
@@ -22,7 +21,7 @@ const Locker = ({ GroupName, groupColor, isEditing, isDeleting, onClick }) => {
       lockerIcon = YellowLockerIcon;
       break;
     default:
-      lockerIcon = LockerIcon; // 기본적으로 Locker 아이콘을 사용합니다.
+      lockerIcon = LockerIcon; 
       break;
   }
 

@@ -1,4 +1,5 @@
 // MainPage.js
+
 import React, { useState } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
@@ -17,6 +18,7 @@ const MainPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [selectedLocker, setSelectedLocker] = useState(null);
+  const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태 추가
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
   const [lockers, setLockers] = useState([
@@ -53,8 +55,6 @@ const MainPage = () => {
 
   const editButtonClick = () => {
     setClickedButton("edit");
-    // setModalOpen(true);
-    // setIsEditing(true);
     setIsDeleting(false);
     setIsEditing((prevEditing) => !prevEditing);
   };
@@ -78,17 +78,13 @@ const MainPage = () => {
     setIsDeleting(false);
   };
 
-  // const handleLockerClick = (index) => {
-  //   if (isDeleting && lockers[index].groupName !== '') {
-  //     setSelectedLocker(index);
-  //     setWarningModalOpen(true); // WarningModal을 열도록 상태 업데이트
-  //   }
-  // };
-
   const handleLockerClick = (index) => {
-    if (lockers[index].groupName !== "" && !isDeleting) {
-      console.log("페이지 넘기기");
+    if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
       MoveToDetailPage();
+    } else if (lockers[index].groupName !== "" && isEditing) {
+      setSelectedLocker(index);
+      setSelectedLockerInfo(lockers[index]); // Modal 열기 전에 선택된 정보만 업데이트
+      setModalOpen(true);
     } else {
       setSelectedLocker(index);
       setWarningModalOpen(true);
@@ -96,22 +92,20 @@ const MainPage = () => {
   };
 
   const handleWarningModalClose = () => {
-    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+    setWarningModalOpen(false);
   };
 
   const handleDelete = () => {
-    // 사물함 삭제
     const updatedLockers = [...lockers];
     updatedLockers[selectedLocker].groupName = "";
     updatedLockers[selectedLocker].groupColor = "";
 
-    // 삭제된 사물함 이후의 모든 사물함을 한 칸씩 앞으로 이동
     for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
       updatedLockers[i - 1] = updatedLockers[i];
     }
 
     setLockers(updatedLockers);
-    setWarningModalOpen(false); // WarningModal을 닫도록 상태 업데이트
+    setWarningModalOpen(false);
     setIsDeleting(false);
   };
 
@@ -145,7 +139,6 @@ const MainPage = () => {
       </div>
 
       <div className="LockerContainer">
-        {/* Lockers 리스트를 매핑하여 각 Locker에 데이터를 전달합니다. */}
         {lockers.map((locker, index) => (
           <Locker
             key={index}
@@ -153,9 +146,8 @@ const MainPage = () => {
             groupColor={locker.groupColor}
             isEditing={isEditing}
             isDeleting={isDeleting}
-            onClick={() => {
-              handleLockerClick(index);
-            }} // 사물함을 클릭했을 때의 핸들러 추가
+            onClick={() => handleLockerClick(index)}
+            locker={selectedLockerInfo} // 선택된 사물함의 정보를 Locker 컴포넌트로 전달
           />
         ))}
       </div>
@@ -191,8 +183,10 @@ const MainPage = () => {
             onSave={onSave}
             onClose={() => {
               setModalOpen(false);
+              setIsEditing(false);
               setClickedButton(null);
             }}
+            locker={selectedLockerInfo} // Modal에 선택된 사물함의 정보를 전달
           />
         )}
       </div>
@@ -201,7 +195,6 @@ const MainPage = () => {
         closeInformationModal={closeInformationModal}
       />
 
-      {/* 삭제를 확인하는 경우에만 WarningModal을 표시합니다. */}
       {warningModalOpen && (
         <WarningModal
           onClose={handleWarningModalClose}

@@ -63,24 +63,45 @@ const MainPage = () => {
     setIsEditing(false);
   };
 
-  const onSave = (groupName, groupColor, lockerToUpdate) => {
+  // const onSave = (groupName, groupColor, lockerToUpdate) => {
+  //   if (clickedButton === "add") {
+  //     const emptyLockerIndex = findEmptyLockerIndex();
+  //     if (emptyLockerIndex !== -1) {
+  //       const updatedLockers = [...lockers];
+  //       updatedLockers[emptyLockerIndex] = { groupName, groupColor };
+  //       setLockers(updatedLockers);
+  //     }
+  //   } else if (clickedButton === "edit" && lockerToUpdate) {
+  //     const updatedLockers = lockers.map((locker, index) => {
+  //       if (index === lockerToUpdate.index) {
+  //         return { groupName, groupColor };
+  //       }
+  //       return locker;
+  //     });
+  //     setLockers(updatedLockers);
+  //   }
+  
+  //   setModalOpen(false);
+  //   setClickedButton(null);
+  //   setIsEditing(false);
+  //   setIsDeleting(false);
+  //   setSelectedLocker(null);
+  //   setSelectedLockerInfo(null);
+  // };
+
+
+  const onSave = (groupName, groupColor) => {
+    const updatedLockers = [...lockers];
     if (clickedButton === "add") {
       const emptyLockerIndex = findEmptyLockerIndex();
       if (emptyLockerIndex !== -1) {
-        const updatedLockers = [...lockers];
         updatedLockers[emptyLockerIndex] = { groupName, groupColor };
-        setLockers(updatedLockers);
       }
-    } else if (clickedButton === "edit" && lockerToUpdate) {
-      const updatedLockers = lockers.map((locker, index) => {
-        if (index === lockerToUpdate.index) {
-          return { groupName, groupColor };
-        }
-        return locker;
-      });
-      setLockers(updatedLockers);
+    } else if (clickedButton === "edit" && selectedLocker !== null) {
+      updatedLockers[selectedLocker] = { groupName, groupColor };
     }
-  
+    
+    setLockers(updatedLockers);
     setModalOpen(false);
     setClickedButton(null);
     setIsEditing(false);
@@ -89,6 +110,7 @@ const MainPage = () => {
     setSelectedLockerInfo(null);
   };
 
+  
   const handleLockerClick = (index) => {
     if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
       MoveToDetailPage();

@@ -52,11 +52,10 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
           className="GroupName"
           value={groupName}
           onChange={(e) => setGroupName(e.target.value)}
-          // placeholder={modalTitle === "그룹 추가하기" ? "그룹명을 입력하세요" : ""}
         />
         <h1 className="GroupText">그룹 색상</h1>
         <ColorDropdown
-          selectedColor={groupColor} // 이 부분 수정
+          selectedColor={groupColor}
           onSelectColor={(color) => setGroupColor(color)}
         />
         <button className="CloseButton" onClick={onClose}>

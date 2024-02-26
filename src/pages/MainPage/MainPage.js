@@ -78,12 +78,24 @@ const MainPage = () => {
     setIsDeleting(false);
   };
 
+  // const handleLockerClick = (index) => {
+  //   if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
+  //     MoveToDetailPage();
+  //   } else if (lockers[index].groupName !== "" && isEditing) {
+  //     setSelectedLocker(index);
+  //     setSelectedLockerInfo(lockers[index]); // Modal 열기 전에 선택된 정보만 업데이트
+  //     setModalOpen(true);
+  //   } else {
+  //     setSelectedLocker(index);
+  //     setWarningModalOpen(true);
+  //   }
+  // };
+
   const handleLockerClick = (index) => {
     if (lockers[index].groupName !== "" && !isDeleting && !isEditing) {
       MoveToDetailPage();
     } else if (lockers[index].groupName !== "" && isEditing) {
-      setSelectedLocker(index);
-      setSelectedLockerInfo(lockers[index]); // Modal 열기 전에 선택된 정보만 업데이트
+      setSelectedLockerInfo(lockers[index]);  // 수정
       setModalOpen(true);
     } else {
       setSelectedLocker(index);
@@ -139,7 +151,7 @@ const MainPage = () => {
       </div>
 
       <div className="LockerContainer">
-        {lockers.map((locker, index) => (
+        {/* {lockers.map((locker, index) => (
           <Locker
             key={index}
             GroupName={locker.groupName}
@@ -149,7 +161,18 @@ const MainPage = () => {
             onClick={() => handleLockerClick(index)}
             locker={selectedLockerInfo} // 선택된 사물함의 정보를 Locker 컴포넌트로 전달
           />
-        ))}
+        ))} */}
+
+          {lockers.map((locker, index) => (
+            <Locker
+              key={index}
+              GroupName={locker.groupName}
+              groupColor={locker.groupColor}
+              isEditing={isEditing}
+              isDeleting={isDeleting}
+              onClick={() => handleLockerClick(index)}
+            />
+          ))}
       </div>
 
       <div className="EditGroup">

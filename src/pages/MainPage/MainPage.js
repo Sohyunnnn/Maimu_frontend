@@ -7,7 +7,9 @@ import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
 import InformationModal from "../../components/InformationModal/InformationModal";
-import WarningModal from "../../components/WarningModal/WarningModal";
+import WarningModal from "../../components/WarningModal/WarningModal"
+import { ToastContainer, toast } from "react-toastify"; // toast 불러오기
+import "react-toastify/dist/ReactToastify.css"; // toast 스타일 추가
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -38,12 +40,18 @@ const MainPage = () => {
     );
   };
 
+  const checkDuplicateGroupName = (name) => {
+    return lockers.some(locker => locker.groupName === name);
+  };
+
+
   const addButtonClick = () => {
     const emptyLockerIndex = findEmptyLockerIndex();
     if (emptyLockerIndex === -1) {
       alert("모든 그룹이 채워져 있습니다.");
       return;
     }
+      
     setClickedButton(emptyLockerIndex);
     setClickedButton("add");
     setModalOpen(true);
@@ -63,32 +71,6 @@ const MainPage = () => {
     setIsEditing(false);
   };
 
-  // const onSave = (groupName, groupColor, lockerToUpdate) => {
-  //   if (clickedButton === "add") {
-  //     const emptyLockerIndex = findEmptyLockerIndex();
-  //     if (emptyLockerIndex !== -1) {
-  //       const updatedLockers = [...lockers];
-  //       updatedLockers[emptyLockerIndex] = { groupName, groupColor };
-  //       setLockers(updatedLockers);
-  //     }
-  //   } else if (clickedButton === "edit" && lockerToUpdate) {
-  //     const updatedLockers = lockers.map((locker, index) => {
-  //       if (index === lockerToUpdate.index) {
-  //         return { groupName, groupColor };
-  //       }
-  //       return locker;
-  //     });
-  //     setLockers(updatedLockers);
-  //   }
-  
-  //   setModalOpen(false);
-  //   setClickedButton(null);
-  //   setIsEditing(false);
-  //   setIsDeleting(false);
-  //   setSelectedLocker(null);
-  //   setSelectedLockerInfo(null);
-  // };
-
 
   const onSave = (groupName, groupColor) => {
     const updatedLockers = [...lockers];
@@ -97,8 +79,15 @@ const MainPage = () => {
       if (emptyLockerIndex !== -1) {
         updatedLockers[emptyLockerIndex] = { groupName, groupColor };
       }
+
+      if (checkDuplicateGroupName(groupName)) {
+        toast("이미 존재하는 그룹명입니다."); 
+        return;
+      }
+
     } else if (clickedButton === "edit" && selectedLocker !== null) {
       updatedLockers[selectedLocker] = { groupName, groupColor };
+
     }
     
     setLockers(updatedLockers);
@@ -155,6 +144,7 @@ const MainPage = () => {
 
   return (
     <div className="MainPage">
+      <ToastContainer /> {/* ToastContainer를 MainPage 컴포넌트 내에 추가 */}
       <div className="Header">
         <img
           className="HelpIcon"

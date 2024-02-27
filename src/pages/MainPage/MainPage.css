@@ -20,30 +20,35 @@
   display: flex;
   width: 100%;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 62px;
+  align-items: center;
 }
 
 .HelpIcon {
-  margin: 70px 0 0 32px;
+  /* margin: 70px 0 0 0; */
   width: 42px;
   height: 42px;
 }
 
 .MainPage .SmallLogo {
-  margin: 78px 0 0 56.65px;
+  /* margin: 78px 0 0 56.65px; */
+  margin: 0 57px 0 57px;
   width: 128px;
   height: 31.787px;
 }
 
 .ProfilePomegranate {
-  margin: 65px 0 0 50px;
-  width: 55px;
-  height: 55px;
+  /* margin: 65px 0 0 50px; */
+  /* width: 55px;
+  height: 55px; */
+  width: 42px;
+  height: 42px;
 }
 
 .EditGroup {
   display: flex;
   flex-direction: row;
-  margin-left: 58px;
   margin-top: 35px;
 }
 

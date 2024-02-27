@@ -151,6 +151,7 @@ const MainPage = () => {
 
   return (
     <div className="MainPage">
+      <div className="JustifyCenter">
       <ToastContainer />
       <div className="Header">
         <img
@@ -235,6 +236,7 @@ const MainPage = () => {
           index={selectedLocker}
         />
       )}
+      </div>
     </div>
   );
 };

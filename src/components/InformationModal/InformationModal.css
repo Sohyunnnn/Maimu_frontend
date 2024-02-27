@@ -69,150 +69,127 @@
   margin-left: 316px;
 }
 
+.SwiperTitle{
+  color: #ea4da4;
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.SwiperContent{
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+
+}
+
 /* page-1 */
 
 .Friend_T {
-  position: absolute;
-  margin-top: 66px;
-  width: 100%;
+  margin-top: 43px;
 
-  color: #ea4da4;
-  text-align: center;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .Friend_C {
-  position: absolute;
-  margin-top: 104px;
-  width: 100%;
-
-  color: #000;
+  margin-top: 18px;
   text-align: center;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
+
 }
 
 .HowToUse_T {
-  position: absolute;
-  margin-top: 223px;
-  width: 100%;
 
-  color: #ea4da4;
-  text-align: center;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  /* margin-top: 57px; */
+  position: absolute;
+    top: 205px;
 }
 
 .HowToUse_C {
-  position: absolute;
-  margin-top: 255px;
-  margin-right: 20px;
-  width: 100%;
 
-  color: #000;
+  margin-top: 96px;
+  width: 260px;
   text-align: left;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
 }
 
 /* page-2 */
 
 .WhatFlavor_T {
-  position: absolute;
-  margin-top: 67px;
-  width: 100%;
-
-  color: #ea4da4;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  margin-top: 43px;
 }
 
 .WhatFlavor_C1 {
-  position: absolute;
-  margin-top: 100px;
-  width: 100%;
-
-  color: #000;
+  margin-top: 13px;
   text-align: center;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
 }
 
 .WhatFlavor_C2 {
-  position: absolute;
-  margin-top: 120px;
-  margin-left: 20px;
-  width: 100%;
-
-  color: #000;
   text-align: left;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
 }
 
 .WhoMade_T1 {
-  position: absolute;
-  margin-top: 225px;
-  width: 100%;
-
-  color: #ea4da4;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  margin-top: 20px;
 }
 
 .WhoMade_T2 {
-  position: absolute;
+  /* position: absolute;
   margin-top: 246px;
   margin-left: 90px;
-  width: 40%;
+  width: 40%; */
 
-  color: #ea4da4;
+  /* color: #ea4da4;
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
-  line-height: normal;
-  text-decoration-line: underline;
-  cursor: pointer;
+  line-height: normal; */
+  /* text-decoration-line: underline; */
+  /* cursor: pointer; */
 }
 
 .WhoMade_C {
-  position: absolute;
-  margin-top: 273px;
-  margin-left: 0px;
-  width: 90%;
-  align-items: center;
-
-  color: #000;
+  width: 260px;
+  margin-top: 10px;
   text-align: left;
-  font-family: Pretendard;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
+}
+
+
+
+.swiper-slide{
+  margin-top: 20px;
+}
+
+.SwiperContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Swiper .HowToUse_C li,
+.Swiper .WhoMade_C li{
+  margin-bottom: 3px;
+}
+
+.Swiper .HowToUse_C ul, 
+.Swiper .WhatFlavor_C2 ul,
+.Swiper .WhoMade_C ul {
+  padding-left: 20px;
+  
+
+}
+
+.swiper-button-prev:after, .swiper-button-next:after{
+  position: absolute;
+  top: 16px;
+
+}
+
+.WhoMade_C li, 
+.HowToUse_C li {
+  word-break: keep-all;
 }

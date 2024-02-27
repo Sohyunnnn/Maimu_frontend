@@ -37,10 +37,12 @@ const ProfileEdit = () => {
 
     <div className='ProfileEdit'>
       <div className="JustifyContainer">
-      <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
-      {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
-      {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
-      {iconName === '매실' && <img className='PlumTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+        <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
+        {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+        {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+        {iconName === '매실' && <img className='PlumTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+      
+      <div className="MaimuContainer">
       <img
         className='Pomegranate'
         src={Pomegranate}
@@ -65,6 +67,9 @@ const ProfileEdit = () => {
           handleIconClick('매실', { top: 487, left: 295 }, PlumBubble)
         }
       />
+      </div>
+
+  
 
       {name && (
         <div

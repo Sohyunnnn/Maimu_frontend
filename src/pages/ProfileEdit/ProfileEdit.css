@@ -6,8 +6,16 @@
     /* background-color: #FFF; */
 }
 
+.JustifyContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .SpeechBubble{
-    margin: 256px 0 0 78px;
+    margin: 256px 0 0 0;
+    width: 244px;
 }
 
 .NextButton{
@@ -22,22 +30,24 @@
     line-height: normal;
 }
 
-.Pomegranate{
+.MaimuContainer{
     position: absolute;
-    top: 377px;
+    top: 368px;
     left: 41px;
+
+}
+
+.Pomegranate{
+    margin-right: 40px;
 }
 
 .Citron{
-    position: absolute;
-    top: 378px;
-    left: 157px;
+    margin-right: 40px;
 }
 
 .Plum{
-    position: absolute;
-    top: 375px;
-    left: 271px;
+    /* position: relative;
+    top: 1px; */
 
 }
 

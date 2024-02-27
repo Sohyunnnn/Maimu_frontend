@@ -36,6 +36,7 @@ const ProfileEdit = () => {
   return (
 
     <div className='ProfileEdit'>
+      <div className="JustifyContainer">
       <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
       {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
       {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
@@ -79,6 +80,7 @@ const ProfileEdit = () => {
           다음 <img className='Arrow' src={Arrow} alt='Arrow' />
         </button>
       )}
+      </div>
     </div>
   );
 };

@@ -3,7 +3,6 @@
 .ProfileEdit{
     width: 100%;
     background: #000;
-    /* background-color: #FFF; */
 }
 
 .JustifyContainer{
@@ -43,12 +42,6 @@
 
 .Citron{
     margin-right: 40px;
-}
-
-.Plum{
-    /* position: relative;
-    top: 1px; */
-
 }
 
 .Arrow{

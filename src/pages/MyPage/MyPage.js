@@ -57,7 +57,7 @@ const MyPage = () => {
 
   return (
     <div className={`MyPage ${profileInfo?.backgroundClass}`}>
-      <div className="AlignCenter">
+      <div className="JustifyCenter">
         <img className="SmallLogoImg" src={SmallLogoImg} alt="SmallLogo" />
         <img className="ProfileImage" src={profileInfo?.image} alt={focusedIcon} />
         <img className="ProfileEditButon" src={EditButton} alt="ProfileEditButon" />

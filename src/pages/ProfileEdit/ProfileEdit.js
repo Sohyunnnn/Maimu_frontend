@@ -36,10 +36,13 @@ const ProfileEdit = () => {
   return (
 
     <div className='ProfileEdit'>
-      <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
-      {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
-      {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
-      {iconName === '매실' && <img className='PlumTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+      <div className="JustifyContainer">
+        <img className='SpeechBubble' src={bubbleImage} alt='SpeechBubble' />
+        {iconName === '석류' && <img className='PomegranateTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+        {iconName === '유자' && <img  className='CitronTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+        {iconName === '매실' && <img className='PlumTwinkle' src={TwinkleImg} alt='TwinkleImg'/>}
+      
+      <div className="MaimuContainer">
       <img
         className='Pomegranate'
         src={Pomegranate}
@@ -64,6 +67,9 @@ const ProfileEdit = () => {
           handleIconClick('매실', { top: 487, left: 295 }, PlumBubble)
         }
       />
+      </div>
+
+  
 
       {name && (
         <div
@@ -79,6 +85,7 @@ const ProfileEdit = () => {
           다음 <img className='Arrow' src={Arrow} alt='Arrow' />
         </button>
       )}
+      </div>
     </div>
   );
 };

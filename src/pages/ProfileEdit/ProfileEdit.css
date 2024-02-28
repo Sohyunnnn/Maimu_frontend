@@ -32,8 +32,6 @@
 .MaimuContainer{
     position: absolute;
     top: 366px;
-    /* left: 41px; */
-
 }
 
 .Pomegranate{
@@ -51,7 +49,6 @@
 .NextButton{
     position: absolute;
     top: 566px;
-    /* left: 144px; */
 }
 
 .IconName{
@@ -70,20 +67,17 @@
 .PomegranateTwinkle{
     position: absolute;
     top: 336px;
-    /* left: 25px; */
     margin-left: -230px;
 
 }
 .CitronTwinkle{
     position: absolute;
     top: 336px;
-    /* left: 143px; */
 
 }
 .PlumTwinkle{
     position: absolute;
     top: 336px;
-    /* left: 262px; */
     margin-left: 237px;
 
 }

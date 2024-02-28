@@ -20,16 +20,12 @@ const LoadingPage = () => {
   return (
     <div className="LoadingPage">
       <div className="JustifyCenter">
-      {/* <div className="Header"> */}
         <img className="SmallLogo" alt="" src={SmallLogoImg} />
-      {/* </div> */}
       <div className="LoadingMaimu_Wrapper">
         <div className="ThreeBubbles">
           <img src={ThreeBubbles} alt="ThreeBubbles" />
         </div>
-        {/* <div className="GreyMaimu"> */}
           <img className="GreyMaimu" src={GreyMaimu} alt="GreyMaimu" />
-        {/* </div> */}
         <p className="CheckTaste_C">마이무 맛 확인 중 ...</p>
       </div>
       </div>

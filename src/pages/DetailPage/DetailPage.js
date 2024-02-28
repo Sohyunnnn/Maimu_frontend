@@ -33,9 +33,7 @@ const DetailPage = () => {
     <div className="DetailPage" style={{ background: getBackgroundColor() }}>
       <div className="JustifyCenter">
       <div className="DetailPageContent">
-        {/* <div className="Header"> */}
           <img className="SmallLogo" alt="" src={SmallLogoImg} />
-        {/* </div> */}
         <div className="GroupName">{decodedGroupName}</div>
         <div className="DetailMaimu">
           <DetailMaimu />

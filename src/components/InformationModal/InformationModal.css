@@ -76,6 +76,10 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  /* text-decoration:underline;
+  text-decoration-thickness: 4px;
+  text-decoration-color: rgba(234, 77, 164, 0.50);
+  text-decoration-offset: 2px; */
 }
 
 .SwiperContent{
@@ -134,22 +138,6 @@
   margin-top: 20px;
 }
 
-.WhoMade_T2 {
-  /* position: absolute;
-  margin-top: 246px;
-  margin-left: 90px;
-  width: 40%; */
-
-  /* color: #ea4da4;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal; */
-  /* text-decoration-line: underline; */
-  /* cursor: pointer; */
-}
 
 .WhoMade_C {
   width: 260px;

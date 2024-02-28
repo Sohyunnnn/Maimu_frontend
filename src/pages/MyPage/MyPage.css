@@ -39,9 +39,12 @@
 .ProfileEditButon {
   width: 37px;
   height: 37px;
-  position: absolute;
+  /* position: absolute;
   top: 202px;
-  left: 234px;
+  left: 234px; */
+  position: relative;
+    top: -146px;
+    left: 57px;
 }
 
 .Nickname {

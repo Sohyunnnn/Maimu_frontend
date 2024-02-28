@@ -4,6 +4,8 @@
   border: 1px solid #959595;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
+  /* bottom: 42px; */
+  position: fixed;
   bottom: 42px;
   width: 360px;
   height: 56px;

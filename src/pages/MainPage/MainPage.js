@@ -153,21 +153,23 @@ const MainPage = () => {
     <div className="MainPage">
       <div className="JustifyCenter">
       <ToastContainer />
-      <div className="Header">
-        <img
+      {/* <div className="Header"> */}
+        
+        <img className="SmallLogo" alt="" src={SmallLogoImg} />
+        {/* <img
           className="HelpIcon"
           alt="HelpIcon"
           src={HelpIcon}
           onClick={openInformationModal}
         />
-        <img className="SmallLogo" alt="" src={SmallLogoImg} />
+        
         <img
           className="ProfilePomegranate"
           alt="ProfileButton"
           src={ProfileImgPomegranate}
           onClick={MoveToMyPage}
-        />
-      </div>
+        /> */}
+      {/* </div> */}
 
       <div className="LockerContainer">
         {lockers.map((locker, index) => (
@@ -236,6 +238,20 @@ const MainPage = () => {
           index={selectedLocker}
         />
       )}
+
+        <img
+          className="HelpIcon"
+          alt="HelpIcon"
+          src={HelpIcon}
+          onClick={openInformationModal}
+        />
+        
+        <img
+          className="ProfilePomegranate"
+          alt="ProfileButton"
+          src={ProfileImgPomegranate}
+          onClick={MoveToMyPage}
+        />
       </div>
     </div>
   );

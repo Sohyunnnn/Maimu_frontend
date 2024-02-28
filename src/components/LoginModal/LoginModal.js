@@ -5,6 +5,11 @@ import KakaoLogin from "../../images/StartPage/KakaoLogin.svg";
 import NaverLogin from "../../images/StartPage/NaverLogin.svg";
 import GoogleLogin from "../../images/StartPage/GoogleLogin.svg";
 
+const onKakaoLogin = () => {
+  window.location.href =
+    "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/kakao";
+};
+
 const onNaverLogin = () => {
   window.location.href =
     "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver";
@@ -28,7 +33,7 @@ function LoginModal({ isLoginOpen, closeLoginModal }) {
           <img src={LoginXButton} alt="LoginXButton" />
         </div>
         <h3 className="Login_T">로그인</h3>
-        <div className="KakaoLogin">
+        <div className="KakaoLogin" onClick={onKakaoLogin}>
           카카오로 로그인하기
           <div className="KakaoLoginImg">
             <img src={KakaoLogin} alt="KakaoLogin" />

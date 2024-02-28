@@ -6,7 +6,7 @@ import MiniLogo from '../../images/Withdrawal/MiniLogo.svg';
 const Withdrawal = () => {
   return (
     <div className='Withdrawal'>
-        <div className='AlignCenter'> 
+        <div className='JustifyCenter'> 
             <img className='SmallLogoImg' src={SmallLogoImg} alt='SmallLogoImg'/>
             <div className='WithdrawalContainer'>탈퇴 안내</div>
             <div className='MemberWithdrawalGuide'>

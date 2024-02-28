@@ -16,40 +16,34 @@
   margin: 37px 0 0 0;
 }
 
-.MainPage .Header {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 62px;
-  align-items: center;
-}
 
 .HelpIcon {
-  /* margin: 70px 0 0 0; */
   width: 42px;
   height: 42px;
+  position: relative;
+  right: 141px;
+  bottom: 712px;
 }
 
 .MainPage .SmallLogo {
-  /* margin: 78px 0 0 56.65px; */
-  margin: 0 57px 0 57px;
-  width: 128px;
-  height: 31.787px;
+  margin-top: 78px;
 }
 
 .ProfilePomegranate {
-  /* margin: 65px 0 0 50px; */
-  /* width: 55px;
-  height: 55px; */
-  width: 42px;
-  height: 42px;
+  width: 55px;
+  height: 55px;
+  position: relative;
+  left: 147px;
+  bottom: 760px;
 }
+
 
 .EditGroup {
   display: flex;
   flex-direction: row;
   margin-top: 35px;
+  justify-content: center;
+  align-items: center;
 }
 
 .EditButton {
@@ -61,7 +55,7 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  margin-right: 24px;
+  margin: 0 12px;
 }
 
 .clicked {

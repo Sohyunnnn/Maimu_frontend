@@ -8,14 +8,6 @@
   );
 }
 
-.LoadingPage .Header {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
 .LoadingPage .SmallLogo {
   margin: 78px 0 40px 0;
@@ -28,10 +20,6 @@
 }
 
 .LoadingPage .GreyMaimu {
-  display: block;
-  justify-content: center;
-  align-items: center;
-  margin-left: 148px;
   margin-top: 16px;
 }
 

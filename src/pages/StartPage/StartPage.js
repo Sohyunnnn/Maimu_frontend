@@ -21,6 +21,7 @@ const StartPage = () => {
 
   return (
     <div className="StartPage">
+      <div className="JustifyCenter">
       <div className="WallPaper">
         <img src={WallPaper} alt="WallPaper" />
 
@@ -38,6 +39,7 @@ const StartPage = () => {
           isInformationOpen={isInformationModalOpen}
           closeInformationModal={closeInformationModal}
         />
+      </div>
       </div>
     </div>
   );

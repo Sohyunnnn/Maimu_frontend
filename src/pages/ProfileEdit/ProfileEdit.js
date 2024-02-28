@@ -48,7 +48,7 @@ const ProfileEdit = () => {
         src={Pomegranate}
         alt='Pomegranate'
         onClick={() =>
-          handleIconClick('석류', { top: 487, left: 64 }, PomegranateBubble)
+          handleIconClick('석류', { top: 487, marginRight:"236px" }, PomegranateBubble)
         }
       />
       <img
@@ -56,7 +56,7 @@ const ProfileEdit = () => {
         src={Citron}
         alt='Citron'
         onClick={() =>
-          handleIconClick('유자', { top: 487, left: 179 }, CitronBubble)
+          handleIconClick('유자', { top: 487 }, CitronBubble)
         }
       />
       <img
@@ -64,7 +64,7 @@ const ProfileEdit = () => {
         src={Plum}
         alt='Plum'
         onClick={() =>
-          handleIconClick('매실', { top: 487, left: 295 }, PlumBubble)
+          handleIconClick('매실', { top: 487, marginLeft:"232px" }, PlumBubble)
         }
       />
       </div>
@@ -74,7 +74,9 @@ const ProfileEdit = () => {
       {name && (
         <div
           className='IconName'
-          style={{ position: 'absolute', ...iconPosition }}
+          style={{ 
+            position: 'absolute',
+           ...iconPosition }}
         >
           <p>{name}</p>
         </div>

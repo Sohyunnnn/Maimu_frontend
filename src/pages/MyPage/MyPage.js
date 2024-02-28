@@ -55,12 +55,17 @@ const MyPage = () => {
   const focusedIcon = location.state?.focusedIcon;
   const profileInfo = getProfileImage(focusedIcon);
 
+
+  const MoveToProfileEdit=()=>{
+    navigate("/ProfileEdit");
+  }
+
   return (
     <div className={`MyPage ${profileInfo?.backgroundClass}`}>
       <div className="JustifyCenter">
         <img className="SmallLogoImg" src={SmallLogoImg} alt="SmallLogo" />
-        <img className="ProfileImage" src={profileInfo?.image} alt={focusedIcon} />
-        <img className="ProfileEditButon" src={EditButton} alt="ProfileEditButon" />
+        <img className="ProfileImage" src={profileInfo?.image} alt={focusedIcon} onClick={MoveToProfileEdit}/>
+        <img className="ProfileEditButon" src={EditButton} alt="ProfileEditButon" onClick={MoveToProfileEdit}/>
         <div className="Nickname">
           닉네임
           <input

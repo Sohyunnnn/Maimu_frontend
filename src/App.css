@@ -12,6 +12,8 @@ body {
   height: calc(var(--vh, 1vh) * 100);
   display: flex;
   justify-content: center;
+  /* align-items: center; */
+  height: 100vh;
 }
 
 .Frame {
@@ -19,11 +21,12 @@ body {
   display: flex;
   width: 100%;
   min-width: 390px;
+  /* max-width: 643px; */
   height: 100%;
   min-height: 844px;
   max-height: 844px;
   overflow-y: auto;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 

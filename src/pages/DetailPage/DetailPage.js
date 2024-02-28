@@ -31,16 +31,11 @@ const DetailPage = () => {
 
   return (
     <div className="DetailPage" style={{ background: getBackgroundColor() }}>
+      <div className="JustifyCenter">
       <div className="DetailPageContent">
-        <div className="Header">
+        {/* <div className="Header"> */}
           <img className="SmallLogo" alt="" src={SmallLogoImg} />
-          <img
-            className="PasteLink"
-            alt="PasteLink"
-            src={PasteLink}
-            onClick={() => setPasteState(true)}
-          />
-        </div>
+        {/* </div> */}
         <div className="GroupName">{decodedGroupName}</div>
         <div className="DetailMaimu">
           <DetailMaimu />
@@ -50,6 +45,13 @@ const DetailPage = () => {
         </div>
         {pasteState && <PasteLinkAlert setPasteState={setPasteState} />}
       </div>
+      <img
+            className="PasteLink"
+            alt="PasteLink"
+            src={PasteLink}
+            onClick={() => setPasteState(true)}
+          />
+    </div>
     </div>
   );
 };

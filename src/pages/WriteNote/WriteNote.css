@@ -11,6 +11,7 @@
   align-items: center;
   text-align: center;
   position: relative;
+  overflow-y: auto;
 }
 
 .WriteNote .Header {
@@ -172,7 +173,7 @@
 
 .WriteNote .Note_Info_Wrapper {
   display: flex;
-  position: relative;
+  justify-content: center;
 }
 
 .WriteNote .NickName_Wrapper {

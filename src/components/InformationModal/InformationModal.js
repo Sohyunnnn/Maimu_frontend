@@ -17,14 +17,14 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
         display: isInformationOpen ? "block" : "none",
       }}
     >
-      <div className="InformationToggleOut"></div>
+      <div className="InformationToggleOut">
       <div className="InformationToggle">
         <img src={InformationToggle} alt="InformationToggle" />
         <div className="InformationXBtn" onClick={closeInformationModal}>
           <img src={InformationXButton} alt="InformationXButton" />
         </div>
       </div>
-
+    </div>
       <Swiper
         slidesPerView={1}
         centeredSlides={false}
@@ -37,13 +37,14 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
         modules={[Navigation, Pagination]}
         className="swiper-pagination"
         style={{
-          position: "absolute",
+          position: "fixed",
           top: 146,
-          left: -1,
+          left: 0,
           right: 0,
           bottom: 0,
           width: "300px",
           height: "490px",
+          
         }}
       >
         <SwiperSlide className="Swiper">

@@ -38,7 +38,7 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
         className="swiper-pagination"
         style={{
           position: "fixed",
-          top: 176,
+          top: 196,
           left: 0,
           right: 0,
           bottom: 0,
@@ -92,12 +92,7 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
             <div className="WhoMade_T1 SwiperTitle">
               누가 만든 서비스인가요?<div className="WhoMade_T_Underbar"></div>
             </div>
-            <a
-              className="InstaLink"
-              href="https://www.instagram.com/maimu.official/?igsh=cm1lYWhuNTB4eTY2&utm_source=qr"
-            >
-              @maimu.official
-            </a>
+
             <div className="WhoMade_C SwiperContent">
               <ul>
                 <li>
@@ -108,6 +103,12 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
                 <li>IT 연합동아리 ‘코테이토’에서 탄생한 팀입니다.</li>
               </ul>
             </div>
+            <a
+              className="InstaLink"
+              href="https://www.instagram.com/maimu.official/?igsh=cm1lYWhuNTB4eTY2&utm_source=qr"
+            >
+              @maimu.official
+            </a>
           </div>
         </SwiperSlide>
         <div className="swiper-pagination"></div>

@@ -24,7 +24,6 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
             <img src={InformationXButton} alt="InformationXButton" />
           </div>
         </div>
-      </div>
       <Swiper
         slidesPerView={1}
         centeredSlides={false}
@@ -35,16 +34,7 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
           prevEl: ".swiper-button-prev",
         }}
         modules={[Navigation, Pagination]}
-        className="swiper-pagination"
-        style={{
-          position: "fixed",
-          top: 196,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: "300px",
-          height: "490px",
-        }}
+        className="InfoSwiper"
       >
         <SwiperSlide className="Swiper">
           <div className="SwiperContainer">
@@ -115,6 +105,7 @@ function InformationModal({ isInformationOpen, closeInformationModal }) {
         <div className="swiper-button-prev"></div>
         <div className="swiper-button-next"></div>
       </Swiper>
+    </div>
     </div>
   );
 }

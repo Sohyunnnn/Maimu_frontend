@@ -14,6 +14,14 @@
   border: 1px solid transparent;
 }
 
+.InfoSwiper{
+  position: fixed;
+  top: 175px;
+  width: 300px;
+  height: 490px;
+
+}
+
 .swiper-button-prev {
   position: absolute;
   margin-top: -33px;
@@ -42,12 +50,6 @@
 .swiper-button-next:after {
   font-size: 1.1rem !important;
   font-weight: 550 !important;
-}
-
-.Swiper {
-  /* /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .InformationToggleOut {
@@ -94,6 +96,8 @@
   font-weight: 600;
   line-height: normal;
   margin-top: 5px;
+  position: fixed;
+  top: 390px;
 }
 
 .SwiperContent {
@@ -108,7 +112,7 @@
 /* page-1 */
 
 .Friend_T {
-  margin-top: 58px;
+  margin-top: 52px;
   position: relative;
 }
 
@@ -128,8 +132,8 @@
 }
 
 .HowToUse_T {
-  margin-top: 55px;
-  position: relative;
+  position: fixed;
+    top: 204px;
 }
 
 .HowToUse_T_Underbar {
@@ -143,9 +147,10 @@
 }
 
 .HowToUse_C {
-  margin-top: 9px;
   width: 260px;
   text-align: left;
+  position: fixed;
+    top: 232px;
 }
 
 /* page-2 */
@@ -174,8 +179,8 @@
 }
 
 .WhoMade_T1 {
-  margin-top: 21px;
-  position: relative;
+  position: fixed;
+    top: 204px;
 }
 
 .WhoMade_T_Underbar {
@@ -189,8 +194,9 @@
 
 .WhoMade_C {
   width: 260px;
-  margin-top: 18px;
   text-align: left;
+  position: fixed;
+  top: 230px;
 }
 
 .swiper-slide {
@@ -202,7 +208,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* position: fixed; */
 }
 
 .Swiper .HowToUse_C li,

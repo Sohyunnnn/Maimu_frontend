@@ -9,9 +9,15 @@ import ProfilePomegranate from "../../images/ProfilePomegranate.svg";
 import ProfilePlum from "../../images/ProfilePlum.svg";
 import axios from 'axios'; 
 
+
 const MyPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const access_token = localStorage.getItem("access_token");
+
+
+  console.log("access_token: ", access_token)
 
   const [nickname, setNickname] = useState('');
   const [selectedYear, setSelectedYear] = useState(null);
@@ -26,18 +32,29 @@ const MyPage = () => {
       date: selectedDay?.value,
       maimuProfile: location.state?.focusedIcon
     };
-
-    try {
-      const response = await axios.post('http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/v1/api/join', profileData);
-      console.log('Backend response:', response.profileData);
-
-      // 성공적으로 백엔드에 데이터를 보낸 후 처리할 작업
-      navigate("/MainPage");
-    } catch (error) {
-      console.error('Error sending data to backend:', error);
-      // 오류 처리
+  
+    const headers = {
+      'Authorization': `Bearer ${access_token}`
+    };
+  
+    if (access_token) {
+      try {
+        const response = await axios.post('http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/user/join', profileData, {
+          headers: headers
+        });
+  
+        console.log('Backend response:', response.data);
+  
+        // 성공적으로 백엔드에 데이터를 보낸 후 처리할 작업
+        navigate("/MainPage"); 
+        
+      } catch (error) {
+        console.error('Error sending data to backend:', error);
+        // 오류 처리
+      }
     }
   };
+  
 
   const getProfileImage = (iconName) => {
     switch (iconName) {
@@ -57,7 +74,15 @@ const MyPage = () => {
 
 
   const MoveToProfileEdit=()=>{
-    navigate("/ProfileEdit");
+
+    if (access_token) {
+      // access_token이 있을 때
+      navigate(`/ProfileEdit?accessToken=${access_token}`);
+    } else {
+      // access_token이 없을 때
+      console.log("accessToken이 없습니다.")
+    }
+
   }
 
   return (

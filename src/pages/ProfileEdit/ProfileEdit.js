@@ -19,6 +19,15 @@ const ProfileEdit = () => {
   const [iconPosition, setIconPosition] = useState({ top: 0, left: 0 });
   const [bubbleImage, setBubbleImage] = useState(SpeechBubble);
 
+  let params = new URL(window.location.href).searchParams;
+  let access_token = params.get("accessToken");
+
+  localStorage.setItem("access_token", access_token);
+
+
+  console.log("access_token: ", access_token)
+  
+
   const navigate = useNavigate();
 
   const handleIconClick = (iconName, position, bubbleImage) => {

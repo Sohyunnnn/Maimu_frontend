@@ -21,6 +21,14 @@ const onGoogleLogin = () => {
 };
 
 function LoginModal({ isLoginOpen, closeLoginModal }) {
+
+   let params = new URL(window.location.href).searchParams;
+    let access_token = params.get("accessToken");
+
+     console.log("access_token: ", access_token)
+  // console.log("refresh_token: ", refresh_token)
+    localStorage.setItem("access_token", access_token);
+
   return (
     <div
       style={{

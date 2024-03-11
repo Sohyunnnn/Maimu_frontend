@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./MainPage.css";
 import Locker from "../../components/Locker/Locker";
 import SmallLogoImg from "../../images/SmallLogo.svg";
-// import ProfileImg from "../../images/Profile.svg";
 import ProfileImgPomegranate from "../../images/ProfilePomegranate.svg";
 import Modal from "../../components/Modal/Modal";
 import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
 import InformationModal from "../../components/InformationModal/InformationModal";
 import WarningModal from "../../components/WarningModal/WarningModal";
-import { ToastContainer, toast } from "react-toastify"; // toast 불러오기
-import "react-toastify/dist/ReactToastify.css"; // toast 스타일 추가
+import { ToastContainer, toast } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
+import axios from "axios";
+import api from "../../api/api";
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -19,16 +20,12 @@ const MainPage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [selectedLocker, setSelectedLocker] = useState(null);
-  const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태 추가
+  const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태
   const [warningModalOpen, setWarningModalOpen] = useState(false);
-
-  const access_token = localStorage.getItem("access_token");
-
-
   const [lockers, setLockers] = useState([
-    { groupName: "그룹1", groupColor: "핑크" },
-    { groupName: "그룹2", groupColor: "노랑" },
-    { groupName: "그룹3", groupColor: "초록" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
+    { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
@@ -36,6 +33,43 @@ const MainPage = () => {
     { groupName: "", groupColor: "" },
     { groupName: "", groupColor: "" },
   ]);
+
+  const access_token = localStorage.getItem("access_token");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (access_token) {
+        try {
+          const response = await axios.get(`${api.baseUrl}/v1/api/group/kakao3368377722/all`, {
+            headers: {
+              Authorization: `Bearer ${access_token}`,
+            },
+          });
+
+          console.log('Backend response:', response.data);
+
+          const newLockers = response.data.data.map(item => ({
+            groupName: item.groupName,
+            groupColor: item.groupColor,
+          }));
+
+          // 받아온 데이터를 기존 lockers 배열에 추가하고, 부족한 부분은 빈 사물함으로 채움
+          for (let i = 0; i < newLockers.length; i++) {
+            lockers[i] = newLockers[i];
+          }
+
+          setLockers([...lockers]);
+
+        } catch (error) {
+          console.error('Error fetching data from backend:', error);
+          // 오류 처리
+        }
+      }
+    };
+
+    fetchData();
+  }, [access_token]);
+
   const navigate = useNavigate();
 
   const findEmptyLockerIndex = () => {

@@ -13,6 +13,7 @@ import Withdrawal from "./pages/Withdrawal/Withdrawal";
 import WriteDetailPage from "./pages/WriteDetailPage/WriteDetailPage";
 import WriteNote from "./pages/WriteNote/WriteNote";
 import SendNote from "./pages/SendNote/SendNote";
+import LoginHandler from "./pages/LoginHandler/LoginHandler";
 
 const App = () => {
   function setScreenSize() {
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/WriteDetailPage" element={<WriteDetailPage />}></Route>
             <Route path="/WriteNote" element={<WriteNote />}></Route>
             <Route path="/SendNote" element={<SendNote />}></Route>
+            <Route path="/LoginHandler" element={<LoginHandler />} /> 
           </Routes>
         </BrowserRouter>
       </div>

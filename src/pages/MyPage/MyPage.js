@@ -8,7 +8,9 @@ import ProfileCitron from "../../images/ProfileCitron.svg";
 import ProfilePomegranate from "../../images/ProfilePomegranate.svg";
 import ProfilePlum from "../../images/ProfilePlum.svg";
 import axios from 'axios'; 
-
+import api from '../../api/api';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -39,7 +41,7 @@ const MyPage = () => {
   
     if (access_token) {
       try {
-        const response = await axios.post('http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/user/join', profileData, {
+        const response = await axios.post(`${api.baseUrl}/user/join`, profileData, {
           headers: headers
         });
   
@@ -50,9 +52,32 @@ const MyPage = () => {
         
       } catch (error) {
         console.error('Error sending data to backend:', error);
+  
         // 오류 처리
-      }
+        if (error.response && error.response.status === 409) {
+          // 닉네임 중복 오류
+          toast.error('이미 존재하는 닉네임입니다.', {
+            // autoClose: 3000,
+            // hideProgressBar: true,
+            // closeOnClick: true,
+            // pauseOnHover: true,
+            // draggable: true,
+            // progress: undefined,
+          });
+        } else {
+          // 기타 오류
+          toast.error('서버 오류가 발생했습니다.', {
+            // position: 'top-center',
+            // autoClose: 3000,
+            // hideProgressBar: true,
+            // closeOnClick: true,
+            // pauseOnHover: true,
+            // draggable: true,
+            // progress: undefined,
+          });
     }
+  }
+}
   };
   
 
@@ -87,6 +112,7 @@ const MyPage = () => {
 
   return (
     <div className={`MyPage ${profileInfo?.backgroundClass}`}>
+       <ToastContainer />
       <div className="JustifyCenter">
         <img className="SmallLogoImg" src={SmallLogoImg} alt="SmallLogo" />
         <img className="ProfileImage" src={profileInfo?.image} alt={focusedIcon} onClick={MoveToProfileEdit}/>

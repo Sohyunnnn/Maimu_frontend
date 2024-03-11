@@ -22,6 +22,9 @@ const MainPage = () => {
   const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태 추가
   const [warningModalOpen, setWarningModalOpen] = useState(false);
 
+  const access_token = localStorage.getItem("access_token");
+
+
   const [lockers, setLockers] = useState([
     { groupName: "그룹1", groupColor: "핑크" },
     { groupName: "그룹2", groupColor: "노랑" },

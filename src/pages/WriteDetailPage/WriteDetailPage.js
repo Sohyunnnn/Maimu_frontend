@@ -22,30 +22,30 @@ const WriteDetailPage = () => {
 
   return (
     <div className="WriteDetailPage">
-      <div className="WriteDetailPageContent">
-        <div className="Header">
+      <div className="JustifyCenter">
+        <div className="WriteDetailPageContent">
           <img className="SmallLogo" alt="" src={SmallLogoImg} />
+          <div className="GroupName">cotato</div>
+          <div className="DetailMaimu">
+            <DetailMaimu />
+            <DetailMaimu />
+            <DetailMaimu />
+            <DetailMaimu />
+          </div>
           <img
             className="WriteHelpIcon"
             alt="WriteHelpIcon"
             src={WriteHelpIcon}
             onClick={openInformationModal}
           />
+          <div className="WriteDetail_Button" onClick={navigateToWriteNote}>
+            쪽지 작성하기
+          </div>
+          <InformationModal
+            isInformationOpen={isInformationModalOpen}
+            closeInformationModal={closeInformationModal}
+          />
         </div>
-        <div className="GroupName">cotato</div>
-        <div className="DetailMaimu">
-          <DetailMaimu />
-          <DetailMaimu />
-          <DetailMaimu />
-          <DetailMaimu />
-        </div>
-        <div className="WriteDetail_Button" onClick={navigateToWriteNote}>
-          쪽지 작성하기
-        </div>
-        <InformationModal
-          isInformationOpen={isInformationModalOpen}
-          closeInformationModal={closeInformationModal}
-        />
       </div>
     </div>
   );

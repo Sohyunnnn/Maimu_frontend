@@ -15,7 +15,7 @@
   flex-direction: column;
 }
 
-.DetailMaimu {
+.WriteDetailPage .DetailMaimu {
   display: grid;
   grid-template-columns: repeat(3, 94px);
   grid-template-rows: repeat(6, 58px);
@@ -25,21 +25,16 @@
   margin-top: 38px;
 }
 
-.WriteDetailPage .Header {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-}
-
 .WriteDetailPage .SmallLogo {
-  margin: 78px 0 0 131px;
-  width: 128px;
-  height: 31.787px;
+  margin-top: 78px;
 }
 
 .WriteDetailPage .WriteHelpIcon {
-  margin-left: 39px;
-  margin-top: 56px;
+  width: 62px;
+  height: 62px;
+  left: 137px;
+  bottom: 607px;
+  position: relative;
 }
 
 .WriteDetailPage .GroupName {

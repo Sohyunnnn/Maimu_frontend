@@ -23,15 +23,15 @@ const MainPage = () => {
   const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태
   const [warningModalOpen, setWarningModalOpen] = useState(false);
   const [lockers, setLockers] = useState([
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
-    { groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
+    { id: null, groupName: "", groupColor: "" },
   ]);
 
   const access_token = localStorage.getItem("access_token");
@@ -40,7 +40,7 @@ const MainPage = () => {
     const fetchData = async () => {
       if (access_token) {
         try {
-          const response = await axios.get(`${api.baseUrl}/v1/api/group/kakao3368377722/all`, {
+          const response = await axios.get(`${api.baseUrl}/v1/api/group/all`, {
             headers: {
               Authorization: `Bearer ${access_token}`,
             },
@@ -85,7 +85,7 @@ const MainPage = () => {
   const addButtonClick = (groupName) => {
     const emptyLockerIndex = findEmptyLockerIndex();
     if (emptyLockerIndex === -1) {
-      alert("모든 그룹이 채워져 있습니다.");
+      toast.error("모든 그룹이 채워져 있습니다.");
       return;
     }
 

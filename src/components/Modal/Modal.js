@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./Modal.css";
 import ColorDropdown from "../ColorDropdown/ColorDropdown";
+import api from "../../api/api";
+import axios from "axios";
 
 const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
   const [groupName, setGroupName] = useState("");
   const [groupColor, setGroupColor] = useState("핑크");
+
+  const access_token = localStorage.getItem("access_token");
 
   useEffect(() => {
     if (locker) {
@@ -18,13 +22,48 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
     }
   }, [locker]);
 
-  const handleSave = () => {
+
+  const handleSave = async () => {
     if (!groupName.trim()) {
       alert("그룹명을 입력하세요.");
       return;
     }
-    onSave(groupName, groupColor);
-    onClose();
+  
+    // clickedButton 값에 따라 onSave 함수 호출
+    switch (clickedButton) {
+      case "add":
+        try{
+        const response = await axios.post(
+          `${api.baseUrl}/v1/api/group`,
+          {
+            groupName: groupName,
+            groupColor: groupColor
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${access_token}`
+            },
+          }
+        );
+  
+        console.log("New group added:", response.data);
+        }
+        catch (error) {
+          console.error('group not added', error);
+        }
+
+        // onSave(groupName, groupColor);
+        break;
+      case "edit":
+
+          onSave(groupName, groupColor); 
+        break;
+
+      default:
+        break;
+    }
+  
+    onClose(); // 모달 닫기
   };
 
   if (!isOpen) {

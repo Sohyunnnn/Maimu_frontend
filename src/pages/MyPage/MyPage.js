@@ -8,7 +8,7 @@ import ProfileCitron from "../../images/ProfileCitron.svg";
 import ProfilePomegranate from "../../images/ProfilePomegranate.svg";
 import ProfilePlum from "../../images/ProfilePlum.svg";
 import axios from 'axios'; 
-
+import api from '../../api/api';
 
 const MyPage = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const MyPage = () => {
   
     if (access_token) {
       try {
-        const response = await axios.post('http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/user/join', profileData, {
+        const response = await axios.post(`${api.baseUrl}/user/join`, profileData, {
           headers: headers
         });
   

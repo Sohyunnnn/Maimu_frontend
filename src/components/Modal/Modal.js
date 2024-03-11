@@ -52,11 +52,11 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
           console.error('group not added', error);
         }
 
-        // onSave(groupName, groupColor);
+        window.location.reload();
         break;
       case "edit":
 
-          onSave(groupName, groupColor); 
+          // onSave(groupName, groupColor); 
         break;
 
       default:

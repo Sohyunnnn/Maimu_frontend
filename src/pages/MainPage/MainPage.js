@@ -23,15 +23,15 @@ const MainPage = () => {
   const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태
   const [warningModalOpen, setWarningModalOpen] = useState(false);
   const [lockers, setLockers] = useState([
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
-    { id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
+    { group_id: null, groupName: "", groupColor: "" },
   ]);
 
   const access_token = localStorage.getItem("access_token");
@@ -51,6 +51,7 @@ const MainPage = () => {
           const newLockers = response.data.data.map(item => ({
             groupName: item.groupName,
             groupColor: item.groupColor,
+            group_id: item.id,
           }));
 
           // 받아온 데이터를 기존 lockers 배열에 추가하고, 부족한 부분은 빈 사물함으로 채움
@@ -84,6 +85,12 @@ const MainPage = () => {
 
   const addButtonClick = (groupName) => {
     const emptyLockerIndex = findEmptyLockerIndex();
+
+    if (lockers.filter(locker => locker.groupName !== "").length >= 9) {
+      toast.error("최대 9개까지 그룹을 생성할 수 있습니다.");
+      return;
+    }
+    
     if (emptyLockerIndex === -1) {
       toast.error("모든 그룹이 채워져 있습니다.");
       return;
@@ -157,19 +164,38 @@ const MainPage = () => {
     setWarningModalOpen(false);
   };
 
-  const handleDelete = () => {
+
+
+  const handleDelete = async () => {
     const updatedLockers = [...lockers];
+
+    const group_id = updatedLockers[selectedLocker].group_id;
+    console.log(group_id)
+
     updatedLockers[selectedLocker].groupName = "";
     updatedLockers[selectedLocker].groupColor = "";
-
-    for (let i = selectedLocker + 1; i < updatedLockers.length; i++) {
-      updatedLockers[i - 1] = updatedLockers[i];
+  
+    try {
+      const response = await axios.delete(
+        `${api.baseUrl}/v1/api/group/${group_id}`, 
+        {
+          headers: {
+            Authorization: `Bearer ${access_token}`,
+          },
+        }
+      );
+  
+      console.log("Group deleted:", response.data);
+  
+      setLockers(updatedLockers);
+      setWarningModalOpen(false);
+      setIsDeleting(false);
+    } catch (error) {
+      console.error("Error deleting group:", error);
+      toast.error("그룹을 삭제하는 데 문제가 발생했습니다.");
     }
-
-    setLockers(updatedLockers);
-    setWarningModalOpen(false);
-    setIsDeleting(false);
   };
+  
 
   const MoveToMyPage = () => {
     navigate("/MyPage");

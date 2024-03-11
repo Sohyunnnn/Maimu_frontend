@@ -1,4 +1,5 @@
 import "./LoginModal.css";
+import api from '../../api/api'
 
 import LoginXButton from "../../images/StartPage/LoginXButton.svg";
 import KakaoLogin from "../../images/StartPage/KakaoLogin.svg";
@@ -7,17 +8,17 @@ import GoogleLogin from "../../images/StartPage/GoogleLogin.svg";
 
 const onKakaoLogin = () => {
   window.location.href =
-    "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/kakao";
+    `${api.baseUrl}/oauth2/authorization/kakao`;
 };
 
 const onNaverLogin = () => {
   window.location.href =
-    "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/naver";
+    `${api.baseUrl}/authorization/naver`;
 };
 
 const onGoogleLogin = () => {
   window.location.href =
-    "http://ec2-52-79-129-227.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google";
+  `${api.baseUrl}/oauth2/authorization/google`;
 };
 
 function LoginModal({ isLoginOpen, closeLoginModal }) {

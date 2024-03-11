@@ -7,9 +7,6 @@
     rgba(255, 255, 255, 0) 22.35%,
     rgba(252, 252, 252, 0.360725) 84.5%
   );
-
-  align-items: center;
-  text-align: center;
   position: relative;
   overflow-y: auto;
 }
@@ -174,6 +171,7 @@
 .WriteNote .Note_Info_Wrapper {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .WriteNote .NickName_Wrapper {

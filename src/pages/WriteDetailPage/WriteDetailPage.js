@@ -44,6 +44,7 @@ const WriteDetailPage = () => {
           <InformationModal
             isInformationOpen={isInformationModalOpen}
             closeInformationModal={closeInformationModal}
+            page="WriteDetailPage"
           />
         </div>
       </div>

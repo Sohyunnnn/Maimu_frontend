@@ -115,7 +115,6 @@ const MainPage = () => {
       setWarningModalOpen(true);
     }
   };
-  
 
   const handleWarningModalClose = () => {
     setWarningModalOpen(false);
@@ -145,84 +144,84 @@ const MainPage = () => {
     navigate(`/DetailPage/${encodedGroupName}/${encodedGroupColor}`);
   };
 
-
   const openInformationModal = () => setIsInformationModalOpen(true);
   const closeInformationModal = () => setIsInformationModalOpen(false);
 
   return (
     <div className="MainPage">
       <div className="JustifyCenter">
-      <ToastContainer />
-        
+        <ToastContainer />
+
         <img className="SmallLogo" alt="" src={SmallLogoImg} />
 
-      <div className="LockerContainer">
-        {lockers.map((locker, index) => (
-          <Locker
-            key={index}
-            GroupName={locker.groupName}
-            groupColor={locker.groupColor}
-            isEditing={isEditing}
+        <div className="LockerContainer">
+          {lockers.map((locker, index) => (
+            <Locker
+              key={index}
+              GroupName={locker.groupName}
+              groupColor={locker.groupColor}
+              isEditing={isEditing}
+              isDeleting={isDeleting}
+              onClick={() => handleLockerClick(index)}
+            />
+          ))}
+        </div>
+
+        <div className="EditGroup">
+          <button
+            className={`EditButton ${clickedButton === "add" ? "clicked" : ""}`}
+            onClick={addButtonClick}
+          >
+            추가
+          </button>
+          <button
+            className={`EditButton ${
+              clickedButton === "edit" && isEditing ? "clicked" : ""
+            }`}
+            onClick={editButtonClick}
+          >
+            편집
+          </button>
+          <button
+            className={`EditButton ${
+              clickedButton === "delete" && isDeleting ? "clicked" : ""
+            }`}
+            onClick={delButtonClick}
+          >
+            삭제
+          </button>
+
+          {modalOpen && (
+            <Modal
+              isOpen={modalOpen}
+              clickedButton={clickedButton}
+              onSave={onSave}
+              onClose={() => {
+                setModalOpen(false);
+                setIsEditing(false);
+                setClickedButton(null);
+                setSelectedLocker(null);
+                setSelectedLockerInfo(null);
+              }}
+              locker={selectedLockerInfo}
+            />
+          )}
+        </div>
+        <InformationModal
+          isInformationOpen={isInformationModalOpen}
+          closeInformationModal={closeInformationModal}
+          page="MainPage"
+        />
+
+        {warningModalOpen && (
+          <WarningModal
+            onClose={handleWarningModalClose}
+            onDelete={handleDelete}
             isDeleting={isDeleting}
-            onClick={() => handleLockerClick(index)}
-          />
-        ))}
-      </div>
-
-      <div className="EditGroup">
-        <button
-          className={`EditButton ${clickedButton === "add" ? "clicked" : ""}`}
-          onClick={addButtonClick}
-        >
-          추가
-        </button>
-        <button
-          className={`EditButton ${
-            clickedButton === "edit" && isEditing ? "clicked" : ""
-          }`}
-          onClick={editButtonClick}
-        >
-          편집
-        </button>
-        <button
-          className={`EditButton ${
-            clickedButton === "delete" && isDeleting ? "clicked" : ""
-          }`}
-          onClick={delButtonClick}
-        >
-          삭제
-        </button>
-
-        {modalOpen && (
-          <Modal
-            isOpen={modalOpen}
-            clickedButton={clickedButton}
-            onSave={onSave}
-            onClose={() => {
-              setModalOpen(false);
-              setIsEditing(false);
-              setClickedButton(null);
-              setSelectedLocker(null);
-              setSelectedLockerInfo(null);
-            }}
-            locker={selectedLockerInfo}
+            lockers={lockers}
+            index={selectedLocker}
           />
         )}
-      </div>
-      <InformationModal
-        isInformationOpen={isInformationModalOpen}
-        closeInformationModal={closeInformationModal}
-      />
-
-      {warningModalOpen && (
-        <WarningModal
-          onClose={handleWarningModalClose}
-          onDelete={handleDelete}
-          isDeleting={isDeleting}
-          lockers={lockers}
-          index={selectedLocker}
-        />
-      )}
 
         <img
           className="HelpIcon"
@@ -230,7 +229,7 @@ const MainPage = () => {
           src={HelpIcon}
           onClick={openInformationModal}
         />
-        
+
         <img
           className="ProfilePomegranate"
           alt="ProfileButton"

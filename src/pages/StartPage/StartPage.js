@@ -22,24 +22,25 @@ const StartPage = () => {
   return (
     <div className="StartPage">
       <div className="JustifyCenter">
-      <div className="WallPaper">
-        <img src={WallPaper} alt="WallPaper" />
+        <div className="WallPaper">
+          <img src={WallPaper} alt="WallPaper" />
 
-        <div className="InformationButton" onClick={openInformationModal}>
-          <img src={InformationButton} alt="InformationButton" />
+          <div className="InformationButton" onClick={openInformationModal}>
+            <img src={InformationButton} alt="InformationButton" />
+          </div>
+          <div className="LoginButton" onClick={openLoginModal}>
+            <img src={LoginButton} alt="LoginButton" />
+          </div>
+          <LoginModal
+            isLoginOpen={isLoginModalOpen}
+            closeLoginModal={closeLoginModal}
+          />
+          <InformationModal
+            isInformationOpen={isInformationModalOpen}
+            closeInformationModal={closeInformationModal}
+            page="StartPage"
+          />
         </div>
-        <div className="LoginButton" onClick={openLoginModal}>
-          <img src={LoginButton} alt="LoginButton" />
-        </div>
-        <LoginModal
-          isLoginOpen={isLoginModalOpen}
-          closeLoginModal={closeLoginModal}
-        />
-        <InformationModal
-          isInformationOpen={isInformationModalOpen}
-          closeInformationModal={closeInformationModal}
-        />
-      </div>
       </div>
     </div>
   );

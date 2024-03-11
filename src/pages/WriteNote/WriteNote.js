@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { ToastContainer, toast } from "react-toastify"; // toast 불러오기
+import "react-toastify/dist/ReactToastify.css"; // toast 스타일 추가
 import "./WriteNote.css";
 import SmallLogoImg from "../../images/SmallLogo.svg";
 import TasteDropdown from "../../components/TasteDropdown/TasteDropdown";
@@ -28,7 +29,7 @@ const WriteNote = () => {
       Note_N_Ref.current.focus();
       return;
     } else if (!tasteSelected) {
-      alert("맛을 선택해주세요!");
+      toast.error("맛을 선택해주세요!");
       return;
     } else navigate("/SendNote");
   };
@@ -67,55 +68,58 @@ const WriteNote = () => {
 
   return (
     <div className="WriteNote">
-      <div className="Header">
-        <img className="SmallLogo" alt="" src={SmallLogoImg} />
-      </div>
-      <div className="WriteNote_Box">
-        <div>
-          <p className="WriteNote_T">쪽지 쓰기</p>
+      <div className="JustifyCenter">
+        <ToastContainer />
+        <div className="Header">
+          <img className="SmallLogo" alt="" src={SmallLogoImg} />
         </div>
-        <div className="Note_T_Wrapper">
-          <textarea
-            className="Note_T"
-            placeholder="제목 입력"
-            ref={Note_T_Ref}
-            onKeyDown={handleKeyDown}
-            onChange={onInputHandler_Note_T}
-          ></textarea>
-          <p className="Count_Note_T">
-            <span>{inputCountT}/15</span>
-          </p>
+        <div className="WriteNote_Box">
+          <div>
+            <p className="WriteNote_T">쪽지 쓰기</p>
+          </div>
+          <div className="Note_T_Wrapper">
+            <textarea
+              className="Note_T"
+              placeholder="제목 입력"
+              ref={Note_T_Ref}
+              onKeyDown={handleKeyDown}
+              onChange={onInputHandler_Note_T}
+            ></textarea>
+            <p className="Count_Note_T">
+              <span>{inputCountT}/15</span>
+            </p>
+          </div>
+          <div className="Note_C_Wrapper">
+            <textarea
+              className="Note_C"
+              placeholder="내용을 입력하세요"
+              ref={Note_C_Ref}
+              onKeyDown={handleKeyDown}
+              onChange={onInputHandler_Note_C}
+            ></textarea>
+            <p className="Count_Note_C">
+              <span>{inputCountC}/200</span>
+            </p>
+          </div>
         </div>
-        <div className="Note_C_Wrapper">
-          <textarea
-            className="Note_C"
-            placeholder="내용을 입력하세요"
-            ref={Note_C_Ref}
-            onKeyDown={handleKeyDown}
-            onChange={onInputHandler_Note_C}
-          ></textarea>
-          <p className="Count_Note_C">
-            <span>{inputCountC}/200</span>
-          </p>
+        <div className="Note_Info_Wrapper">
+          <TasteDropdown onTasteSelected={setTasteSelected} />
+          <div className="NickName_Wrapper">
+            <textarea
+              className="Note_NickName"
+              placeholder="닉네임"
+              ref={Note_N_Ref}
+              onKeyDown={handleKeyDown}
+              onChange={onInputHandler_NickName}
+            ></textarea>
+            <p className="Count_NickName">
+              <span>{inputCountN}/5</span>
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="Note_Info_Wrapper">
-        <TasteDropdown onTasteSelected={setTasteSelected} />
-        <div className="NickName_Wrapper">
-          <textarea
-            className="Note_NickName"
-            placeholder="닉네임"
-            ref={Note_N_Ref}
-            onKeyDown={handleKeyDown}
-            onChange={onInputHandler_NickName}
-          ></textarea>
-          <p className="Count_NickName">
-            <span>{inputCountN}/5</span>
-          </p>
+        <div className="WriteNote_Button" onClick={navigateToSendNote}>
+          쪽지 보내기
         </div>
-      </div>
-      <div className="WriteNote_Button" onClick={navigateToSendNote}>
-        쪽지 보내기
       </div>
     </div>
   );

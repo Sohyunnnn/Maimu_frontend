@@ -63,9 +63,9 @@ const MainPage = () => {
 
   const navigate = useNavigate();
 
-  const checkDuplicateGroupName = (name) => {
-    return lockers.some((locker) => locker.groupName === name);
-  };
+  // const checkDuplicateGroupName = (name) => {
+  //   return lockers.some((locker) => locker.groupName === name);
+  // };
 
   const addButtonClick = (groupName) => {
     if (lockers.filter((locker) => locker.groupName !== "").length >= 9) {
@@ -73,10 +73,10 @@ const MainPage = () => {
       return;
     }
 
-    if (checkDuplicateGroupName(groupName)) {
-      toast.error("이미 존재하는 그룹명입니다.");
-      return;
-    }
+    // if (checkDuplicateGroupName(groupName)) {
+    //   toast.error("이미 존재하는 그룹명입니다.");
+    //   return;
+    // }
 
     const emptyLockerIndex = lockers.findIndex((locker) => locker.groupName === "" && locker.groupColor === "");
 
@@ -110,26 +110,14 @@ const MainPage = () => {
       const newGroup = {
         groupName: groupName,
         groupColor: groupColor,
-        group_id: group_id, // Use group_id passed from Modal
+        group_id: group_id, 
       };
 
       const updatedLockers = [...lockers];
       updatedLockers[selectedLocker] = newGroup;
 
       setLockers(updatedLockers);
-    } else if (clickedButton === "edit" && selectedLocker !== null) {
-      const updatedLockers = lockers.map((locker, index) => {
-        if (index === selectedLocker) {
-          return {
-            ...locker,
-            groupName: groupName,
-            groupColor: groupColor,
-          };
-        }
-        return locker;
-      });
 
-      setLockers(updatedLockers);
     }
 
     setModalOpen(false);

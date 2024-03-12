@@ -3,12 +3,17 @@ import "./Modal.css";
 import ColorDropdown from "../ColorDropdown/ColorDropdown";
 import api from "../../api/api";
 import axios from "axios";
+import { toast } from "react-toastify";
 
-const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
+const Modal = ({ isOpen, onClose, clickedButton, onSave, locker, lockers }) => {
   const [groupName, setGroupName] = useState("");
   const [groupColor, setGroupColor] = useState("핑크");
 
   const access_token = localStorage.getItem("access_token");
+
+  const checkDuplicateGroupName = (name) => {
+    return lockers.some((locker) => locker.groupName === name && locker.groupName !== "");
+  };
 
   useEffect(() => {
     if (locker) {
@@ -27,33 +32,43 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
       alert("그룹명을 입력하세요.");
       return;
     }
+    
 
     try {
       switch (clickedButton) {
         case "add":
-          const addResponse = await axios.post(
-            `${api.baseUrl}/v1/api/group`,
-            {
-              groupName: groupName,
-              groupColor: groupColor
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${access_token}`
+          try {
+            const response = await axios.post(
+              `${api.baseUrl}/v1/api/group`,
+              {
+                groupName: groupName,
+                groupColor: groupColor
               },
-            }
-          );
-
-          console.log("New group added:", addResponse.data);
-
-          // lockers 배열에 추가
-          const newGroup = {
-            groupName: groupName,
-            groupColor: groupColor,
-            group_id: addResponse.data.id
-          };
-
-          onSave(newGroup.groupName, newGroup.groupColor, newGroup.group_id);
+              {
+                headers: {
+                  Authorization: `Bearer ${access_token}`
+                },
+              }
+            );
+    
+            console.log("New group added:", response.data);
+    
+            const newGroup = {
+              groupName: groupName,
+              groupColor: groupColor,
+              group_id: response.data.id
+            };
+    
+            onSave(newGroup.groupName, newGroup.groupColor, newGroup.group_id);
+          } catch (error) {
+            console.error("Error adding new group:", error);
+        
+            // if (checkDuplicateGroupName(groupName)) {
+            //   toast.error("이미 존재하는 그룹명입니다.");
+            // } else {
+              toast.error("그룹 추가 중에 오류가 발생했습니다.");
+            // }
+          }
           break;
 
         case "edit":

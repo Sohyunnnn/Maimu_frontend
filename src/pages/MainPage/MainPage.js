@@ -8,8 +8,8 @@ import { useNavigate } from "react-router-dom";
 import HelpIcon from "../../images/MainPage/HelpIcon.svg";
 import InformationModal from "../../components/InformationModal/InformationModal";
 import WarningModal from "../../components/WarningModal/WarningModal";
-import { ToastContainer, toast } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import api from "../../api/api";
 
@@ -22,17 +22,7 @@ const MainPage = () => {
   const [selectedLocker, setSelectedLocker] = useState(null);
   const [selectedLockerInfo, setSelectedLockerInfo] = useState(null); // 선택된 사물함의 정보를 저장하는 상태
   const [warningModalOpen, setWarningModalOpen] = useState(false);
-  const [lockers, setLockers] = useState([
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-    { group_id: null, groupName: "", groupColor: "" },
-  ]);
+  const [lockers, setLockers] = useState(Array.from({ length: 9 }, () => ({ groupName: "", groupColor: "", group_id: null })));
 
   const access_token = localStorage.getItem("access_token");
 
@@ -46,15 +36,15 @@ const MainPage = () => {
             },
           });
 
-          console.log('Backend response:', response.data);
+          console.log("Backend response:", response.data);
 
-          const newLockers = response.data.data.map(item => ({
+          const newLockers = response.data.data.map((item) => ({
             groupName: item.groupName,
             groupColor: item.groupColor,
             group_id: item.id,
           }));
 
-          // 받아온 데이터를 기존 lockers 배열에 추가하고, 부족한 부분은 빈 사물함으로 채움
+          // 받아온 데이터를 lockers 배열에 대체
           for (let i = 0; i < newLockers.length; i++) {
             lockers[i] = newLockers[i];
           }
@@ -62,7 +52,7 @@ const MainPage = () => {
           setLockers([...lockers]);
 
         } catch (error) {
-          console.error('Error fetching data from backend:', error);
+          console.error("Error fetching data from backend:", error);
           // 오류 처리
         }
       }
@@ -73,26 +63,13 @@ const MainPage = () => {
 
   const navigate = useNavigate();
 
-  const findEmptyLockerIndex = () => {
-    return lockers.findIndex(
-      (locker) => locker.groupName === "" && locker.groupColor === ""
-    );
-  };
-
   const checkDuplicateGroupName = (name) => {
     return lockers.some((locker) => locker.groupName === name);
   };
 
   const addButtonClick = (groupName) => {
-    const emptyLockerIndex = findEmptyLockerIndex();
-
-    if (lockers.filter(locker => locker.groupName !== "").length >= 9) {
+    if (lockers.filter((locker) => locker.groupName !== "").length >= 9) {
       toast.error("최대 9개까지 그룹을 생성할 수 있습니다.");
-      return;
-    }
-    
-    if (emptyLockerIndex === -1) {
-      toast.error("모든 그룹이 채워져 있습니다.");
       return;
     }
 
@@ -101,11 +78,19 @@ const MainPage = () => {
       return;
     }
 
-    setClickedButton(emptyLockerIndex);
+    const emptyLockerIndex = lockers.findIndex((locker) => locker.groupName === "" && locker.groupColor === "");
+
+    if (emptyLockerIndex === -1) {
+      toast.error("모든 그룹이 채워져 있습니다.");
+      return;
+    }
+
     setClickedButton("add");
     setModalOpen(true);
     setIsEditing(false);
     setIsDeleting(false);
+    setSelectedLocker(emptyLockerIndex);
+    setSelectedLockerInfo(null);
   };
 
   const editButtonClick = () => {
@@ -120,23 +105,33 @@ const MainPage = () => {
     setIsEditing(false);
   };
 
-  const onSave = (groupName, groupColor) => {
-    const updatedLockers = [...lockers];
+  const onSave = (groupName, groupColor, group_id) => {
     if (clickedButton === "add") {
-      const emptyLockerIndex = findEmptyLockerIndex();
-      if (emptyLockerIndex !== -1) {
-        updatedLockers[emptyLockerIndex] = { groupName, groupColor };
-      }
+      const newGroup = {
+        groupName: groupName,
+        groupColor: groupColor,
+        group_id: group_id, // Use group_id passed from Modal
+      };
 
-      if (checkDuplicateGroupName(groupName)) {
-        toast.error("이미 존재하는 그룹명입니다.");
-        return;
-      }
+      const updatedLockers = [...lockers];
+      updatedLockers[selectedLocker] = newGroup;
+
+      setLockers(updatedLockers);
     } else if (clickedButton === "edit" && selectedLocker !== null) {
-      updatedLockers[selectedLocker] = { groupName, groupColor };
+      const updatedLockers = lockers.map((locker, index) => {
+        if (index === selectedLocker) {
+          return {
+            ...locker,
+            groupName: groupName,
+            groupColor: groupColor,
+          };
+        }
+        return locker;
+      });
+
+      setLockers(updatedLockers);
     }
 
-    setLockers(updatedLockers);
     setModalOpen(false);
     setClickedButton(null);
     setIsEditing(false);
@@ -164,28 +159,29 @@ const MainPage = () => {
     setWarningModalOpen(false);
   };
 
-
-
-  const handleDelete = async () => {
-    const updatedLockers = [...lockers];
-
-    const group_id = updatedLockers[selectedLocker].group_id;
-    console.log(group_id)
-
-    updatedLockers[selectedLocker].groupName = "";
-    updatedLockers[selectedLocker].groupColor = "";
-  
+  const handleDelete = async (group_id) => {
     try {
-      const response = await axios.delete(
-        `${api.baseUrl}/v1/api/group/${group_id}`, 
-        {
-          headers: {
-            Authorization: `Bearer ${access_token}`,
-          },
-        }
-      );
+      const response = await axios.delete(`${api.baseUrl}/v1/api/group/${group_id}`, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      });
   
       console.log("Group deleted:", response.data);
+  
+      const updatedLockers = lockers.filter((locker) => locker.group_id !== group_id);
+      const emptyLocker = {
+        groupName: "",
+        groupColor: "",
+        group_id: null,
+      };
+  
+      if (updatedLockers.length < 9) {
+        const numEmptyLockersToAdd = 9 - updatedLockers.length;
+        for (let i = 0; i < numEmptyLockersToAdd; i++) {
+          updatedLockers.push(emptyLocker);
+        }
+      }
   
       setLockers(updatedLockers);
       setWarningModalOpen(false);
@@ -195,6 +191,7 @@ const MainPage = () => {
       toast.error("그룹을 삭제하는 데 문제가 발생했습니다.");
     }
   };
+  
   
 
   const MoveToMyPage = () => {
@@ -233,14 +230,12 @@ const MainPage = () => {
         <div className="EditGroup">
           <button
             className={`EditButton ${clickedButton === "add" ? "clicked" : ""}`}
-            onClick={addButtonClick}
+            onClick={() => addButtonClick("새 그룹")}
           >
             추가
           </button>
           <button
-            className={`EditButton ${
-              clickedButton === "edit" && isEditing ? "clicked" : ""
-            }`}
+            className={`EditButton ${clickedButton === "edit" && isEditing ? "clicked" : ""}`}
             onClick={editButtonClick}
           >
             편집
@@ -257,8 +252,6 @@ const MainPage = () => {
           {modalOpen && (
             <Modal
               isOpen={modalOpen}
-              clickedButton={clickedButton}
-              onSave={onSave}
               onClose={() => {
                 setModalOpen(false);
                 setIsEditing(false);
@@ -266,6 +259,8 @@ const MainPage = () => {
                 setSelectedLocker(null);
                 setSelectedLockerInfo(null);
               }}
+              onSave={onSave}
+              clickedButton={clickedButton}
               locker={selectedLockerInfo}
             />
           )}
@@ -279,7 +274,7 @@ const MainPage = () => {
         {warningModalOpen && (
           <WarningModal
             onClose={handleWarningModalClose}
-            onDelete={handleDelete}
+            onDelete={() => handleDelete(lockers[selectedLocker].group_id)}
             isDeleting={isDeleting}
             lockers={lockers}
             index={selectedLocker}

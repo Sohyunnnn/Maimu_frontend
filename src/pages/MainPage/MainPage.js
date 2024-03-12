@@ -261,7 +261,7 @@ const MainPage = () => {
               }}
               onSave={onSave}
               clickedButton={clickedButton}
-              locker={selectedLockerInfo}
+              locker={selectedLockerInfo} // 이 부분을 수정
             />
           )}
         </div>

@@ -22,47 +22,71 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker }) => {
     }
   }, [locker]);
 
-
   const handleSave = async () => {
     if (!groupName.trim()) {
       alert("그룹명을 입력하세요.");
       return;
     }
-  
-    // clickedButton 값에 따라 onSave 함수 호출
-    switch (clickedButton) {
-      case "add":
-        try{
-        const response = await axios.post(
-          `${api.baseUrl}/v1/api/group`,
-          {
-            groupName: groupName,
-            groupColor: groupColor
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${access_token}`
+
+    try {
+      switch (clickedButton) {
+        case "add":
+          const addResponse = await axios.post(
+            `${api.baseUrl}/v1/api/group`,
+            {
+              groupName: groupName,
+              groupColor: groupColor
             },
+            {
+              headers: {
+                Authorization: `Bearer ${access_token}`
+              },
+            }
+          );
+
+          console.log("New group added:", addResponse.data);
+
+          // lockers 배열에 추가
+          const newGroup = {
+            groupName: groupName,
+            groupColor: groupColor,
+            group_id: addResponse.data.id
+          };
+
+          onSave(newGroup.groupName, newGroup.groupColor, newGroup.group_id);
+          break;
+
+        case "edit":
+          if (!locker) {
+            console.error("Locker object is null");
+            return;
           }
-        );
-  
-        console.log("New group added:", response.data);
-        }
-        catch (error) {
-          console.error('group not added', error);
-        }
 
-        window.location.reload();
-        break;
-      case "edit":
+          const editResponse = await axios.patch(
+            `${api.baseUrl}/v1/api/group/${locker.group_id}`,
+            {
+              groupName: groupName,
+              groupColor: groupColor
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${access_token}`
+              },
+            }
+          );
 
-          // onSave(groupName, groupColor); 
-        break;
+          console.log("Group edited:", editResponse.data);
 
-      default:
-        break;
+          onSave(groupName, groupColor, locker.group_id);
+          break;
+
+        default:
+          break;
+      }
+    } catch (error) {
+      console.error('Error saving group:', error);
     }
-  
+
     onClose(); // 모달 닫기
   };
 

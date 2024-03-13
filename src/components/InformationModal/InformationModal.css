@@ -1,0 +1,234 @@
+.swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  background: transparent;
+  border: 1px solid black; /* 피그마 디자인으로 바꿀 때 수정할 부분 */
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  width: 7px;
+  transition: width 0.5s;
+  border-radius: 5px;
+  background: #686868;
+  border: 1px solid transparent;
+}
+
+.InfoSwiper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 490px;
+}
+
+.swiper-button-prev {
+  position: absolute;
+  margin-top: -33px;
+  margin-left: -5px;
+  width: 10px;
+  height: 20px;
+}
+
+.swiper-button-next {
+  position: absolute;
+  margin-top: -33px;
+  margin-right: -5px;
+  width: 10px;
+  height: 20px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  opacity: 0.5;
+  padding: 15px 5px;
+  border-radius: 20px;
+  color: black !important;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 1.1rem !important;
+  font-weight: 550 !important;
+}
+
+.InformationToggleOut {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.36);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.InformationToggle {
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.InformationXBtn {
+  position: absolute;
+  margin-top: -619px;
+  margin-left: 316px;
+}
+
+.SwiperTitle {
+  color: #000000;
+  text-align: center;
+  font-size: 18px;
+  height: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.InstaLink {
+  color: #ea4da4;
+  text-align: center;
+  font-size: 18px;
+  height: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 5px;
+  position: fixed;
+  top: 360px;
+}
+
+.SwiperContent {
+  color: #000;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* page-1 */
+
+.Friend_T {
+  margin-top: 52px;
+  position: relative;
+}
+
+.Friend_T_Underbar {
+  position: absolute;
+  width: 108px;
+  height: 4px;
+  margin-top: -6px;
+  margin-left: -3px;
+  flex-shrink: 0;
+  background: rgba(234, 77, 164, 0.5);
+}
+
+.Friend_C {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.HowToUse_T {
+  position: fixed;
+  top: 204px;
+}
+
+.HowToUse_T_Underbar {
+  position: absolute;
+  width: 219px;
+  height: 4px;
+  margin-top: -6px;
+  margin-left: px;
+  flex-shrink: 0;
+  background: rgba(234, 77, 164, 0.5);
+}
+
+.HowToUse_C {
+  width: 260px;
+  text-align: left;
+  position: fixed;
+  top: 242px;
+}
+
+/* page-2 */
+
+.WhatFlavor_T {
+  margin-top: 50px;
+  position: relative;
+}
+
+.WhatFlavor_T_Underbar {
+  position: absolute;
+  width: 207px;
+  height: 4px;
+  margin-top: -6px;
+  flex-shrink: 0;
+  background: rgba(234, 77, 164, 0.5);
+}
+
+.WhatFlavor_C1 {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.WhatFlavor_C2 {
+  text-align: left;
+}
+
+.WhoMade_T1 {
+  position: fixed;
+  top: 204px;
+}
+
+.WhoMade_T_Underbar {
+  position: absolute;
+  width: 172px;
+  height: 4px;
+  margin-top: -6px;
+  flex-shrink: 0;
+  background: rgba(234, 77, 164, 0.5);
+}
+
+.WhoMade_C {
+  width: 260px;
+  text-align: left;
+  position: fixed;
+  top: 240px;
+}
+
+.swiper-slide {
+  margin-top: 20px;
+}
+
+.SwiperContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Swiper .HowToUse_C li,
+.Swiper .WhoMade_C li {
+  margin-bottom: 1px;
+}
+
+.Swiper .HowToUse_C ul,
+.Swiper .WhatFlavor_C2 ul,
+.Swiper .WhoMade_C ul {
+  padding-left: 20px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  position: absolute;
+  top: 16px;
+}
+
+.WhoMade_C li,
+.HowToUse_C li {
+  word-break: keep-all;
+}

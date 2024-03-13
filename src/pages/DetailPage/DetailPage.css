@@ -1,0 +1,45 @@
+.DetailPage {
+  width: 100%;
+}
+
+.DetailPageContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.DetailMaimu {
+  display: grid;
+  grid-template-columns: repeat(3, 94px);
+  grid-template-rows: repeat(6, 58px);
+  gap: 27px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 38px;
+}
+
+.DetailPage .SmallLogo {
+  margin-top: 78px;
+}
+
+.DetailPage .PasteLink {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  bottom: 607px;
+  left: 137px;
+  position: relative;
+}
+
+.DetailPage .GroupName {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  margin-top: 7px;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0);
+  font-family: Inter;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

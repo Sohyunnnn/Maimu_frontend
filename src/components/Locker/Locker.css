@@ -1,0 +1,68 @@
+.Locker .LockerIcon {
+  width: 115px;
+  height: 175px;
+}
+.Locker .groupName {
+  color: #000;
+  display: flex;
+  width: 47px;
+  height: 42px;
+  font-size: 20px;
+
+}
+
+.Locker p {
+  padding: 0;
+  margin: 0;
+}
+
+.Locker .GroupName {
+  width: 47px;
+  height: 34px;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  position: relative;
+  top: -154px;
+  right: -25px;
+  margin: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  
+}
+
+.CheckCircle {
+  position: relative;
+  width: 23px;
+  height: 23px;
+  fill: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 100%;
+  top: -227px;
+  right: -87px;
+  background-color: white;
+}
+
+.delICon {
+  position: relative;
+  width: 13px;
+  height: 3px;
+  background-color: #f33aa0;
+  top: -239px;
+  right: -92px;
+}
+
+.EditIcon{
+  top: -226px;
+  right: -87px;
+  position: relative;
+  
+}

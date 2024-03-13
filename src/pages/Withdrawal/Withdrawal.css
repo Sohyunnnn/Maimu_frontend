@@ -1,0 +1,85 @@
+.Withdrawal{
+    width: 100%;
+    background: #F1F1F1;
+}
+
+.WithdrawalContainer{
+    width: 343px;
+    height: 59px;   
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.10);
+    margin-top: 37px;
+    color: #191919;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 59px;
+}
+
+.MemberWithdrawalGuide{
+    width: 343px;
+    height: 476px;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.10);
+    margin-top: 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 53px 10px 0 7px;
+    padding: 53px 0 0 0;
+    box-sizing: border-box;
+
+}
+
+.Withdrawal li{
+    color: #191919;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    letter-spacing: -0.408px;
+
+}
+
+.Withdrawal p{
+    margin: 47px 0 0 0;
+    text-align: center;
+    
+}
+
+.WithdrawalButton{
+    width: 100px;
+    height: 43px;
+    border-radius: 10px;
+    background: #D9D9D9;
+    border: none;
+    margin: 99px 0 16px 0;
+    color: #000;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.Withdrawal .BackButton{
+    width: 100px;
+    height: 43px;
+    border-radius: 10px;
+    background: #EA4DA4;
+    border: none;
+    color: #FFF;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
+
+.Withdrawal .MiniLogo{
+    margin-top: 30px;
+
+}

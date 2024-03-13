@@ -1,0 +1,63 @@
+.MainPage {
+  width: 100%;
+  background: linear-gradient(
+    180deg,
+    #ffe6ec 0%,
+    rgba(255, 255, 255, 0) 23.06%
+  );
+}
+
+.LockerContainer {
+  display: grid;
+  grid-template-columns: 117px 117px 117px;
+  grid-template-rows: 174px 174px 174px;
+  gap: 3px;
+  justify-content: center;
+  margin: 37px 0 0 0;
+}
+
+
+.HelpIcon {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  right: 141px;
+  bottom: 712px;
+}
+
+.MainPage .SmallLogo {
+  margin-top: 78px;
+}
+
+.ProfilePomegranate {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  left: 147px;
+  bottom: 760px;
+}
+
+
+.EditGroup {
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+  justify-content: center;
+  align-items: center;
+}
+
+.EditButton {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #fdc1d5;
+  border: none;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  margin: 0 12px;
+}
+
+.clicked {
+  background-color: #ea4da4;
+}

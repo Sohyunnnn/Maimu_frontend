@@ -1,0 +1,85 @@
+/* body {
+  background-color: #f6f6f6;
+  display: flex; 
+  ~ 3줄 - body 태그 아래에 있는 요소들을 바디 태그 가운데에 두도록 함
+  justify-content: center; 
+  가로축의 가운데
+  align-items: center;
+   세로축의 가운데
+  min-height: 100vh;  */
+  /* 웹스크린의 100%를 최소 높이로 갖겠다
+  margin: 0px;
+} */
+
+/* 
+.StartPage {
+  color: black;
+  /* height: calc(var(--vh, 1vh) * 100); 스크롤 안 하게 화면 맞춤 높이
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+} */
+
+/* .Start {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 390px;
+  height: 100%;
+  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+} */
+/*
+.imageContainer {
+  position: relative; /* 자신 기준 배치 : 즉, 보통 부모가 ! 
+}
+/* 
+.overlappingImage {
+  /* position: absolute; 부모 기준 배치 : 즉, 보통 자식이 ! 
+  position: relative;
+}  */
+
+.StartPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.WallPaper {
+  position: relative;
+  /* width: 390px; */
+  height: 844px; /* 정해진 화면 크기 : 390 x 844 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.LoginButton {
+  position: absolute;
+  top: 620px;
+  text-align: center;
+  object-fit: cover;
+  justify-content: center; /* 가로축의 가운데 */
+  align-items: center; /* 세로축의 가운데 */
+  cursor: pointer;
+}
+
+.InformationButton {
+  position: absolute;
+  top: 564px;
+  text-align: center;
+  justify-content: center; /* 가로축의 가운데 */
+  align-items: center; /* 세로축의 가운데 */
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.LoginModal {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  text-align: center;
+}

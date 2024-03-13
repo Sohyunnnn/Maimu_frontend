@@ -40,14 +40,14 @@
   width: 37px;
   height: 37px;
   position: relative;
-    top: -146px;
+    top: -486px;
     left: 57px;
 }
 
 .Nickname {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
+  margin-top: 1px;
 }
 
 .NicknameInput {
@@ -86,4 +86,26 @@ input:focus {
   background: #ea4da4;
   border: none;
   margin-top: 95px;
+  cursor: pointer;
 }
+
+.MyPage .MyPageGroup{
+  display: flex;
+  flex-direction: row;
+  margin-top: 17px;
+}
+
+.MyPage p{
+  text-decoration: underline;
+  margin: 0 28px 0 28px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.MyPageButtonGroup{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+

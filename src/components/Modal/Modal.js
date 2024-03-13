@@ -93,6 +93,9 @@ const Modal = ({ isOpen, onClose, clickedButton, onSave, locker, lockers }) => {
           console.log("Group edited:", editResponse.data);
 
           onSave(groupName, groupColor, locker.group_id);
+
+          window.location.reload();
+
           break;
 
         default:

@@ -38,6 +38,11 @@
     box-sizing: border-box;
 }
 
+.BirthSelect .Dropdown.clicked{
+    box-sizing: border-box;
+
+}
+
 .BirthSelect .DropdownOptions {
     width: 120px;
     height: 225px;

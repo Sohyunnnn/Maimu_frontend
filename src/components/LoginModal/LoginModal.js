@@ -13,7 +13,7 @@ const onKakaoLogin = () => {
 
 const onNaverLogin = () => {
   window.location.href =
-    `${api.baseUrl}/authorization/naver`;
+    `${api.baseUrl}/oauth2/authorization/naver`;
 };
 
 const onGoogleLogin = () => {

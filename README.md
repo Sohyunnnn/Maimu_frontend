@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# maimu
+마이무는 새학기를 겨냥한 시즌성 웹 프로젝트로, 첫인상 공유 서비스이다. 새학기 친구와 친해지는 단계에서 첫인상을 물어보곤 하는데 거기에서 아이디어를 얻어 서비스를 기획하였다.
+<br />
+<br />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://github.com/MA1MU/Maimu_frontend/assets/108279922/caa8c5b9-dac3-4643-bf89-694cdb3c9e64)
 
-## Available Scripts
 
-In the project directory, you can run:
+## Period
+2023.09 ~ 2024.03
+<br />
+<br />
 
-### `yarn start`
+## 주요 기능 및 특징
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ✔️ 회원가입 및 프로필 선택 
+회원가입 시 프로필을 입력할 수 있고, 프로필 입력 시 메인 화면으로 넘어가며 서비스 이용이 가능하다.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### ✔️ 메인 페이지
+메인 화면에서는 서비스 이용 방법과 마이페이지로 가는 버튼이 있고, 그룹을 추가 및 편집, 삭제 할 수 있다. 
 
-### `yarn test`
+### ✔️ 개별 사물함 
+사물함을 클릭하면 그룹 이름에 해당하는 페이지로 이동하며, 해당 그룹의 쪽지들을 모아볼 수 있다. 링크 복사를 통해 친구에게 전달할 수 있고, 친구가 쪽지를 써줄 수 있다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ✔️ 쪽지 확인 및 쪽지 보내기
+개별 마이무를 클릭하면 각각에 해당하는 쪽지를 볼 수 있다. 친구가 보내준 링크로 들어가면 쪽지를 보낼 수 있는 버튼이 존재하고, 쪽지를 쓸 수 있는 페이지가 나온다.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
